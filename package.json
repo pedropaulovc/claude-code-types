@@ -9,7 +9,7 @@
   "scripts": {
     "typecheck": "tsc --noEmit",
     "test": "tsx test/smoke.local.test.ts",
-    "docs": "typedoc --plugin typedoc-plugin-markdown --out api-docs index.d.ts"
+    "docs": "typedoc --plugin typedoc-plugin-markdown --out docs index.d.ts"
   },
   "keywords": [
     "claude",
