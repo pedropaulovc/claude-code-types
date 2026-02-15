@@ -6,7 +6,7 @@ Types-only npm package for Claude Code chat history JSONL files.
 
 ```
 index.d.ts                      # All type definitions (the package payload)
-test/smoke.test.ts              # Smoke test against real JSONL files
+test/smoke.local.test.ts        # Smoke test against real JSONL files
 package.json                    # types field, no main/module
 tsconfig.json                   # Strict TS config for validation
 CHANGELOG.md                    # Keep a Changelog format
@@ -34,6 +34,8 @@ a GitHub Release from the CHANGELOG entry, and publishes to npm with provenance.
 7. The workflow will: verify version match → extract changelog → create GitHub Release → publish to npm
 
 ### Version Semantics
+
+This project follows [Semantic Versioning 2.0.0](https://semver.org/spec/v2.0.0.html).
 
 - **Patch**: JSDoc improvements, adding optional fields, fixing comments
 - **Minor**: New entry types, new content block types, new union members
