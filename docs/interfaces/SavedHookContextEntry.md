@@ -6,8 +6,6 @@
 
 # Interface: SavedHookContextEntry
 
-Defined in: [index.d.ts:316](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L316)
-
 Persisted context from a hook execution.
 
 ## Extends
@@ -19,8 +17,6 @@ Persisted context from a hook execution.
 ### agentId?
 
 > `optional` **agentId**: `string`
-
-Defined in: [index.d.ts:69](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L69)
 
 Present on entries produced by subagents / Task tool invocations (e.g. `"a4044e6"`).
 
@@ -34,15 +30,11 @@ Present on entries produced by subagents / Task tool invocations (e.g. `"a4044e6
 
 > **content**: `string`[]
 
-Defined in: [index.d.ts:318](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L318)
-
 ***
 
 ### cwd?
 
 > `optional` **cwd**: `string`
-
-Defined in: [index.d.ts:62](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L62)
 
 Working directory at the time this entry was created.
 
@@ -56,8 +48,6 @@ Working directory at the time this entry was created.
 
 > `optional` **gitBranch**: `string`
 
-Defined in: [index.d.ts:65](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L65)
-
 #### Inherited from
 
 [`EntryBase`](EntryBase.md).[`gitBranch`](EntryBase.md#gitbranch)
@@ -68,23 +58,17 @@ Defined in: [index.d.ts:65](https://github.com/pedropaulovc/claude-code-types/bl
 
 > `optional` **hookEvent**: `string`
 
-Defined in: [index.d.ts:319](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L319)
-
 ***
 
 ### hookName?
 
 > `optional` **hookName**: `string`
 
-Defined in: [index.d.ts:320](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L320)
-
 ***
 
 ### isSidechain?
 
 > `optional` **isSidechain**: `boolean`
-
-Defined in: [index.d.ts:57](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L57)
 
 Whether this entry is on a side-chain (branched conversation path).
 
@@ -98,8 +82,6 @@ Whether this entry is on a side-chain (branched conversation path).
 
 > `optional` **parentUuid**: `string` \| `null`
 
-Defined in: [index.d.ts:55](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L55)
-
 UUID of the parent entry in the conversation tree, or `null` for root.
 
 #### Inherited from
@@ -112,8 +94,6 @@ UUID of the parent entry in the conversation tree, or `null` for root.
 
 > `optional` **sessionId**: `string`
 
-Defined in: [index.d.ts:58](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L58)
-
 #### Inherited from
 
 [`EntryBase`](EntryBase.md).[`sessionId`](EntryBase.md#sessionid)
@@ -123,8 +103,6 @@ Defined in: [index.d.ts:58](https://github.com/pedropaulovc/claude-code-types/bl
 ### slug?
 
 > `optional` **slug**: `string`
-
-Defined in: [index.d.ts:67](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L67)
 
 Project slug derived from the working directory.
 
@@ -138,8 +116,6 @@ Project slug derived from the working directory.
 
 > `optional` **teamName**: `string`
 
-Defined in: [index.d.ts:70](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L70)
-
 #### Inherited from
 
 [`EntryBase`](EntryBase.md).[`teamName`](EntryBase.md#teamname)
@@ -149,8 +125,6 @@ Defined in: [index.d.ts:70](https://github.com/pedropaulovc/claude-code-types/bl
 ### timestamp?
 
 > `optional` **timestamp**: `string`
-
-Defined in: [index.d.ts:60](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L60)
 
 ISO 8601 timestamp.
 
@@ -164,23 +138,17 @@ ISO 8601 timestamp.
 
 > `optional` **toolUseID**: `string`
 
-Defined in: [index.d.ts:321](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L321)
-
 ***
 
 ### type
 
 > **type**: `"saved_hook_context"`
 
-Defined in: [index.d.ts:317](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L317)
-
 ***
 
 ### userType?
 
 > `optional` **userType**: `"external"`
-
-Defined in: [index.d.ts:71](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L71)
 
 #### Inherited from
 
@@ -191,8 +159,6 @@ Defined in: [index.d.ts:71](https://github.com/pedropaulovc/claude-code-types/bl
 ### uuid?
 
 > `optional` **uuid**: `string`
-
-Defined in: [index.d.ts:53](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L53)
 
 Unique identifier for this entry.
 
@@ -205,8 +171,6 @@ Unique identifier for this entry.
 ### version?
 
 > `optional` **version**: `string`
-
-Defined in: [index.d.ts:64](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L64)
 
 Claude Code version string (e.g. `"1.0.33"`).
 

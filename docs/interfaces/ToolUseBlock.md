@@ -6,8 +6,6 @@
 
 # Interface: ToolUseBlock
 
-Defined in: [index.d.ts:383](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L383)
-
 Tool invocation by the model.
 
 For Claude Code built-in tools, `name` will be a [BuiltinToolName](../type-aliases/BuiltinToolName.md).
@@ -18,8 +16,6 @@ MCP tools use the pattern `mcp__<server>__<tool>`.
 ### caller?
 
 > `optional` **caller**: `object`
-
-Defined in: [index.d.ts:390](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L390)
 
 Present in progress/streaming entries only — not part of the Anthropic API.
 
@@ -33,8 +29,6 @@ Present in progress/streaming entries only — not part of the Anthropic API.
 
 > **id**: `string`
 
-Defined in: [index.d.ts:386](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L386)
-
 Prefixed with `toolu_` (e.g. `"toolu_01A09q90qw..."`).
 
 ***
@@ -43,20 +37,14 @@ Prefixed with `toolu_` (e.g. `"toolu_01A09q90qw..."`).
 
 > **input**: `Record`\<`string`, `unknown`\>
 
-Defined in: [index.d.ts:388](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L388)
-
 ***
 
 ### name
 
 > **name**: `string` & `object` \| [`BuiltinToolName`](../type-aliases/BuiltinToolName.md)
 
-Defined in: [index.d.ts:387](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L387)
-
 ***
 
 ### type
 
 > **type**: `"tool_use"`
-
-Defined in: [index.d.ts:384](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L384)
