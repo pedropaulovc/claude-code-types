@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.4.1] - 2026-02-15
+
+### Fixed
+
+- Auto-tag workflow now triggers publish via `workflow_dispatch` (`GITHUB_TOKEN` tag pushes don't trigger other workflows)
+- Added `actions: write` permission to auto-tag workflow
+
 ## [0.4.0] - 2026-02-15
 
 ### Added
@@ -78,7 +85,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - Model, StopReason, PermissionMode, BuiltinToolName unions
 - GitHub Actions workflow for automated publishing on version tags
 
-[Unreleased]: https://github.com/pedropaulovc/claude-code-types/compare/v0.4.0...HEAD
+[Unreleased]: https://github.com/pedropaulovc/claude-code-types/compare/v0.4.1...HEAD
+[0.4.1]: https://github.com/pedropaulovc/claude-code-types/compare/v0.4.0...v0.4.1
 [0.4.0]: https://github.com/pedropaulovc/claude-code-types/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/pedropaulovc/claude-code-types/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/pedropaulovc/claude-code-types/compare/v0.1.1...v0.2.0
