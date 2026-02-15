@@ -14,14 +14,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - `agentId` optional field on `EntryBase` for subagent / Task tool entries
 - Generated API docs via TypeDoc (`docs/` directory)
 - API docs badge in README
-- CI workflow: typecheck + verify docs freshness on PRs and master pushes
+- CI workflow: typecheck + verify docs freshness on PRs and main pushes
+- Auto-tag workflow: creates `v*` tag from `package.json` version on push to `main`
 - Semantic Versioning 2.0.0 reference in README and AGENTS.md
 
 ### Changed
 
+- Default branch renamed from `master` to `main`
 - Renamed `smoke.test.ts` to `smoke.local.test.ts`
 - Switched to `ubuntu-slim` runners in CI workflows
 - Simplified publish workflow: removed separate test job, moved typecheck into release job
+- Simplified publish steps: merge PR to `main` → auto-tag → publish (no manual `npm version` + `--follow-tags`)
 
 ## [0.3.0] - 2026-02-15
 

@@ -10,7 +10,9 @@ test/smoke.local.test.ts        # Smoke test against real JSONL files
 package.json                    # types field, no main/module
 tsconfig.json                   # Strict TS config for validation
 CHANGELOG.md                    # Keep a Changelog format
-.github/workflows/publish.yml  # CI: test → release → publish
+.github/workflows/ci.yml       # CI: typecheck + verify docs freshness on PRs and main pushes
+.github/workflows/auto-tag.yml # Auto-creates v* tag from package.json on main push
+.github/workflows/publish.yml  # Release + publish on v* tag push
 ```
 
 ## Commands
@@ -29,9 +31,10 @@ a GitHub Release from the CHANGELOG entry, and publishes to npm with provenance.
 2. Run `npm run typecheck` and `npm test` locally
 3. Add a `## [x.y.z] - YYYY-MM-DD` section to `CHANGELOG.md` (above `[Unreleased]` contents, then clear Unreleased)
 4. Update the comparison links at the bottom of `CHANGELOG.md`
-5. Bump version: `npm version patch|minor|major` (updates package.json + creates git tag)
-6. Push: `git push --follow-tags`
-7. The workflow will: verify version match → extract changelog → create GitHub Release → publish to npm
+5. Bump `version` in `package.json`
+6. Open a PR and merge to `main`
+7. The `auto-tag` workflow creates a `v*` tag if one doesn't exist for the version
+8. The `publish` workflow triggers on the new tag: verify version match → extract changelog → create GitHub Release → publish to npm
 
 ### Version Semantics
 
