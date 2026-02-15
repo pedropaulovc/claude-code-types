@@ -65,6 +65,8 @@ interface EntryBase {
   gitBranch?: string;
   /** Project slug derived from the working directory. */
   slug?: string;
+  /** Present on entries produced by subagents / Task tool invocations (e.g. `"a4044e6"`). */
+  agentId?: string;
   teamName?: string;
   userType: 'external';
 }
