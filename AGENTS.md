@@ -43,4 +43,4 @@ a GitHub Release from the CHANGELOG entry, and publishes to npm with provenance.
 
 - **Version mismatch**: `package.json` version must match the tag (e.g. tag `v0.2.0` → version `"0.2.0"`)
 - **Missing changelog**: Add a `## [x.y.z]` section to `CHANGELOG.md` for the version being released
-- **npm auth**: The `NPM_TOKEN` secret must be set in the `npm` GitHub environment
+- **npm auth**: Uses trusted publishing (OIDC). `NPM_TOKEN` is auto-injected into the `npm` GitHub environment — no manual secret setup needed
