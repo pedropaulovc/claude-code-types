@@ -7,6 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-02-15
+
+### Added
+
+- Smoke test validating types against all `~/.claude/projects/` JSONL files
+  (430K+ lines, 3841 files, 0 errors)
+- CHANGELOG.md following Keep a Changelog format
+- AGENTS.md with publishing instructions
+- CLAUDE.md
+- GitHub Release creation on version tags (immutable releases)
+
+### Changed
+
+- Rewritten CI workflow: test → release (from CHANGELOG) → publish with provenance
+- Moved publishing docs from README to AGENTS.md
+
 ## [0.1.1] - 2026-02-15
 
 ### Added
@@ -37,6 +53,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - Model, StopReason, PermissionMode, BuiltinToolName unions
 - GitHub Actions workflow for automated publishing on version tags
 
-[Unreleased]: https://github.com/pedropaulovc/claude-code-types/compare/v0.1.1...HEAD
+[Unreleased]: https://github.com/pedropaulovc/claude-code-types/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/pedropaulovc/claude-code-types/compare/v0.1.1...v0.2.0
 [0.1.1]: https://github.com/pedropaulovc/claude-code-types/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/pedropaulovc/claude-code-types/releases/tag/v0.1.0

@@ -47,8 +47,8 @@ const projectsDir = join(homedir(), '.claude', 'projects');
 const files = findJsonlFiles(projectsDir);
 
 if (files.length === 0) {
-  console.error('No .jsonl files found in', projectsDir);
-  process.exit(1);
+  console.log('No .jsonl files found in', projectsDir, '— skipping (CI)');
+  process.exit(0);
 }
 
 let totalFiles = 0;
