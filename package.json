@@ -8,7 +8,8 @@
   ],
   "scripts": {
     "typecheck": "tsc --noEmit",
-    "test": "tsx test/smoke.local.test.ts"
+    "test": "tsx test/smoke.local.test.ts",
+    "docs": "typedoc --plugin typedoc-plugin-markdown --out docs index.d.ts"
   },
   "keywords": [
     "claude",
@@ -27,6 +28,8 @@
   },
   "devDependencies": {
     "tsx": "^4.0.0",
+    "typedoc": "^0.28.0",
+    "typedoc-plugin-markdown": "^4.10.0",
     "typescript": "^5.7.0"
   }
 }
