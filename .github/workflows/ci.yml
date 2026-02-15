@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [master]
+
+jobs:
+  check:
+    runs-on: ubuntu-slim
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '25'
+          cache: 'npm'
+
+      - run: npm ci
+
+      - run: npm run typecheck
+
+      - name: Verify docs are up to date
+        run: |
+          npm run docs
+          if ! git diff --exit-code docs/; then
+            echo "::error::docs/ are out of date. Run 'npm run docs' and commit the result."
+            git diff --stat docs/
+            exit 1
+          fi
+          echo "✓ docs/ match generated output"
