@@ -1,4 +1,4 @@
-name: Publish to npm
+name: Release & Publish
 
 on:
   push:
@@ -6,24 +6,88 @@ on:
       - 'v*'
 
 jobs:
-  publish:
+  test:
     runs-on: ubuntu-latest
-    environment: npm
-    permissions:
-      id-token: write
-      contents: read
     steps:
       - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
-          registry-url: https://registry.npmjs.org
+          node-version: '20'
+          cache: 'npm'
 
       - run: npm ci
 
       - run: npm run typecheck
 
-      - run: npm publish --provenance --access public
+      - run: npm test
+
+  release:
+    needs: test
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Get version from tag
+        id: version
+        run: |
+          echo "version=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+
+      - name: Verify package.json version matches tag
+        run: |
+          VERSION="${{ steps.version.outputs.version }}"
+          PKG_VERSION=$(node -p "require('./package.json').version")
+          if [ "$VERSION" != "$PKG_VERSION" ]; then
+            echo "::error::package.json version ($PKG_VERSION) does not match tag version ($VERSION)"
+            exit 1
+          fi
+          echo "✓ package.json version matches tag"
+
+      - name: Extract changelog for version
+        id: changelog
+        run: |
+          VERSION="${{ steps.version.outputs.version }}"
+          CHANGELOG=$(awk "/^## \[${VERSION}\]/{flag=1; next} /^## \[/{flag=0} flag" CHANGELOG.md)
+          if [ -z "$CHANGELOG" ]; then
+            echo "::error::CHANGELOG.md does not contain an entry for version ${VERSION}"
+            echo "Please add a '## [${VERSION}] - YYYY-MM-DD' section to CHANGELOG.md"
+            exit 1
+          fi
+          echo "✓ Found changelog entry for ${VERSION}"
+          echo "$CHANGELOG" > changelog_body.md
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ steps.version.outputs.version }}
+          name: v${{ steps.version.outputs.version }}
+          body_path: changelog_body.md
+          draft: false
+          prerelease: ${{ contains(steps.version.outputs.version, '-') }}
+
+  publish:
+    needs: [test, release]
+    runs-on: ubuntu-latest
+    environment: npm
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          registry-url: 'https://registry.npmjs.org'
+
+      - run: npm ci
+
+      - run: npm publish --access public --provenance
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

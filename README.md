@@ -50,29 +50,9 @@ for (const entry of entries) {
 | `saved_hook_context` | `SavedHookContextEntry` | Hook execution context |
 | `summary` | `SummaryEntry` | Conversation summaries |
 
-## Publishing
+## Contributing
 
-This package is published to npm automatically via GitHub Actions when a version tag is pushed.
-
-### Releasing a new version
-
-```bash
-npm version patch   # or minor / major
-git push --follow-tags
-```
-
-The `publish.yml` workflow triggers on `v*` tags, runs typecheck, and publishes with provenance.
-
-### npm authentication
-
-The GitHub Actions workflow uses OIDC-based trusted publishing. To set this up:
-
-1. Go to [npmjs.com](https://www.npmjs.com) > **Access Tokens** > **Granular Access Token**
-2. Create a token with publish access to `claude-code-types`
-3. In your GitHub repo, go to **Settings** > **Environments** > create an environment called `npm`
-4. Add a secret `NPM_TOKEN` with the token value
-
-Alternatively, configure [npm trusted publishing](https://docs.npmjs.com/generating-provenance-statements#publishing-packages-with-provenance-via-github-actions) for keyless OIDC auth.
+See [AGENTS.md](AGENTS.md) for publishing instructions and project conventions.
 
 ## License
 
