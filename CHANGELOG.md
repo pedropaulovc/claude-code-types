@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-02-15
+
+### Added
+
+- `TeamCreate` and `TeamDelete` to `BuiltinToolName` (agent teams tools)
+
 ## [0.2.0] - 2026-02-15
 
 ### Added
@@ -53,7 +59,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - Model, StopReason, PermissionMode, BuiltinToolName unions
 - GitHub Actions workflow for automated publishing on version tags
 
-[Unreleased]: https://github.com/pedropaulovc/claude-code-types/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/pedropaulovc/claude-code-types/compare/v0.3.0...HEAD
+[0.3.0]: https://github.com/pedropaulovc/claude-code-types/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/pedropaulovc/claude-code-types/compare/v0.1.1...v0.2.0
 [0.1.1]: https://github.com/pedropaulovc/claude-code-types/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/pedropaulovc/claude-code-types/releases/tag/v0.1.0
