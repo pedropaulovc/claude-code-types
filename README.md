@@ -1,6 +1,6 @@
 # claude-code-types
 
-[![npm](https://img.shields.io/npm/v/claude-code-types)](https://www.npmjs.com/package/claude-code-types)
+[![npm](https://img.shields.io/npm/v/claude-code-types)](https://www.npmjs.com/package/claude-code-types) [![docs](https://img.shields.io/badge/docs-API%20reference-blue)](docs/globals.md)
 
 TypeScript type definitions for [Claude Code](https://docs.anthropic.com/en/docs/claude-code) chat history JSONL files.
 
