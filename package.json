@@ -1,6 +1,6 @@
 {
   "name": "claude-code-types",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "TypeScript type definitions for Claude Code chat history JSONL files",
   "types": "./index.d.ts",
   "files": [

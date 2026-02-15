@@ -7,6 +7,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-02-15
+
+### Added
+
+- `agentId` optional field on `EntryBase` for subagent / Task tool entries
+- Generated API docs via TypeDoc (`docs/` directory)
+- API docs badge in README
+- CI workflow: typecheck + verify docs freshness on PRs and main pushes
+- Auto-tag workflow: creates `v*` tag from `package.json` version on push to `main`
+- Semantic Versioning 2.0.0 reference in README and AGENTS.md
+
+### Changed
+
+- Default branch renamed from `master` to `main`
+- Renamed `smoke.test.ts` to `smoke.local.test.ts`
+- Switched to `ubuntu-slim` runners in CI workflows
+- Simplified publish workflow: removed separate test job, moved typecheck into release job
+- Simplified publish steps: merge PR to `main` → auto-tag → publish (no manual `npm version` + `--follow-tags`)
+
 ## [0.3.0] - 2026-02-15
 
 ### Added
@@ -59,7 +78,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - Model, StopReason, PermissionMode, BuiltinToolName unions
 - GitHub Actions workflow for automated publishing on version tags
 
-[Unreleased]: https://github.com/pedropaulovc/claude-code-types/compare/v0.3.0...HEAD
+[Unreleased]: https://github.com/pedropaulovc/claude-code-types/compare/v0.4.0...HEAD
+[0.4.0]: https://github.com/pedropaulovc/claude-code-types/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/pedropaulovc/claude-code-types/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/pedropaulovc/claude-code-types/compare/v0.1.1...v0.2.0
 [0.1.1]: https://github.com/pedropaulovc/claude-code-types/compare/v0.1.0...v0.1.1
