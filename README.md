@@ -64,3 +64,7 @@ See [AGENTS.md](AGENTS.md) for publishing instructions and project conventions.
 ## License
 
 MIT
+
+---
+
+"Claude" is a trademark of Anthropic, PBC. This project is not affiliated with, endorsed by, or sponsored by Anthropic.
