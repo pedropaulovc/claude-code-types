@@ -2,7 +2,7 @@
 
 ***
 
-[claude-code-types](../globals.md) / CitationPageLocation
+[claude-code-types](../README.md) / CitationPageLocation
 
 # Interface: CitationPageLocation
 

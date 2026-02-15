@@ -2,7 +2,7 @@
 
 ***
 
-[claude-code-types](../globals.md) / Todo
+[claude-code-types](../README.md) / Todo
 
 # Interface: Todo
 

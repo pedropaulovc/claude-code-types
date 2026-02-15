@@ -2,7 +2,7 @@
 
 ***
 
-[claude-code-types](../globals.md) / ThinkingMetadata
+[claude-code-types](../README.md) / ThinkingMetadata
 
 # Interface: ThinkingMetadata
 

@@ -2,7 +2,7 @@
 
 ***
 
-[claude-code-types](../globals.md) / DocumentBlock
+[claude-code-types](../README.md) / DocumentBlock
 
 # Interface: DocumentBlock
 

@@ -2,7 +2,7 @@
 
 ***
 
-[claude-code-types](../globals.md) / SummaryEntry
+[claude-code-types](../README.md) / SummaryEntry
 
 # Interface: SummaryEntry
 

@@ -2,7 +2,7 @@
 
 ***
 
-[claude-code-types](../globals.md) / ProgressData
+[claude-code-types](../README.md) / ProgressData
 
 # Interface: ProgressData
 

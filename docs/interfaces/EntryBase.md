@@ -2,7 +2,7 @@
 
 ***
 
-[claude-code-types](../globals.md) / EntryBase
+[claude-code-types](../README.md) / EntryBase
 
 # Interface: EntryBase
 

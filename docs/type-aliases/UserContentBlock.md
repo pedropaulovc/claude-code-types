@@ -2,7 +2,7 @@
 
 ***
 
-[claude-code-types](../globals.md) / UserContentBlock
+[claude-code-types](../README.md) / UserContentBlock
 
 # Type Alias: UserContentBlock
 

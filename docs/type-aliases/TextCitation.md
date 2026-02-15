@@ -2,7 +2,7 @@
 
 ***
 
-[claude-code-types](../globals.md) / TextCitation
+[claude-code-types](../README.md) / TextCitation
 
 # Type Alias: TextCitation
 

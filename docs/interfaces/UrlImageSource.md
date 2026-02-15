@@ -2,7 +2,7 @@
 
 ***
 
-[claude-code-types](../globals.md) / UrlImageSource
+[claude-code-types](../README.md) / UrlImageSource
 
 # Interface: UrlImageSource
 

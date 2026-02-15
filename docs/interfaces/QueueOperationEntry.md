@@ -2,7 +2,7 @@
 
 ***
 
-[claude-code-types](../globals.md) / QueueOperationEntry
+[claude-code-types](../README.md) / QueueOperationEntry
 
 # Interface: QueueOperationEntry
 

@@ -2,7 +2,7 @@
 
 ***
 
-[claude-code-types](../globals.md) / AssistantContentBlock
+[claude-code-types](../README.md) / AssistantContentBlock
 
 # Type Alias: AssistantContentBlock
 

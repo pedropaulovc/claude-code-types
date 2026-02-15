@@ -2,7 +2,7 @@
 
 ***
 
-[claude-code-types](../globals.md) / ToolUseBlock
+[claude-code-types](../README.md) / ToolUseBlock
 
 # Interface: ToolUseBlock
 

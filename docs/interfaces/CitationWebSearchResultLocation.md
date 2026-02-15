@@ -2,7 +2,7 @@
 
 ***
 
-[claude-code-types](../globals.md) / CitationWebSearchResultLocation
+[claude-code-types](../README.md) / CitationWebSearchResultLocation
 
 # Interface: CitationWebSearchResultLocation
 

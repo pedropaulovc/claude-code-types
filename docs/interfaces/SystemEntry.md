@@ -2,7 +2,7 @@
 
 ***
 
-[claude-code-types](../globals.md) / SystemEntry
+[claude-code-types](../README.md) / SystemEntry
 
 # Interface: SystemEntry
 

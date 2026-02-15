@@ -2,7 +2,7 @@
 
 ***
 
-[claude-code-types](../globals.md) / ImageBlock
+[claude-code-types](../README.md) / ImageBlock
 
 # Interface: ImageBlock
 

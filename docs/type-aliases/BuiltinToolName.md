@@ -2,7 +2,7 @@
 
 ***
 
-[claude-code-types](../globals.md) / BuiltinToolName
+[claude-code-types](../README.md) / BuiltinToolName
 
 # Type Alias: BuiltinToolName
 

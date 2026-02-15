@@ -2,7 +2,7 @@
 
 ***
 
-[claude-code-types](../globals.md) / ServerToolUsage
+[claude-code-types](../README.md) / ServerToolUsage
 
 # Interface: ServerToolUsage
 

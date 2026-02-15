@@ -2,7 +2,7 @@
 
 ***
 
-[claude-code-types](../globals.md) / CacheCreation
+[claude-code-types](../README.md) / CacheCreation
 
 # Interface: CacheCreation
 

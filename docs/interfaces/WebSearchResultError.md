@@ -2,7 +2,7 @@
 
 ***
 
-[claude-code-types](../globals.md) / WebSearchResultError
+[claude-code-types](../README.md) / WebSearchResultError
 
 # Interface: WebSearchResultError
 

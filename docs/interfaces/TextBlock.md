@@ -2,7 +2,7 @@
 
 ***
 
-[claude-code-types](../globals.md) / TextBlock
+[claude-code-types](../README.md) / TextBlock
 
 # Interface: TextBlock
 

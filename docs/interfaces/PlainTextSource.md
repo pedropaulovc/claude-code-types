@@ -2,7 +2,7 @@
 
 ***
 
-[claude-code-types](../globals.md) / PlainTextSource
+[claude-code-types](../README.md) / PlainTextSource
 
 # Interface: PlainTextSource
 

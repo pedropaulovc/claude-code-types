@@ -2,7 +2,7 @@
 
 ***
 
-[claude-code-types](../globals.md) / ProgressEntry
+[claude-code-types](../README.md) / ProgressEntry
 
 # Interface: ProgressEntry
 

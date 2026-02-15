@@ -2,7 +2,7 @@
 
 ***
 
-[claude-code-types](../globals.md) / AssistantMessage
+[claude-code-types](../README.md) / AssistantMessage
 
 # Interface: AssistantMessage
 

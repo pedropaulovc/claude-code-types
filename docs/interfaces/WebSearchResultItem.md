@@ -2,7 +2,7 @@
 
 ***
 
-[claude-code-types](../globals.md) / WebSearchResultItem
+[claude-code-types](../README.md) / WebSearchResultItem
 
 # Interface: WebSearchResultItem
 

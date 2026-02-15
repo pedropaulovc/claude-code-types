@@ -2,7 +2,7 @@
 
 ***
 
-[claude-code-types](../globals.md) / TranscriptEntry
+[claude-code-types](../README.md) / TranscriptEntry
 
 # Type Alias: TranscriptEntry
 

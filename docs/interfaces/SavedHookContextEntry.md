@@ -2,7 +2,7 @@
 
 ***
 
-[claude-code-types](../globals.md) / SavedHookContextEntry
+[claude-code-types](../README.md) / SavedHookContextEntry
 
 # Interface: SavedHookContextEntry
 

@@ -2,7 +2,7 @@
 
 ***
 
-[claude-code-types](../globals.md) / UserMessage
+[claude-code-types](../README.md) / UserMessage
 
 # Interface: UserMessage
 

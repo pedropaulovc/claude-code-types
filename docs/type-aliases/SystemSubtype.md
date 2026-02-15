@@ -2,7 +2,7 @@
 
 ***
 
-[claude-code-types](../globals.md) / SystemSubtype
+[claude-code-types](../README.md) / SystemSubtype
 
 # Type Alias: SystemSubtype
 

@@ -2,7 +2,7 @@
 
 ***
 
-[claude-code-types](../globals.md) / MicrocompactMetadata
+[claude-code-types](../README.md) / MicrocompactMetadata
 
 # Interface: MicrocompactMetadata
 

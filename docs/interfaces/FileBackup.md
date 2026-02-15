@@ -2,7 +2,7 @@
 
 ***
 
-[claude-code-types](../globals.md) / FileBackup
+[claude-code-types](../README.md) / FileBackup
 
 # Interface: FileBackup
 

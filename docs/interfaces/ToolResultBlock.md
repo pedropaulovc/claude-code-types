@@ -2,7 +2,7 @@
 
 ***
 
-[claude-code-types](../globals.md) / ToolResultBlock
+[claude-code-types](../README.md) / ToolResultBlock
 
 # Interface: ToolResultBlock
 

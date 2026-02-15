@@ -2,7 +2,7 @@
 
 ***
 
-[claude-code-types](../globals.md) / Model
+[claude-code-types](../README.md) / Model
 
 # Type Alias: Model
 

@@ -2,7 +2,7 @@
 
 ***
 
-[claude-code-types](../globals.md) / ThinkingBlock
+[claude-code-types](../README.md) / ThinkingBlock
 
 # Interface: ThinkingBlock
 

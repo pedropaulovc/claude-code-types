@@ -2,7 +2,7 @@
 
 ***
 
-[claude-code-types](../globals.md) / FileHistorySnapshotEntry
+[claude-code-types](../README.md) / FileHistorySnapshotEntry
 
 # Interface: FileHistorySnapshotEntry
 

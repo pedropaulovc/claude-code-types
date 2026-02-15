@@ -2,7 +2,7 @@
 
 ***
 
-[claude-code-types](../globals.md) / Usage
+[claude-code-types](../README.md) / Usage
 
 # Interface: Usage
 

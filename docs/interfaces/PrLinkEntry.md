@@ -2,7 +2,7 @@
 
 ***
 
-[claude-code-types](../globals.md) / PrLinkEntry
+[claude-code-types](../README.md) / PrLinkEntry
 
 # Interface: PrLinkEntry
 

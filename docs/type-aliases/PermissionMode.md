@@ -2,7 +2,7 @@
 
 ***
 
-[claude-code-types](../globals.md) / PermissionMode
+[claude-code-types](../README.md) / PermissionMode
 
 # Type Alias: PermissionMode
 

@@ -2,7 +2,7 @@
 
 ***
 
-[claude-code-types](../globals.md) / StopReason
+[claude-code-types](../README.md) / StopReason
 
 # Type Alias: StopReason
 

@@ -2,7 +2,7 @@
 
 ***
 
-[claude-code-types](../globals.md) / CitationContentBlockLocation
+[claude-code-types](../README.md) / CitationContentBlockLocation
 
 # Interface: CitationContentBlockLocation
 

@@ -2,7 +2,7 @@
 
 ***
 
-[claude-code-types](../globals.md) / WebSearchToolResultBlock
+[claude-code-types](../README.md) / WebSearchToolResultBlock
 
 # Interface: WebSearchToolResultBlock
 

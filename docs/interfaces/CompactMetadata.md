@@ -2,7 +2,7 @@
 
 ***
 
-[claude-code-types](../globals.md) / CompactMetadata
+[claude-code-types](../README.md) / CompactMetadata
 
 # Interface: CompactMetadata
 

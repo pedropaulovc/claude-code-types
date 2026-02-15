@@ -2,7 +2,7 @@
 
 ***
 
-[claude-code-types](../globals.md) / Base64ImageSource
+[claude-code-types](../README.md) / Base64ImageSource
 
 # Interface: Base64ImageSource
 

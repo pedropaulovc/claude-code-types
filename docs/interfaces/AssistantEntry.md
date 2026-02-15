@@ -2,7 +2,7 @@
 
 ***
 
-[claude-code-types](../globals.md) / AssistantEntry
+[claude-code-types](../README.md) / AssistantEntry
 
 # Interface: AssistantEntry
 
