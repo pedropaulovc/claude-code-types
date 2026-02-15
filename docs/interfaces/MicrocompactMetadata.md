@@ -6,7 +6,7 @@
 
 # Interface: MicrocompactMetadata
 
-Defined in: [index.d.ts:623](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L623)
+Defined in: [index.d.ts:623](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L623)
 
 Metadata emitted with `microcompact_boundary` system entries.
 
@@ -16,7 +16,7 @@ Metadata emitted with `microcompact_boundary` system entries.
 
 > **compactedToolIds**: `string`[]
 
-Defined in: [index.d.ts:628](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L628)
+Defined in: [index.d.ts:628](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L628)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [index.d.ts:628](https://github.com/pedropaulovc/claude-code-types/b
 
 > **preTokens**: `number`
 
-Defined in: [index.d.ts:626](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L626)
+Defined in: [index.d.ts:626](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L626)
 
 Token count before compaction.
 
@@ -34,7 +34,7 @@ Token count before compaction.
 
 > **tokensSaved**: `number`
 
-Defined in: [index.d.ts:627](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L627)
+Defined in: [index.d.ts:627](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L627)
 
 ***
 
@@ -42,4 +42,4 @@ Defined in: [index.d.ts:627](https://github.com/pedropaulovc/claude-code-types/b
 
 > **trigger**: `"auto"` \| `"manual"`
 
-Defined in: [index.d.ts:624](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L624)
+Defined in: [index.d.ts:624](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L624)

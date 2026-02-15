@@ -6,7 +6,7 @@
 
 # Interface: CitationWebSearchResultLocation
 
-Defined in: [index.d.ts:532](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L532)
+Defined in: [index.d.ts:532](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L532)
 
 Citation from a web search result.
 
@@ -16,7 +16,7 @@ Citation from a web search result.
 
 > **cited\_text**: `string`
 
-Defined in: [index.d.ts:534](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L534)
+Defined in: [index.d.ts:534](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L534)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [index.d.ts:534](https://github.com/pedropaulovc/claude-code-types/b
 
 > **encrypted\_index**: `string`
 
-Defined in: [index.d.ts:535](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L535)
+Defined in: [index.d.ts:535](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L535)
 
 ***
 
@@ -32,7 +32,7 @@ Defined in: [index.d.ts:535](https://github.com/pedropaulovc/claude-code-types/b
 
 > **title**: `string` \| `null`
 
-Defined in: [index.d.ts:536](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L536)
+Defined in: [index.d.ts:536](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L536)
 
 ***
 
@@ -40,7 +40,7 @@ Defined in: [index.d.ts:536](https://github.com/pedropaulovc/claude-code-types/b
 
 > **type**: `"web_search_result_location"`
 
-Defined in: [index.d.ts:533](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L533)
+Defined in: [index.d.ts:533](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L533)
 
 ***
 
@@ -48,4 +48,4 @@ Defined in: [index.d.ts:533](https://github.com/pedropaulovc/claude-code-types/b
 
 > **url**: `string`
 
-Defined in: [index.d.ts:537](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L537)
+Defined in: [index.d.ts:537](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L537)

@@ -6,7 +6,7 @@
 
 # Interface: FileHistorySnapshotEntry
 
-Defined in: [index.d.ts:233](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L233)
+Defined in: [index.d.ts:233](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L233)
 
 Tracks file backups for undo/restore. The `messageId` may collide with the
 immediately following message's `uuid`.
@@ -17,7 +17,7 @@ immediately following message's `uuid`.
 
 > **isSnapshotUpdate**: `boolean`
 
-Defined in: [index.d.ts:237](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L237)
+Defined in: [index.d.ts:237](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L237)
 
 `false` for initial snapshot, `true` for incremental updates.
 
@@ -27,7 +27,7 @@ Defined in: [index.d.ts:237](https://github.com/pedropaulovc/claude-code-types/b
 
 > **messageId**: `string`
 
-Defined in: [index.d.ts:235](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L235)
+Defined in: [index.d.ts:235](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L235)
 
 ***
 
@@ -35,7 +35,7 @@ Defined in: [index.d.ts:235](https://github.com/pedropaulovc/claude-code-types/b
 
 > **snapshot**: [`FileHistorySnapshot`](FileHistorySnapshot.md)
 
-Defined in: [index.d.ts:238](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L238)
+Defined in: [index.d.ts:238](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L238)
 
 ***
 
@@ -43,4 +43,4 @@ Defined in: [index.d.ts:238](https://github.com/pedropaulovc/claude-code-types/b
 
 > **type**: `"file-history-snapshot"`
 
-Defined in: [index.d.ts:234](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L234)
+Defined in: [index.d.ts:234](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L234)

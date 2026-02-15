@@ -6,7 +6,7 @@
 
 # Interface: Usage
 
-Defined in: [index.d.ts:588](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L588)
+Defined in: [index.d.ts:588](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L588)
 
 Token usage for a single API response.
 
@@ -22,7 +22,7 @@ multiple internal calls.
 
 > `optional` **cache\_creation**: [`CacheCreation`](CacheCreation.md) \| `null`
 
-Defined in: [index.d.ts:596](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L596)
+Defined in: [index.d.ts:596](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L596)
 
 Breakdown of cache creation by TTL.
 
@@ -32,7 +32,7 @@ Breakdown of cache creation by TTL.
 
 > `optional` **cache\_creation\_input\_tokens**: `number` \| `null`
 
-Defined in: [index.d.ts:592](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L592)
+Defined in: [index.d.ts:592](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L592)
 
 Tokens written to cache. `0` when prompt caching is not configured.
 
@@ -42,7 +42,7 @@ Tokens written to cache. `0` when prompt caching is not configured.
 
 > `optional` **cache\_read\_input\_tokens**: `number` \| `null`
 
-Defined in: [index.d.ts:594](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L594)
+Defined in: [index.d.ts:594](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L594)
 
 Tokens read from cache. `0` when prompt caching is not configured.
 
@@ -52,7 +52,7 @@ Tokens read from cache. `0` when prompt caching is not configured.
 
 > `optional` **inference\_geo**: `string` \| `null`
 
-Defined in: [index.d.ts:601](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L601)
+Defined in: [index.d.ts:601](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L601)
 
 Geographic region where inference ran (e.g. `"us-west-2"`).
 
@@ -62,7 +62,7 @@ Geographic region where inference ran (e.g. `"us-west-2"`).
 
 > **input\_tokens**: `number`
 
-Defined in: [index.d.ts:589](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L589)
+Defined in: [index.d.ts:589](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L589)
 
 ***
 
@@ -70,7 +70,7 @@ Defined in: [index.d.ts:589](https://github.com/pedropaulovc/claude-code-types/b
 
 > **output\_tokens**: `number`
 
-Defined in: [index.d.ts:590](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L590)
+Defined in: [index.d.ts:590](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L590)
 
 ***
 
@@ -78,7 +78,7 @@ Defined in: [index.d.ts:590](https://github.com/pedropaulovc/claude-code-types/b
 
 > `optional` **server\_tool\_use**: [`ServerToolUsage`](ServerToolUsage.md) \| `null`
 
-Defined in: [index.d.ts:598](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L598)
+Defined in: [index.d.ts:598](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L598)
 
 Present only when web search was used.
 
@@ -88,4 +88,4 @@ Present only when web search was used.
 
 > `optional` **service\_tier**: `"priority"` \| `"standard"` \| `"batch"` \| `null`
 
-Defined in: [index.d.ts:599](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L599)
+Defined in: [index.d.ts:599](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L599)

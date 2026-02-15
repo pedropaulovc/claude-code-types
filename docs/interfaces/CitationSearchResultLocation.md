@@ -6,7 +6,7 @@
 
 # Interface: CitationSearchResultLocation
 
-Defined in: [index.d.ts:544](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L544)
+Defined in: [index.d.ts:544](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L544)
 
 Citation from a `search_result` content block (RAG applications).
 Block indices are 0-based; `end_block_index` is exclusive.
@@ -17,7 +17,7 @@ Block indices are 0-based; `end_block_index` is exclusive.
 
 > **cited\_text**: `string`
 
-Defined in: [index.d.ts:546](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L546)
+Defined in: [index.d.ts:546](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L546)
 
 ***
 
@@ -25,7 +25,7 @@ Defined in: [index.d.ts:546](https://github.com/pedropaulovc/claude-code-types/b
 
 > **end\_block\_index**: `number`
 
-Defined in: [index.d.ts:552](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L552)
+Defined in: [index.d.ts:552](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L552)
 
 Exclusive upper bound.
 
@@ -35,7 +35,7 @@ Exclusive upper bound.
 
 > **search\_result\_index**: `number`
 
-Defined in: [index.d.ts:549](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L549)
+Defined in: [index.d.ts:549](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L549)
 
 ***
 
@@ -43,7 +43,7 @@ Defined in: [index.d.ts:549](https://github.com/pedropaulovc/claude-code-types/b
 
 > **source**: `string`
 
-Defined in: [index.d.ts:547](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L547)
+Defined in: [index.d.ts:547](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L547)
 
 ***
 
@@ -51,7 +51,7 @@ Defined in: [index.d.ts:547](https://github.com/pedropaulovc/claude-code-types/b
 
 > **start\_block\_index**: `number`
 
-Defined in: [index.d.ts:550](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L550)
+Defined in: [index.d.ts:550](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L550)
 
 ***
 
@@ -59,7 +59,7 @@ Defined in: [index.d.ts:550](https://github.com/pedropaulovc/claude-code-types/b
 
 > **title**: `string` \| `null`
 
-Defined in: [index.d.ts:548](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L548)
+Defined in: [index.d.ts:548](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L548)
 
 ***
 
@@ -67,4 +67,4 @@ Defined in: [index.d.ts:548](https://github.com/pedropaulovc/claude-code-types/b
 
 > **type**: `"search_result_location"`
 
-Defined in: [index.d.ts:545](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L545)
+Defined in: [index.d.ts:545](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L545)

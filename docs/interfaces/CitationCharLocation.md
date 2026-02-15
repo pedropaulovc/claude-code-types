@@ -6,7 +6,7 @@
 
 # Interface: CitationCharLocation
 
-Defined in: [index.d.ts:487](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L487)
+Defined in: [index.d.ts:487](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L487)
 
 Citation from a plain text document.
 Character indices are 0-based; `end_char_index` is exclusive.
@@ -17,7 +17,7 @@ Character indices are 0-based; `end_char_index` is exclusive.
 
 > **cited\_text**: `string`
 
-Defined in: [index.d.ts:489](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L489)
+Defined in: [index.d.ts:489](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L489)
 
 ***
 
@@ -25,7 +25,7 @@ Defined in: [index.d.ts:489](https://github.com/pedropaulovc/claude-code-types/b
 
 > **document\_index**: `number`
 
-Defined in: [index.d.ts:490](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L490)
+Defined in: [index.d.ts:490](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L490)
 
 ***
 
@@ -33,7 +33,7 @@ Defined in: [index.d.ts:490](https://github.com/pedropaulovc/claude-code-types/b
 
 > **document\_title**: `string` \| `null`
 
-Defined in: [index.d.ts:491](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L491)
+Defined in: [index.d.ts:491](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L491)
 
 ***
 
@@ -41,7 +41,7 @@ Defined in: [index.d.ts:491](https://github.com/pedropaulovc/claude-code-types/b
 
 > **end\_char\_index**: `number`
 
-Defined in: [index.d.ts:494](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L494)
+Defined in: [index.d.ts:494](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L494)
 
 Exclusive upper bound.
 
@@ -51,7 +51,7 @@ Exclusive upper bound.
 
 > **file\_id**: `string` \| `null`
 
-Defined in: [index.d.ts:496](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L496)
+Defined in: [index.d.ts:496](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L496)
 
 Non-null only when the document was provided via the Files API.
 
@@ -61,7 +61,7 @@ Non-null only when the document was provided via the Files API.
 
 > **start\_char\_index**: `number`
 
-Defined in: [index.d.ts:492](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L492)
+Defined in: [index.d.ts:492](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L492)
 
 ***
 
@@ -69,4 +69,4 @@ Defined in: [index.d.ts:492](https://github.com/pedropaulovc/claude-code-types/b
 
 > **type**: `"char_location"`
 
-Defined in: [index.d.ts:488](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L488)
+Defined in: [index.d.ts:488](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L488)

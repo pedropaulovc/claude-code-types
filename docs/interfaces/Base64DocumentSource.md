@@ -6,7 +6,7 @@
 
 # Interface: Base64DocumentSource
 
-Defined in: [index.d.ts:452](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L452)
+Defined in: [index.d.ts:452](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L452)
 
 Base64-encoded PDF document source.
 
@@ -16,7 +16,7 @@ Base64-encoded PDF document source.
 
 > **data**: `string`
 
-Defined in: [index.d.ts:455](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L455)
+Defined in: [index.d.ts:455](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L455)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [index.d.ts:455](https://github.com/pedropaulovc/claude-code-types/b
 
 > **media\_type**: `"application/pdf"`
 
-Defined in: [index.d.ts:454](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L454)
+Defined in: [index.d.ts:454](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L454)
 
 ***
 
@@ -32,4 +32,4 @@ Defined in: [index.d.ts:454](https://github.com/pedropaulovc/claude-code-types/b
 
 > **type**: `"base64"`
 
-Defined in: [index.d.ts:453](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L453)
+Defined in: [index.d.ts:453](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L453)

@@ -6,7 +6,7 @@
 
 # Interface: WebSearchResultItem
 
-Defined in: [index.d.ts:567](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L567)
+Defined in: [index.d.ts:567](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L567)
 
 A single web search result item.
 
@@ -16,7 +16,7 @@ A single web search result item.
 
 > **encrypted\_content**: `string`
 
-Defined in: [index.d.ts:571](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L571)
+Defined in: [index.d.ts:571](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L571)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [index.d.ts:571](https://github.com/pedropaulovc/claude-code-types/b
 
 > `optional` **page\_age**: `string` \| `null`
 
-Defined in: [index.d.ts:572](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L572)
+Defined in: [index.d.ts:572](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L572)
 
 ***
 
@@ -32,7 +32,7 @@ Defined in: [index.d.ts:572](https://github.com/pedropaulovc/claude-code-types/b
 
 > **title**: `string`
 
-Defined in: [index.d.ts:570](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L570)
+Defined in: [index.d.ts:570](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L570)
 
 ***
 
@@ -40,7 +40,7 @@ Defined in: [index.d.ts:570](https://github.com/pedropaulovc/claude-code-types/b
 
 > **type**: `"web_search_result"`
 
-Defined in: [index.d.ts:568](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L568)
+Defined in: [index.d.ts:568](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L568)
 
 ***
 
@@ -48,4 +48,4 @@ Defined in: [index.d.ts:568](https://github.com/pedropaulovc/claude-code-types/b
 
 > **url**: `string`
 
-Defined in: [index.d.ts:569](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L569)
+Defined in: [index.d.ts:569](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L569)

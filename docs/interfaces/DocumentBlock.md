@@ -6,7 +6,7 @@
 
 # Interface: DocumentBlock
 
-Defined in: [index.d.ts:408](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L408)
+Defined in: [index.d.ts:408](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L408)
 
 Document content block in a user message (PDF, plain text, or URL).
 
@@ -16,7 +16,7 @@ Document content block in a user message (PDF, plain text, or URL).
 
 > `optional` **context**: `string` \| `null`
 
-Defined in: [index.d.ts:412](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L412)
+Defined in: [index.d.ts:412](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L412)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [index.d.ts:412](https://github.com/pedropaulovc/claude-code-types/b
 
 > **source**: [`Base64DocumentSource`](Base64DocumentSource.md) \| [`PlainTextSource`](PlainTextSource.md) \| [`UrlDocumentSource`](UrlDocumentSource.md)
 
-Defined in: [index.d.ts:410](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L410)
+Defined in: [index.d.ts:410](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L410)
 
 ***
 
@@ -32,7 +32,7 @@ Defined in: [index.d.ts:410](https://github.com/pedropaulovc/claude-code-types/b
 
 > `optional` **title**: `string` \| `null`
 
-Defined in: [index.d.ts:411](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L411)
+Defined in: [index.d.ts:411](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L411)
 
 ***
 
@@ -40,4 +40,4 @@ Defined in: [index.d.ts:411](https://github.com/pedropaulovc/claude-code-types/b
 
 > **type**: `"document"`
 
-Defined in: [index.d.ts:409](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L409)
+Defined in: [index.d.ts:409](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L409)

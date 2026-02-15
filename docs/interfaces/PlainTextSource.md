@@ -6,7 +6,7 @@
 
 # Interface: PlainTextSource
 
-Defined in: [index.d.ts:459](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L459)
+Defined in: [index.d.ts:459](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L459)
 
 Plain text document source.
 
@@ -16,7 +16,7 @@ Plain text document source.
 
 > **data**: `string`
 
-Defined in: [index.d.ts:462](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L462)
+Defined in: [index.d.ts:462](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L462)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [index.d.ts:462](https://github.com/pedropaulovc/claude-code-types/b
 
 > **media\_type**: `"text/plain"`
 
-Defined in: [index.d.ts:461](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L461)
+Defined in: [index.d.ts:461](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L461)
 
 ***
 
@@ -32,4 +32,4 @@ Defined in: [index.d.ts:461](https://github.com/pedropaulovc/claude-code-types/b
 
 > **type**: `"text"`
 
-Defined in: [index.d.ts:460](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L460)
+Defined in: [index.d.ts:460](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L460)

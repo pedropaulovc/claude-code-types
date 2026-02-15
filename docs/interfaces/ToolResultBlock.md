@@ -6,7 +6,7 @@
 
 # Interface: ToolResultBlock
 
-Defined in: [index.d.ts:394](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L394)
+Defined in: [index.d.ts:394](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L394)
 
 Tool result delivered in a user message.
 
@@ -16,7 +16,7 @@ Tool result delivered in a user message.
 
 > `optional` **content**: `string` \| [`TextBlock`](TextBlock.md)[]
 
-Defined in: [index.d.ts:397](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L397)
+Defined in: [index.d.ts:397](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L397)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [index.d.ts:397](https://github.com/pedropaulovc/claude-code-types/b
 
 > `optional` **is\_error**: `boolean`
 
-Defined in: [index.d.ts:398](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L398)
+Defined in: [index.d.ts:398](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L398)
 
 ***
 
@@ -32,7 +32,7 @@ Defined in: [index.d.ts:398](https://github.com/pedropaulovc/claude-code-types/b
 
 > **tool\_use\_id**: `string`
 
-Defined in: [index.d.ts:396](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L396)
+Defined in: [index.d.ts:396](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L396)
 
 ***
 
@@ -40,4 +40,4 @@ Defined in: [index.d.ts:396](https://github.com/pedropaulovc/claude-code-types/b
 
 > **type**: `"tool_result"`
 
-Defined in: [index.d.ts:395](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L395)
+Defined in: [index.d.ts:395](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L395)

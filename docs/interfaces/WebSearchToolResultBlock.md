@@ -6,7 +6,7 @@
 
 # Interface: WebSearchToolResultBlock
 
-Defined in: [index.d.ts:428](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L428)
+Defined in: [index.d.ts:428](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L428)
 
 Result from a server-side web search tool invocation.
 
@@ -16,7 +16,7 @@ Result from a server-side web search tool invocation.
 
 > **content**: [`WebSearchResultError`](WebSearchResultError.md) \| [`WebSearchResultItem`](WebSearchResultItem.md)[]
 
-Defined in: [index.d.ts:431](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L431)
+Defined in: [index.d.ts:431](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L431)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [index.d.ts:431](https://github.com/pedropaulovc/claude-code-types/b
 
 > **tool\_use\_id**: `string`
 
-Defined in: [index.d.ts:430](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L430)
+Defined in: [index.d.ts:430](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L430)
 
 ***
 
@@ -32,4 +32,4 @@ Defined in: [index.d.ts:430](https://github.com/pedropaulovc/claude-code-types/b
 
 > **type**: `"web_search_tool_result"`
 
-Defined in: [index.d.ts:429](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L429)
+Defined in: [index.d.ts:429](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L429)

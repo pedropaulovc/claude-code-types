@@ -6,7 +6,7 @@
 
 # Interface: ServerToolUseBlock
 
-Defined in: [index.d.ts:419](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L419)
+Defined in: [index.d.ts:419](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L419)
 
 Server-side tool invocation (executed by the Anthropic API, not locally).
 Currently limited to web search.
@@ -17,7 +17,7 @@ Currently limited to web search.
 
 > **id**: `string`
 
-Defined in: [index.d.ts:422](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L422)
+Defined in: [index.d.ts:422](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L422)
 
 Prefixed with `srvtoolu_` (e.g. `"srvtoolu_01B3C4D5..."`).
 
@@ -27,7 +27,7 @@ Prefixed with `srvtoolu_` (e.g. `"srvtoolu_01B3C4D5..."`).
 
 > **input**: `Record`\<`string`, `unknown`\>
 
-Defined in: [index.d.ts:424](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L424)
+Defined in: [index.d.ts:424](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L424)
 
 ***
 
@@ -35,7 +35,7 @@ Defined in: [index.d.ts:424](https://github.com/pedropaulovc/claude-code-types/b
 
 > **name**: `"web_search"`
 
-Defined in: [index.d.ts:423](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L423)
+Defined in: [index.d.ts:423](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L423)
 
 ***
 
@@ -43,4 +43,4 @@ Defined in: [index.d.ts:423](https://github.com/pedropaulovc/claude-code-types/b
 
 > **type**: `"server_tool_use"`
 
-Defined in: [index.d.ts:420](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L420)
+Defined in: [index.d.ts:420](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L420)

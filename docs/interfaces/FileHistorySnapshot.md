@@ -6,7 +6,7 @@
 
 # Interface: FileHistorySnapshot
 
-Defined in: [index.d.ts:242](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L242)
+Defined in: [index.d.ts:242](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L242)
 
 Snapshot of all tracked file backups at a point in time.
 
@@ -16,7 +16,7 @@ Snapshot of all tracked file backups at a point in time.
 
 > **messageId**: `string`
 
-Defined in: [index.d.ts:243](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L243)
+Defined in: [index.d.ts:243](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L243)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [index.d.ts:243](https://github.com/pedropaulovc/claude-code-types/b
 
 > **timestamp**: `string`
 
-Defined in: [index.d.ts:244](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L244)
+Defined in: [index.d.ts:244](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L244)
 
 ***
 
@@ -32,6 +32,6 @@ Defined in: [index.d.ts:244](https://github.com/pedropaulovc/claude-code-types/b
 
 > **trackedFileBackups**: `Record`\<`string`, [`FileBackup`](FileBackup.md)\>
 
-Defined in: [index.d.ts:246](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L246)
+Defined in: [index.d.ts:246](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L246)
 
 Map of original file path to backup info.

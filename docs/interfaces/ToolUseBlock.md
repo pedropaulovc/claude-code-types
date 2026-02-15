@@ -6,7 +6,7 @@
 
 # Interface: ToolUseBlock
 
-Defined in: [index.d.ts:383](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L383)
+Defined in: [index.d.ts:383](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L383)
 
 Tool invocation by the model.
 
@@ -19,7 +19,7 @@ MCP tools use the pattern `mcp__<server>__<tool>`.
 
 > `optional` **caller**: `object`
 
-Defined in: [index.d.ts:390](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L390)
+Defined in: [index.d.ts:390](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L390)
 
 Present in progress/streaming entries only — not part of the Anthropic API.
 
@@ -33,7 +33,7 @@ Present in progress/streaming entries only — not part of the Anthropic API.
 
 > **id**: `string`
 
-Defined in: [index.d.ts:386](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L386)
+Defined in: [index.d.ts:386](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L386)
 
 Prefixed with `toolu_` (e.g. `"toolu_01A09q90qw..."`).
 
@@ -43,7 +43,7 @@ Prefixed with `toolu_` (e.g. `"toolu_01A09q90qw..."`).
 
 > **input**: `Record`\<`string`, `unknown`\>
 
-Defined in: [index.d.ts:388](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L388)
+Defined in: [index.d.ts:388](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L388)
 
 ***
 
@@ -51,7 +51,7 @@ Defined in: [index.d.ts:388](https://github.com/pedropaulovc/claude-code-types/b
 
 > **name**: `string` & `object` \| [`BuiltinToolName`](../type-aliases/BuiltinToolName.md)
 
-Defined in: [index.d.ts:387](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L387)
+Defined in: [index.d.ts:387](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L387)
 
 ***
 
@@ -59,4 +59,4 @@ Defined in: [index.d.ts:387](https://github.com/pedropaulovc/claude-code-types/b
 
 > **type**: `"tool_use"`
 
-Defined in: [index.d.ts:384](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L384)
+Defined in: [index.d.ts:384](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L384)

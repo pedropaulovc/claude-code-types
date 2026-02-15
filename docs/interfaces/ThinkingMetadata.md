@@ -6,7 +6,7 @@
 
 # Interface: ThinkingMetadata
 
-Defined in: [index.d.ts:632](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L632)
+Defined in: [index.d.ts:632](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L632)
 
 Configuration for extended thinking budget.
 
@@ -16,4 +16,4 @@ Configuration for extended thinking budget.
 
 > **maxThinkingTokens**: `number`
 
-Defined in: [index.d.ts:633](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L633)
+Defined in: [index.d.ts:633](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L633)

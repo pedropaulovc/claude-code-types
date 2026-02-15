@@ -6,7 +6,7 @@
 
 # Interface: SummaryEntry
 
-Defined in: [index.d.ts:329](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L329)
+Defined in: [index.d.ts:329](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L329)
 
 Conversation summary used for context compaction.
 
@@ -16,7 +16,7 @@ Conversation summary used for context compaction.
 
 > **leafUuid**: `string`
 
-Defined in: [index.d.ts:333](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L333)
+Defined in: [index.d.ts:333](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L333)
 
 UUID of the leaf message this summary covers up to.
 
@@ -26,7 +26,7 @@ UUID of the leaf message this summary covers up to.
 
 > **summary**: `string`
 
-Defined in: [index.d.ts:331](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L331)
+Defined in: [index.d.ts:331](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L331)
 
 ***
 
@@ -34,4 +34,4 @@ Defined in: [index.d.ts:331](https://github.com/pedropaulovc/claude-code-types/b
 
 > **type**: `"summary"`
 
-Defined in: [index.d.ts:330](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L330)
+Defined in: [index.d.ts:330](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L330)

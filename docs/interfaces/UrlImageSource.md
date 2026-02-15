@@ -6,7 +6,7 @@
 
 # Interface: UrlImageSource
 
-Defined in: [index.d.ts:446](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L446)
+Defined in: [index.d.ts:446](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L446)
 
 URL-referenced image source.
 
@@ -16,7 +16,7 @@ URL-referenced image source.
 
 > **type**: `"url"`
 
-Defined in: [index.d.ts:447](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L447)
+Defined in: [index.d.ts:447](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L447)
 
 ***
 
@@ -24,4 +24,4 @@ Defined in: [index.d.ts:447](https://github.com/pedropaulovc/claude-code-types/b
 
 > **url**: `string`
 
-Defined in: [index.d.ts:448](https://github.com/pedropaulovc/claude-code-types/blob/032184ef9882c837f6a2f953d1b3dafa1d2734ad/index.d.ts#L448)
+Defined in: [index.d.ts:448](https://github.com/pedropaulovc/claude-code-types/blob/3d5b46cf3503065c7e2baa630d7a3a0fc77694ef/index.d.ts#L448)
