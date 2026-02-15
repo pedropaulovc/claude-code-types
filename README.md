@@ -18,6 +18,7 @@ npm install claude-code-types
 import type { TranscriptEntry } from 'claude-code-types';
 import { readFileSync } from 'fs';
 
+const path = '~/.claude/projects/my-project/abc123.jsonl';
 const entries: TranscriptEntry[] = readFileSync(path, 'utf-8')
   .split('\n')
   .filter(Boolean)
