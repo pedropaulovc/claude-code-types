@@ -710,6 +710,8 @@ export type BuiltinToolName =
   | 'TaskOutput'
   | 'TaskStop'
   | 'TaskUpdate'
+  | 'TeamCreate'
+  | 'TeamDelete'
   | 'TodoWrite'
   | 'WebFetch'
   | 'WebSearch'
