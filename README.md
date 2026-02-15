@@ -1,5 +1,7 @@
 # claude-code-types
 
+[![npm](https://img.shields.io/npm/v/claude-code-types)](https://www.npmjs.com/package/claude-code-types)
+
 TypeScript type definitions for [Claude Code](https://docs.anthropic.com/en/docs/claude-code) chat history JSONL files.
 
 Claude Code stores conversation history at `~/.claude/projects/<project-slug>/<session-id>.jsonl`. Each line is a JSON object. This package provides full type coverage for all entry types.
