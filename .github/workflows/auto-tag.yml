@@ -38,4 +38,4 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh workflow run publish.yml --ref ${{ steps.tag.outputs.tag }}
+          gh workflow run publish.yml --ref main
