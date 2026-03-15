@@ -15,6 +15,7 @@ const KNOWN_TYPES = new Set([
   'assistant',
   'system',
   'file-history-snapshot',
+  'last-prompt',
   'pr-link',
   'progress',
   'queue-operation',

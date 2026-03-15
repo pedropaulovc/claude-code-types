@@ -118,6 +118,14 @@ UUID of the parent entry in the conversation tree, or `null` for root.
 
 ***
 
+### promptId?
+
+> `optional` **promptId**: `string`
+
+Unique identifier for this prompt.
+
+***
+
 ### sessionId
 
 > **sessionId**: `string`

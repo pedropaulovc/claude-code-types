@@ -260,6 +260,14 @@ ISO 8601 timestamp.
 
 ***
 
+### url?
+
+> `optional` **url**: `string`
+
+URL for remote control bridge (subtype `bridge_status`).
+
+***
+
 ### userType?
 
 > `optional` **userType**: `"external"`

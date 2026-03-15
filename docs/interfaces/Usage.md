@@ -54,6 +54,14 @@ Geographic region where inference ran (e.g. `"us-west-2"`).
 
 ***
 
+### iterations?
+
+> `optional` **iterations**: `unknown`[]
+
+Iteration details when server-side tool loops are involved.
+
+***
+
 ### output\_tokens
 
 > **output\_tokens**: `number`
@@ -71,3 +79,11 @@ Present only when web search was used.
 ### service\_tier?
 
 > `optional` **service\_tier**: `"priority"` \| `"standard"` \| `"batch"` \| `null`
+
+***
+
+### speed?
+
+> `optional` **speed**: `string` \| `null`
+
+Speed tier used for this response (e.g. `"standard"`).
