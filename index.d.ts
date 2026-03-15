@@ -38,6 +38,7 @@ export type TranscriptEntry =
   | AssistantEntry
   | SystemEntry
   | FileHistorySnapshotEntry
+  | LastPromptEntry
   | PrLinkEntry
   | ProgressEntry
   | QueueOperationEntry
@@ -85,6 +86,8 @@ export interface UserEntry extends EntryBase {
   /** When `true`, this message is shown in the transcript UI but not sent to the API. */
   isVisibleInTranscriptOnly?: boolean;
   imagePasteIds?: string[];
+  /** Unique identifier for this prompt. */
+  promptId?: string;
   permissionMode?: PermissionMode;
   planContent?: string;
   thinkingMetadata?: ThinkingMetadata;
@@ -210,6 +213,8 @@ export interface SystemEntry extends Partial<EntryBase> {
   preventedContinuation?: boolean;
   toolUseID?: string;
   logicalParentUuid?: string;
+  /** URL for remote control bridge (subtype `bridge_status`). */
+  url?: string;
 }
 
 /** Discriminator values for {@link SystemEntry.subtype}. */
@@ -219,8 +224,20 @@ export type SystemSubtype =
   | 'informational'
   | 'local_command'
   | 'microcompact_boundary'
+  | 'bridge_status'
   | 'stop_hook_summary'
   | 'turn_duration';
+
+// ---------------------------------------------------------------------------
+// Last prompt (persisted prompt for session resumption)
+// ---------------------------------------------------------------------------
+
+/** Records the last prompt text for session resumption. */
+export interface LastPromptEntry {
+  type: 'last-prompt';
+  lastPrompt: string;
+  sessionId: string;
+}
 
 // ---------------------------------------------------------------------------
 // File history snapshot (undo/restore tracking)
@@ -599,6 +616,10 @@ export interface Usage {
   service_tier?: 'standard' | 'priority' | 'batch' | null;
   /** Geographic region where inference ran (e.g. `"us-west-2"`). */
   inference_geo?: string | null;
+  /** Speed tier used for this response (e.g. `"standard"`). */
+  speed?: string | null;
+  /** Iteration details when server-side tool loops are involved. */
+  iterations?: unknown[];
 }
 
 /** Cache creation breakdown by TTL tier. */
@@ -654,6 +675,7 @@ export interface Todo {
  */
 export type Model =
   | 'claude-opus-4-6'
+  | 'claude-sonnet-4-6'
   | 'claude-opus-4-5-20251101'
   | 'claude-sonnet-4-5-20250929'
   | 'claude-haiku-4-5-20251001'
@@ -682,6 +704,7 @@ export type StopReason =
 export type PermissionMode =
   | 'default'
   | 'plan'
+  | 'auto'
   | 'acceptEdits'
   | 'dontAsk'
   | 'bypassPermissions';
@@ -691,11 +714,17 @@ export type PermissionMode =
  * between Claude Code versions. MCP tools use the `mcp__<server>__<tool>` pattern.
  */
 export type BuiltinToolName =
+  | 'Agent'
   | 'AskUserQuestion'
   | 'Bash'
+  | 'CronCreate'
+  | 'CronDelete'
+  | 'CronList'
   | 'Edit'
   | 'EnterPlanMode'
+  | 'EnterWorktree'
   | 'ExitPlanMode'
+  | 'ExitWorktree'
   | 'Glob'
   | 'Grep'
   | 'KillShell'
@@ -715,6 +744,7 @@ export type BuiltinToolName =
   | 'TeamCreate'
   | 'TeamDelete'
   | 'TodoWrite'
+  | 'ToolSearch'
   | 'WebFetch'
   | 'WebSearch'
   | 'Write';

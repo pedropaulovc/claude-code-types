@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.5.0] - 2026-03-15
+
+### Added
+
+- `LastPromptEntry` entry type (`type: 'last-prompt'`) for persisted prompt session resumption
+- `bridge_status` system subtype with `url` field on `SystemEntry`
+- `Agent`, `ToolSearch`, `CronCreate`, `CronDelete`, `CronList`, `EnterWorktree`, `ExitWorktree` to `BuiltinToolName`
+- `promptId` optional field on `UserEntry`
+- `speed` and `iterations` optional fields on `Usage`
+- `claude-sonnet-4-6` to `Model` union
+- `auto` to `PermissionMode` union
+- Docs generation step to release checklist in AGENTS.md
+
 ## [0.4.3] - 2026-02-15
 
 ### Fixed
@@ -97,7 +110,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - Model, StopReason, PermissionMode, BuiltinToolName unions
 - GitHub Actions workflow for automated publishing on version tags
 
-[Unreleased]: https://github.com/pedropaulovc/claude-code-types/compare/v0.4.3...HEAD
+[Unreleased]: https://github.com/pedropaulovc/claude-code-types/compare/v0.5.0...HEAD
+[0.5.0]: https://github.com/pedropaulovc/claude-code-types/compare/v0.4.3...v0.5.0
 [0.4.3]: https://github.com/pedropaulovc/claude-code-types/compare/v0.4.2...v0.4.3
 [0.4.2]: https://github.com/pedropaulovc/claude-code-types/compare/v0.4.1...v0.4.2
 [0.4.1]: https://github.com/pedropaulovc/claude-code-types/compare/v0.4.0...v0.4.1

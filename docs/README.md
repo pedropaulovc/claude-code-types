@@ -50,6 +50,7 @@ for (const entry of entries) {
 - [FileHistorySnapshot](interfaces/FileHistorySnapshot.md)
 - [FileHistorySnapshotEntry](interfaces/FileHistorySnapshotEntry.md)
 - [ImageBlock](interfaces/ImageBlock.md)
+- [LastPromptEntry](interfaces/LastPromptEntry.md)
 - [MicrocompactMetadata](interfaces/MicrocompactMetadata.md)
 - [PlainTextSource](interfaces/PlainTextSource.md)
 - [PrLinkEntry](interfaces/PrLinkEntry.md)

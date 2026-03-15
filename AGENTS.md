@@ -29,12 +29,13 @@ a GitHub Release from the CHANGELOG entry, and publishes to npm with provenance.
 
 1. Make your changes to `index.d.ts`
 2. Run `npm run typecheck` and `npm test` locally
-3. Add a `## [x.y.z] - YYYY-MM-DD` section to `CHANGELOG.md` (above `[Unreleased]` contents, then clear Unreleased)
-4. Update the comparison links at the bottom of `CHANGELOG.md`
-5. Bump `version` in `package.json`
-6. Open a PR and merge to `main`
-7. The `auto-tag` workflow creates a `v*` tag if one doesn't exist for the version
-8. The `publish` workflow triggers on the new tag: verify version match → extract changelog → create GitHub Release → publish to npm
+3. Run `npm run docs` and commit the updated `docs/` directory
+4. Add a `## [x.y.z] - YYYY-MM-DD` section to `CHANGELOG.md` (above `[Unreleased]` contents, then clear Unreleased)
+5. Update the comparison links at the bottom of `CHANGELOG.md`
+6. Bump `version` in `package.json`
+7. Open a PR and merge to `main`
+8. The `auto-tag` workflow creates a `v*` tag if one doesn't exist for the version
+9. The `publish` workflow triggers on the new tag: verify version match → extract changelog → create GitHub Release → publish to npm
 
 ### Version Semantics
 

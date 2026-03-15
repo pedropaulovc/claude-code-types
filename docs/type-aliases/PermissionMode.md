@@ -6,6 +6,6 @@
 
 # Type Alias: PermissionMode
 
-> **PermissionMode** = `"default"` \| `"plan"` \| `"acceptEdits"` \| `"dontAsk"` \| `"bypassPermissions"`
+> **PermissionMode** = `"default"` \| `"plan"` \| `"auto"` \| `"acceptEdits"` \| `"dontAsk"` \| `"bypassPermissions"`
 
 Claude Code permission mode set by the user.
