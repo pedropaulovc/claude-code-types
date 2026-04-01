@@ -30,6 +30,18 @@ Present on entries produced by subagents / Task tool invocations (e.g. `"a4044e6
 
 ***
 
+### agentName?
+
+> `optional` **agentName**: `string`
+
+Name of the agent that produced this entry (e.g. `"implementer"`, `"tester"`).
+
+#### Inherited from
+
+[`EntryBase`](EntryBase.md).[`agentName`](EntryBase.md#agentname)
+
+***
+
 ### cwd?
 
 > `optional` **cwd**: `string`
@@ -45,6 +57,18 @@ Working directory at the time this entry was created.
 ### data
 
 > **data**: [`ProgressData`](ProgressData.md)
+
+***
+
+### entrypoint?
+
+> `optional` **entrypoint**: `string`
+
+How the session was started (e.g. `"cli"`).
+
+#### Inherited from
+
+[`EntryBase`](EntryBase.md).[`entrypoint`](EntryBase.md#entrypoint)
 
 ***
 

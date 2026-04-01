@@ -26,6 +26,18 @@ Present on entries produced by subagents / Task tool invocations (e.g. `"a4044e6
 
 ***
 
+### agentName?
+
+> `optional` **agentName**: `string`
+
+Name of the agent that produced this entry (e.g. `"implementer"`, `"tester"`).
+
+#### Inherited from
+
+[`EntryBase`](EntryBase.md).[`agentName`](EntryBase.md#agentname)
+
+***
+
 ### cwd
 
 > **cwd**: `string`
@@ -35,6 +47,18 @@ Working directory at the time this entry was created.
 #### Inherited from
 
 [`EntryBase`](EntryBase.md).[`cwd`](EntryBase.md#cwd)
+
+***
+
+### entrypoint?
+
+> `optional` **entrypoint**: `string`
+
+How the session was started (e.g. `"cli"`).
+
+#### Inherited from
+
+[`EntryBase`](EntryBase.md).[`entrypoint`](EntryBase.md#entrypoint)
 
 ***
 
@@ -91,6 +115,18 @@ When `true`, this message is shown in the transcript UI but not sent to the API.
 ### message
 
 > **message**: [`UserMessage`](UserMessage.md)
+
+***
+
+### origin?
+
+> `optional` **origin**: `object`
+
+Origin of this user message (e.g. task notifications).
+
+#### kind
+
+> **kind**: `string`
 
 ***
 

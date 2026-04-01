@@ -12,7 +12,7 @@ Tool result delivered in a user message.
 
 ### content?
 
-> `optional` **content**: `string` \| [`TextBlock`](TextBlock.md)[]
+> `optional` **content**: `string` \| [`ToolResultContentBlock`](../type-aliases/ToolResultContentBlock.md)[]
 
 ***
 

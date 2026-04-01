@@ -37,6 +37,8 @@ export type TranscriptEntry =
   | UserEntry
   | AssistantEntry
   | SystemEntry
+  | AgentNameEntry
+  | CustomTitleEntry
   | FileHistorySnapshotEntry
   | LastPromptEntry
   | PrLinkEntry
@@ -69,6 +71,10 @@ interface EntryBase {
   /** Present on entries produced by subagents / Task tool invocations (e.g. `"a4044e6"`). */
   agentId?: string;
   teamName?: string;
+  /** How the session was started (e.g. `"cli"`). */
+  entrypoint?: string;
+  /** Name of the agent that produced this entry (e.g. `"implementer"`, `"tester"`). */
+  agentName?: string;
   userType: 'external';
 }
 
@@ -88,6 +94,8 @@ export interface UserEntry extends EntryBase {
   imagePasteIds?: string[];
   /** Unique identifier for this prompt. */
   promptId?: string;
+  /** Origin of this user message (e.g. task notifications). */
+  origin?: { kind: string };
   permissionMode?: PermissionMode;
   planContent?: string;
   thinkingMetadata?: ThinkingMetadata;
@@ -147,6 +155,8 @@ export interface AssistantMessage {
   /** `null` during streaming until the final `message_delta` event. */
   stop_reason: StopReason | null;
   stop_sequence?: string | null;
+  /** Additional details about why the model stopped. May be `null` during streaming. */
+  stop_details?: unknown;
   usage?: Usage;
   /**
    * Present when the code execution tool (beta) was used. Contains `id` and
@@ -215,6 +225,8 @@ export interface SystemEntry extends Partial<EntryBase> {
   logicalParentUuid?: string;
   /** URL for remote control bridge (subtype `bridge_status`). */
   url?: string;
+  /** Number of messages in the turn (subtype `turn_duration`). */
+  messageCount?: number;
 }
 
 /** Discriminator values for {@link SystemEntry.subtype}. */
@@ -227,6 +239,28 @@ export type SystemSubtype =
   | 'bridge_status'
   | 'stop_hook_summary'
   | 'turn_duration';
+
+// ---------------------------------------------------------------------------
+// Agent name (records the agent name for a session)
+// ---------------------------------------------------------------------------
+
+/** Records the agent name for a session. */
+export interface AgentNameEntry {
+  type: 'agent-name';
+  agentName: string;
+  sessionId: string;
+}
+
+// ---------------------------------------------------------------------------
+// Custom title (user-assigned session title)
+// ---------------------------------------------------------------------------
+
+/** Records a custom title assigned to a session. */
+export interface CustomTitleEntry {
+  type: 'custom-title';
+  customTitle: string;
+  sessionId: string;
+}
 
 // ---------------------------------------------------------------------------
 // Last prompt (persisted prompt for session resumption)
@@ -309,6 +343,10 @@ export interface ProgressData {
     message: UserMessage | AssistantMessage;
     uuid?: string;
     timestamp?: string;
+    /** Anthropic API request ID (present on assistant progress messages). */
+    requestId?: string;
+    /** Tool result payload (present on user progress messages). */
+    toolUseResult?: unknown;
   };
 }
 
@@ -319,10 +357,11 @@ export interface ProgressData {
 /** Messages queued by the user while the agent is processing a turn. */
 export interface QueueOperationEntry {
   type: 'queue-operation';
-  operation: 'enqueue' | 'dequeue';
+  operation: 'enqueue' | 'dequeue' | 'popAll' | 'remove';
   sessionId: string;
   timestamp: string;
-  content: string;
+  /** Queue message content. Not present on `remove` operations. */
+  content?: string;
 }
 
 // ---------------------------------------------------------------------------
@@ -411,8 +450,20 @@ export interface ToolUseBlock {
 export interface ToolResultBlock {
   type: 'tool_result';
   tool_use_id: string;
-  content?: string | TextBlock[];
+  content?: string | ToolResultContentBlock[];
   is_error?: boolean;
+}
+
+/** Content blocks that can appear inside a tool result. */
+export type ToolResultContentBlock =
+  | TextBlock
+  | ImageBlock
+  | ToolReferenceBlock;
+
+/** Reference to a tool, used inside tool result content arrays. */
+export interface ToolReferenceBlock {
+  type: 'tool_reference';
+  tool_name: string;
 }
 
 /** Image content block in a user message. */
@@ -729,9 +780,11 @@ export type BuiltinToolName =
   | 'Grep'
   | 'KillShell'
   | 'ListMcpResourcesTool'
+  | 'LSP'
   | 'NotebookEdit'
   | 'Read'
   | 'ReadMcpResourceTool'
+  | 'RemoteTrigger'
   | 'SendMessage'
   | 'Skill'
   | 'Task'

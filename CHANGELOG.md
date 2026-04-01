@@ -7,6 +7,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.6.0] - 2026-04-01
+
+### Added
+
+- `AgentNameEntry` entry type (`type: 'agent-name'`) for recording agent names in sessions
+- `CustomTitleEntry` entry type (`type: 'custom-title'`) for user-assigned session titles
+- `ToolReferenceBlock` content block type (`type: 'tool_reference'`) for tool references in tool results
+- `ToolResultContentBlock` union type for blocks inside `ToolResultBlock.content` arrays (includes `TextBlock`, `ImageBlock`, `ToolReferenceBlock`)
+- `LSP` and `RemoteTrigger` to `BuiltinToolName` union
+- `popAll` and `remove` to `QueueOperationEntry.operation` union
+- `entrypoint` optional field on `EntryBase`
+- `agentName` optional field on `EntryBase`
+- `origin` optional field on `UserEntry`
+- `stop_details` optional field on `AssistantMessage`
+- `messageCount` optional field on `SystemEntry` (for `turn_duration` subtype)
+- `requestId` and `toolUseResult` optional fields on `ProgressData.message`
+
+### Changed
+
+- `QueueOperationEntry.content` is now optional (not present on `remove` operations)
+- `ToolResultBlock.content` array type widened from `TextBlock[]` to `ToolResultContentBlock[]`
+
 ## [0.5.0] - 2026-03-15
 
 ### Added
@@ -110,7 +132,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - Model, StopReason, PermissionMode, BuiltinToolName unions
 - GitHub Actions workflow for automated publishing on version tags
 
-[Unreleased]: https://github.com/pedropaulovc/claude-code-types/compare/v0.5.0...HEAD
+[Unreleased]: https://github.com/pedropaulovc/claude-code-types/compare/v0.6.0...HEAD
+[0.6.0]: https://github.com/pedropaulovc/claude-code-types/compare/v0.5.0...v0.6.0
 [0.5.0]: https://github.com/pedropaulovc/claude-code-types/compare/v0.4.3...v0.5.0
 [0.4.3]: https://github.com/pedropaulovc/claude-code-types/compare/v0.4.2...v0.4.3
 [0.4.2]: https://github.com/pedropaulovc/claude-code-types/compare/v0.4.1...v0.4.2

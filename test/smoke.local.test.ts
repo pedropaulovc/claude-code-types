@@ -14,6 +14,8 @@ const KNOWN_TYPES = new Set([
   'user',
   'assistant',
   'system',
+  'agent-name',
+  'custom-title',
   'file-history-snapshot',
   'last-prompt',
   'pr-link',
