@@ -62,6 +62,14 @@ Model that generated this response. See [Model](../type-aliases/Model.md).
 
 ***
 
+### stop\_details?
+
+> `optional` **stop\_details**: `unknown`
+
+Additional details about why the model stopped. May be `null` during streaming.
+
+***
+
 ### stop\_reason
 
 > **stop\_reason**: [`StopReason`](../type-aliases/StopReason.md) \| `null`

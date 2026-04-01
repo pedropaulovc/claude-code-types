@@ -10,15 +10,17 @@ Messages queued by the user while the agent is processing a turn.
 
 ## Properties
 
-### content
+### content?
 
-> **content**: `string`
+> `optional` **content**: `string`
+
+Queue message content. Not present on `remove` operations.
 
 ***
 
 ### operation
 
-> **operation**: `"dequeue"` \| `"enqueue"`
+> **operation**: `"remove"` \| `"dequeue"` \| `"enqueue"` \| `"popAll"`
 
 ***
 

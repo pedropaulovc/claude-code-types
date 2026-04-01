@@ -33,6 +33,7 @@ for (const entry of entries) {
 
 ## Interfaces
 
+- [AgentNameEntry](interfaces/AgentNameEntry.md)
 - [AssistantEntry](interfaces/AssistantEntry.md)
 - [AssistantMessage](interfaces/AssistantMessage.md)
 - [Base64DocumentSource](interfaces/Base64DocumentSource.md)
@@ -44,6 +45,7 @@ for (const entry of entries) {
 - [CitationSearchResultLocation](interfaces/CitationSearchResultLocation.md)
 - [CitationWebSearchResultLocation](interfaces/CitationWebSearchResultLocation.md)
 - [CompactMetadata](interfaces/CompactMetadata.md)
+- [CustomTitleEntry](interfaces/CustomTitleEntry.md)
 - [DocumentBlock](interfaces/DocumentBlock.md)
 - [EntryBase](interfaces/EntryBase.md)
 - [FileBackup](interfaces/FileBackup.md)
@@ -67,6 +69,7 @@ for (const entry of entries) {
 - [ThinkingBlock](interfaces/ThinkingBlock.md)
 - [ThinkingMetadata](interfaces/ThinkingMetadata.md)
 - [Todo](interfaces/Todo.md)
+- [ToolReferenceBlock](interfaces/ToolReferenceBlock.md)
 - [ToolResultBlock](interfaces/ToolResultBlock.md)
 - [ToolUseBlock](interfaces/ToolUseBlock.md)
 - [UrlDocumentSource](interfaces/UrlDocumentSource.md)
@@ -88,5 +91,6 @@ for (const entry of entries) {
 - [StopReason](type-aliases/StopReason.md)
 - [SystemSubtype](type-aliases/SystemSubtype.md)
 - [TextCitation](type-aliases/TextCitation.md)
+- [ToolResultContentBlock](type-aliases/ToolResultContentBlock.md)
 - [TranscriptEntry](type-aliases/TranscriptEntry.md)
 - [UserContentBlock](type-aliases/UserContentBlock.md)
