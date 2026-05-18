@@ -106,6 +106,18 @@ Error message (subtype `api_error`).
 
 ***
 
+### forkedFrom?
+
+> `optional` **forkedFrom**: [`ForkedFromRef`](ForkedFromRef.md)
+
+Present when this session was forked from another.
+
+#### Inherited from
+
+[`EntryBase`](EntryBase.md).[`forkedFrom`](EntryBase.md#forkedfrom)
+
+***
+
 ### gitBranch?
 
 > `optional` **gitBranch**: `string`

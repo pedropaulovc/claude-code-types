@@ -40,6 +40,14 @@ were cleared. Typed as `unknown` because the schema is still in beta.
 
 ***
 
+### diagnostics?
+
+> `optional` **diagnostics**: [`MessageDiagnostics`](MessageDiagnostics.md)
+
+Diagnostics about prompt caching behavior for this response.
+
+***
+
 ### id?
 
 > `optional` **id**: `string`

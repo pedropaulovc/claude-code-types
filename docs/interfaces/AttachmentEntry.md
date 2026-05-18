@@ -2,15 +2,17 @@
 
 ***
 
-[claude-code-types](../README.md) / SavedHookContextEntry
+[claude-code-types](../README.md) / AttachmentEntry
 
-# Interface: SavedHookContextEntry
+# Interface: AttachmentEntry
 
-Persisted context from a hook execution.
+Context attachment injected into the conversation by hooks, tools, or the
+system. The `attachment` object is a discriminated union — switch on
+`attachment.type` to narrow.
 
 ## Extends
 
-- `Partial`\<[`EntryBase`](EntryBase.md)\>
+- [`EntryBase`](EntryBase.md)
 
 ## Properties
 
@@ -38,15 +40,15 @@ Name of the agent that produced this entry (e.g. `"implementer"`, `"tester"`).
 
 ***
 
-### content
+### attachment
 
-> **content**: `string`[]
+> **attachment**: [`Attachment`](../type-aliases/Attachment.md)
 
 ***
 
-### cwd?
+### cwd
 
-> `optional` **cwd**: `string`
+> **cwd**: `string`
 
 Working directory at the time this entry was created.
 
@@ -90,21 +92,9 @@ Present when this session was forked from another.
 
 ***
 
-### hookEvent?
+### isSidechain
 
-> `optional` **hookEvent**: `string`
-
-***
-
-### hookName?
-
-> `optional` **hookName**: `string`
-
-***
-
-### isSidechain?
-
-> `optional` **isSidechain**: `boolean`
+> **isSidechain**: `boolean`
 
 Whether this entry is on a side-chain (branched conversation path).
 
@@ -114,9 +104,9 @@ Whether this entry is on a side-chain (branched conversation path).
 
 ***
 
-### parentUuid?
+### parentUuid
 
-> `optional` **parentUuid**: `string` \| `null`
+> **parentUuid**: `string` \| `null`
 
 UUID of the parent entry in the conversation tree, or `null` for root.
 
@@ -126,9 +116,9 @@ UUID of the parent entry in the conversation tree, or `null` for root.
 
 ***
 
-### sessionId?
+### sessionId
 
-> `optional` **sessionId**: `string`
+> **sessionId**: `string`
 
 #### Inherited from
 
@@ -158,9 +148,9 @@ Project slug derived from the working directory.
 
 ***
 
-### timestamp?
+### timestamp
 
-> `optional` **timestamp**: `string`
+> **timestamp**: `string`
 
 ISO 8601 timestamp.
 
@@ -170,21 +160,15 @@ ISO 8601 timestamp.
 
 ***
 
-### toolUseID?
-
-> `optional` **toolUseID**: `string`
-
-***
-
 ### type
 
-> **type**: `"saved_hook_context"`
+> **type**: `"attachment"`
 
 ***
 
-### userType?
+### userType
 
-> `optional` **userType**: `"external"`
+> **userType**: `"external"`
 
 #### Inherited from
 
@@ -192,9 +176,9 @@ ISO 8601 timestamp.
 
 ***
 
-### uuid?
+### uuid
 
-> `optional` **uuid**: `string`
+> **uuid**: `string`
 
 Unique identifier for this entry.
 
@@ -204,9 +188,9 @@ Unique identifier for this entry.
 
 ***
 
-### version?
+### version
 
-> `optional` **version**: `string`
+> **version**: `string`
 
 Claude Code version string (e.g. `"1.0.33"`).
 

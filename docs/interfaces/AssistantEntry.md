@@ -46,6 +46,38 @@ Present when the API returned an error instead of a response.
 
 ***
 
+### apiErrorStatus?
+
+> `optional` **apiErrorStatus**: `number`
+
+HTTP status code from a failed API response (e.g. `403`).
+
+***
+
+### attributionAgent?
+
+> `optional` **attributionAgent**: `string`
+
+Agent type that produced this response (e.g. `"general-purpose"`).
+
+***
+
+### attributionPlugin?
+
+> `optional` **attributionPlugin**: `string`
+
+Plugin that produced this response (e.g. `"gstack-entrepreneur"`).
+
+***
+
+### attributionSkill?
+
+> `optional` **attributionSkill**: `string`
+
+Skill that produced this response (e.g. `"gstack-entrepreneur:office-hours"`).
+
+***
+
 ### cwd
 
 > **cwd**: `string`
@@ -73,6 +105,26 @@ How the session was started (e.g. `"cli"`).
 ### error?
 
 > `optional` **error**: `string`
+
+***
+
+### errorDetails?
+
+> `optional` **errorDetails**: `string`
+
+Full error response text from a failed API call.
+
+***
+
+### forkedFrom?
+
+> `optional` **forkedFrom**: [`ForkedFromRef`](ForkedFromRef.md)
+
+Present when this session was forked from another.
+
+#### Inherited from
+
+[`EntryBase`](EntryBase.md).[`forkedFrom`](EntryBase.md#forkedfrom)
 
 ***
 

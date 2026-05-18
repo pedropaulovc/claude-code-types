@@ -7,6 +7,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [1.0.0] - 2026-05-18
+
+### Added
+
+- `AttachmentEntry` entry type (`type: 'attachment'`) with 21 attachment subtypes: `hook_success`, `hook_additional_context`, `hook_blocking_error`, `task_reminder`, `deferred_tools_delta`, `queued_command`, `skill_listing`, `diagnostics`, `edited_text_file`, `command_permissions`, `nested_memory`, `plan_mode`, `plan_mode_exit`, `plan_mode_reentry`, `ultrathink_effort`, `goal_status`, `file`, `directory`, `date_change`, `companion_intro`, `compact_file_reference`
+- `AiTitleEntry` entry type (`type: 'ai-title'`) for AI-generated session titles
+- `PermissionModeEntry` entry type (`type: 'permission-mode'`) for permission mode changes
+- `away_summary` and `scheduled_task_fire` system subtypes
+- `Monitor`, `PushNotification`, `ScheduleWakeup`, `ShareOnboardingGuide` to `BuiltinToolName`
+- `claude-opus-4-7` to `Model` union
+- `forkedFrom` optional field on `EntryBase`
+- `attributionAgent`, `attributionSkill`, `attributionPlugin`, `apiErrorStatus`, `errorDetails` optional fields on `AssistantEntry`
+- `diagnostics` optional field on `AssistantMessage` (prompt cache miss reasons)
+- `leafUuid` optional field on `LastPromptEntry`
+- `postTokens`, `durationMs`, `preCompactDiscoveredTools`, `preservedSegment`, `preservedMessages` optional fields on `CompactMetadata`
+- `MessageDiagnostics`, `CacheMissReason`, `CacheMissReasonType`, `ForkedFromRef` helper types
+- `DiagnosticFile`, `DiagnosticItem`, `DiagnosticPosition` types for LSP diagnostics in attachments
+
+### Fixed
+
+- Smoke test now skips NUL-padded / corrupted JSONL lines
+
 ## [0.6.0] - 2026-04-01
 
 ### Added
@@ -132,7 +154,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - Model, StopReason, PermissionMode, BuiltinToolName unions
 - GitHub Actions workflow for automated publishing on version tags
 
-[Unreleased]: https://github.com/pedropaulovc/claude-code-types/compare/v0.6.0...HEAD
+[Unreleased]: https://github.com/pedropaulovc/claude-code-types/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/pedropaulovc/claude-code-types/compare/v0.6.0...v1.0.0
 [0.6.0]: https://github.com/pedropaulovc/claude-code-types/compare/v0.5.0...v0.6.0
 [0.5.0]: https://github.com/pedropaulovc/claude-code-types/compare/v0.4.3...v0.5.0
 [0.4.3]: https://github.com/pedropaulovc/claude-code-types/compare/v0.4.2...v0.4.3

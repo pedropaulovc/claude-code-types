@@ -14,8 +14,11 @@ const KNOWN_TYPES = new Set([
   'user',
   'assistant',
   'system',
+  'attachment',
   'agent-name',
+  'ai-title',
   'custom-title',
+  'permission-mode',
   'file-history-snapshot',
   'last-prompt',
   'pr-link',
@@ -61,7 +64,7 @@ const typeCounts = new Map<string, number>();
 
 for (const file of files) {
   totalFiles++;
-  const lines = readFileSync(file, 'utf-8').split('\n').filter(Boolean);
+  const lines = readFileSync(file, 'utf-8').split('\n').filter(l => l.trim() && l.trimStart().startsWith('{'));
 
   for (let i = 0; i < lines.length; i++) {
     totalLines++;
