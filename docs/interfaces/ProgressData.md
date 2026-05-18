@@ -18,9 +18,17 @@ Payload inside a [ProgressEntry](ProgressEntry.md).
 
 > **message**: [`UserMessage`](UserMessage.md) \| [`AssistantMessage`](AssistantMessage.md)
 
+#### requestId?
+
+> `optional` **requestId**: `string`
+
 #### timestamp?
 
 > `optional` **timestamp**: `string`
+
+#### toolUseResult?
+
+> `optional` **toolUseResult**: `unknown`
 
 #### type
 

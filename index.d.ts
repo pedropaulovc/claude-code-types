@@ -37,13 +37,18 @@ export type TranscriptEntry =
   | UserEntry
   | AssistantEntry
   | SystemEntry
+  | AttachmentEntry
   | FileHistorySnapshotEntry
   | LastPromptEntry
   | PrLinkEntry
   | ProgressEntry
   | QueueOperationEntry
   | SavedHookContextEntry
-  | SummaryEntry;
+  | SummaryEntry
+  | AiTitleEntry
+  | AgentNameEntry
+  | CustomTitleEntry
+  | PermissionModeEntry;
 
 // ---------------------------------------------------------------------------
 // Shared base fields (present on most entries that represent conversation turns)
@@ -68,8 +73,14 @@ interface EntryBase {
   slug?: string;
   /** Present on entries produced by subagents / Task tool invocations (e.g. `"a4044e6"`). */
   agentId?: string;
+  /** Human-readable name of the subagent (e.g. `"demo-reviewer"`). */
+  agentName?: string;
   teamName?: string;
   userType: 'external';
+  /** Entry point that created this session (e.g. `"cli"`). */
+  entrypoint?: string;
+  /** Present when this session was forked from another. */
+  forkedFrom?: ForkedFromRef;
 }
 
 // ---------------------------------------------------------------------------
@@ -98,6 +109,8 @@ export interface UserEntry extends EntryBase {
   sourceToolAssistantUUID?: string;
   /** ID of the tool_use content block this result corresponds to. */
   sourceToolUseID?: string;
+  /** Origin of this user message when not directly typed (e.g. `{kind: "task-notification"}`). */
+  origin?: { kind: string };
 }
 
 /** The `message` payload inside a {@link UserEntry}. */
@@ -127,6 +140,16 @@ export interface AssistantEntry extends EntryBase {
   apiError?: unknown;
   error?: string;
   isApiErrorMessage?: boolean;
+  /** HTTP status code from a failed API response (e.g. `403`). */
+  apiErrorStatus?: number;
+  /** Full error response text from a failed API call. */
+  errorDetails?: string;
+  /** Agent type that produced this response (e.g. `"general-purpose"`). */
+  attributionAgent?: string;
+  /** Skill that produced this response (e.g. `"gstack-entrepreneur:office-hours"`). */
+  attributionSkill?: string;
+  /** Plugin that produced this response (e.g. `"gstack-entrepreneur"`). */
+  attributionPlugin?: string;
 }
 
 /**
@@ -160,6 +183,10 @@ export interface AssistantMessage {
    * were cleared. Typed as `unknown` because the schema is still in beta.
    */
   context_management?: unknown;
+  /** Always `null` in current data; reserved for future use. */
+  stop_details?: null;
+  /** Diagnostics about prompt caching behavior for this response. */
+  diagnostics?: MessageDiagnostics;
 }
 
 /** Content blocks that can appear in an assistant message. */
@@ -215,16 +242,20 @@ export interface SystemEntry extends Partial<EntryBase> {
   logicalParentUuid?: string;
   /** URL for remote control bridge (subtype `bridge_status`). */
   url?: string;
+  /** Number of messages in the conversation (subtype `turn_duration`). */
+  messageCount?: number;
 }
 
 /** Discriminator values for {@link SystemEntry.subtype}. */
 export type SystemSubtype =
   | 'api_error'
+  | 'away_summary'
   | 'compact_boundary'
   | 'informational'
   | 'local_command'
   | 'microcompact_boundary'
   | 'bridge_status'
+  | 'scheduled_task_fire'
   | 'stop_hook_summary'
   | 'turn_duration';
 
@@ -237,6 +268,8 @@ export interface LastPromptEntry {
   type: 'last-prompt';
   lastPrompt: string;
   sessionId: string;
+  /** UUID of the leaf message this prompt corresponds to. */
+  leafUuid?: string;
 }
 
 // ---------------------------------------------------------------------------
@@ -309,6 +342,8 @@ export interface ProgressData {
     message: UserMessage | AssistantMessage;
     uuid?: string;
     timestamp?: string;
+    requestId?: string;
+    toolUseResult?: unknown;
   };
 }
 
@@ -319,7 +354,7 @@ export interface ProgressData {
 /** Messages queued by the user while the agent is processing a turn. */
 export interface QueueOperationEntry {
   type: 'queue-operation';
-  operation: 'enqueue' | 'dequeue';
+  operation: 'enqueue' | 'dequeue' | 'remove' | 'popAll';
   sessionId: string;
   timestamp: string;
   content: string;
@@ -348,6 +383,259 @@ export interface SummaryEntry {
   summary: string;
   /** UUID of the leaf message this summary covers up to. */
   leafUuid: string;
+}
+
+// ---------------------------------------------------------------------------
+// Attachment entry (context injected into the conversation)
+// ---------------------------------------------------------------------------
+
+/**
+ * Context attachment injected into the conversation by hooks, tools, or the
+ * system. The `attachment` object is a discriminated union — switch on
+ * `attachment.type` to narrow.
+ */
+export interface AttachmentEntry extends EntryBase {
+  type: 'attachment';
+  attachment: Attachment;
+}
+
+/** Discriminated union of attachment payloads. Switch on `type` to narrow. */
+export type Attachment =
+  | HookSuccessAttachment
+  | HookAdditionalContextAttachment
+  | HookBlockingErrorAttachment
+  | TaskReminderAttachment
+  | DeferredToolsDeltaAttachment
+  | QueuedCommandAttachment
+  | SkillListingAttachment
+  | DiagnosticsAttachment
+  | EditedTextFileAttachment
+  | CommandPermissionsAttachment
+  | NestedMemoryAttachment
+  | PlanModeAttachment
+  | PlanModeExitAttachment
+  | PlanModeReentryAttachment
+  | UltrathinkEffortAttachment
+  | GoalStatusAttachment
+  | FileAttachment
+  | DirectoryAttachment
+  | DateChangeAttachment
+  | CompanionIntroAttachment
+  | CompactFileReferenceAttachment;
+
+/** Discriminator values for {@link Attachment}. */
+export type AttachmentType = Attachment['type'];
+
+export interface HookSuccessAttachment {
+  type: 'hook_success';
+  hookName: string;
+  hookEvent: string;
+  toolUseID: string;
+  content: string;
+  stdout: string;
+  stderr: string;
+  exitCode: number;
+  command: string;
+  durationMs: number;
+}
+
+export interface HookAdditionalContextAttachment {
+  type: 'hook_additional_context';
+  content: string[];
+  hookName: string;
+  hookEvent: string;
+  toolUseID: string;
+}
+
+export interface HookBlockingErrorAttachment {
+  type: 'hook_blocking_error';
+  hookName: string;
+  hookEvent: string;
+  toolUseID: string;
+  blockingError: { blockingError: string; command: string };
+}
+
+export interface TaskReminderAttachment {
+  type: 'task_reminder';
+  content: unknown[];
+  itemCount: number;
+}
+
+export interface DeferredToolsDeltaAttachment {
+  type: 'deferred_tools_delta';
+  addedNames: string[];
+  addedLines: string[];
+  removedNames: string[];
+  readdedNames?: string[];
+  pendingMcpServers?: string[];
+}
+
+export interface QueuedCommandAttachment {
+  type: 'queued_command';
+  prompt: string;
+  commandMode: string;
+  source_uuid?: string;
+}
+
+export interface SkillListingAttachment {
+  type: 'skill_listing';
+  content: string;
+  skillCount: number;
+  isInitial: boolean;
+}
+
+export interface DiagnosticsAttachment {
+  type: 'diagnostics';
+  files: DiagnosticFile[];
+  isNew: boolean;
+}
+
+export interface DiagnosticFile {
+  uri: string;
+  diagnostics: DiagnosticItem[];
+}
+
+export interface DiagnosticItem {
+  message: string;
+  severity: string;
+  range: { start: DiagnosticPosition; end: DiagnosticPosition };
+  source?: string;
+  code?: string;
+}
+
+export interface DiagnosticPosition {
+  line: number;
+  character: number;
+}
+
+export interface EditedTextFileAttachment {
+  type: 'edited_text_file';
+  filename: string;
+  snippet: string;
+}
+
+export interface CommandPermissionsAttachment {
+  type: 'command_permissions';
+  allowedTools: string[];
+}
+
+export interface NestedMemoryAttachment {
+  type: 'nested_memory';
+  path: string;
+  content: {
+    path: string;
+    type: string;
+    content: string;
+    contentDiffersFromDisk: boolean;
+  };
+  displayPath: string;
+}
+
+export interface PlanModeAttachment {
+  type: 'plan_mode';
+  reminderType: string;
+  isSubAgent: boolean;
+  planFilePath: string;
+  planExists: boolean;
+}
+
+export interface PlanModeExitAttachment {
+  type: 'plan_mode_exit';
+  planFilePath: string;
+  planExists: boolean;
+}
+
+export interface PlanModeReentryAttachment {
+  type: 'plan_mode_reentry';
+  planFilePath: string;
+}
+
+export interface UltrathinkEffortAttachment {
+  type: 'ultrathink_effort';
+  level?: string;
+}
+
+export interface GoalStatusAttachment {
+  type: 'goal_status';
+  met: boolean;
+  condition: string;
+  sentinel?: boolean;
+  reason?: string;
+  iterations?: number;
+  durationMs?: number;
+  tokens?: number;
+}
+
+export interface FileAttachment {
+  type: 'file';
+  filename: string;
+  content: {
+    type: string;
+    file: {
+      filePath: string;
+      content: string;
+      numLines: number;
+      startLine: number;
+      totalLines: number;
+    };
+  };
+  displayPath: string;
+}
+
+export interface DirectoryAttachment {
+  type: 'directory';
+  path: string;
+  content: string;
+  displayPath: string;
+}
+
+export interface DateChangeAttachment {
+  type: 'date_change';
+  newDate: string;
+}
+
+export interface CompanionIntroAttachment {
+  type: 'companion_intro';
+  name: string;
+  species: string;
+}
+
+export interface CompactFileReferenceAttachment {
+  type: 'compact_file_reference';
+  filename: string;
+  displayPath: string;
+}
+
+// ---------------------------------------------------------------------------
+// Simple metadata entries
+// ---------------------------------------------------------------------------
+
+/** Records a permission mode change during the session. */
+export interface PermissionModeEntry {
+  type: 'permission-mode';
+  permissionMode: PermissionMode;
+  sessionId: string;
+}
+
+/** AI-generated session title. */
+export interface AiTitleEntry {
+  type: 'ai-title';
+  aiTitle: string;
+  sessionId: string;
+}
+
+/** Agent name for subagent sessions. */
+export interface AgentNameEntry {
+  type: 'agent-name';
+  agentName: string;
+  sessionId: string;
+}
+
+/** User-set custom session title. */
+export interface CustomTitleEntry {
+  type: 'custom-title';
+  customTitle: string;
+  sessionId: string;
 }
 
 // ---------------------------------------------------------------------------
@@ -633,11 +921,46 @@ export interface ServerToolUsage {
   web_search_requests: number;
 }
 
+/** Diagnostics about prompt caching behavior for a response. */
+export interface MessageDiagnostics {
+  cache_miss_reason: CacheMissReason;
+}
+
+/** Reason why the prompt cache was not hit. */
+export interface CacheMissReason {
+  type: CacheMissReasonType;
+}
+
+/** Discriminator values for {@link CacheMissReason}. */
+export type CacheMissReasonType =
+  | 'messages_changed'
+  | 'model_changed'
+  | 'previous_message_not_found'
+  | 'system_changed'
+  | 'tools_changed'
+  | 'unavailable';
+
+/** Reference to the session and message this session was forked from. */
+export interface ForkedFromRef {
+  sessionId: string;
+  messageUuid: string;
+}
+
 /** Metadata emitted with `compact_boundary` system entries. */
 export interface CompactMetadata {
   trigger: 'auto' | 'manual';
   /** Token count before compaction. */
   preTokens: number;
+  /** Token count after compaction. */
+  postTokens?: number;
+  /** Duration of the compaction in milliseconds. */
+  durationMs?: number;
+  /** Tool names discovered before compaction. */
+  preCompactDiscoveredTools?: string[];
+  /** Preserved message segment boundaries. */
+  preservedSegment?: { headUuid: string; anchorUuid: string; tailUuid: string };
+  /** Preserved message UUIDs. */
+  preservedMessages?: { anchorUuid: string; uuids: string[] };
 }
 
 /** Metadata emitted with `microcompact_boundary` system entries. */
@@ -674,6 +997,7 @@ export interface Todo {
  * The `"<synthetic>"` value is specific to Claude Code for locally-generated messages.
  */
 export type Model =
+  | 'claude-opus-4-7'
   | 'claude-opus-4-6'
   | 'claude-sonnet-4-6'
   | 'claude-opus-4-5-20251101'
@@ -728,11 +1052,17 @@ export type BuiltinToolName =
   | 'Glob'
   | 'Grep'
   | 'KillShell'
+  | 'LSP'
   | 'ListMcpResourcesTool'
+  | 'Monitor'
   | 'NotebookEdit'
+  | 'PushNotification'
   | 'Read'
   | 'ReadMcpResourceTool'
+  | 'RemoteTrigger'
+  | 'ScheduleWakeup'
   | 'SendMessage'
+  | 'ShareOnboardingGuide'
   | 'Skill'
   | 'Task'
   | 'TaskCreate'

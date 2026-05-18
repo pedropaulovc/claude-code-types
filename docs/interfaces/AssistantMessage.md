@@ -40,6 +40,14 @@ were cleared. Typed as `unknown` because the schema is still in beta.
 
 ***
 
+### diagnostics?
+
+> `optional` **diagnostics**: [`MessageDiagnostics`](MessageDiagnostics.md)
+
+Diagnostics about prompt caching behavior for this response.
+
+***
+
 ### id?
 
 > `optional` **id**: `string`
@@ -59,6 +67,14 @@ Model that generated this response. See [Model](../type-aliases/Model.md).
 ### role
 
 > **role**: `"assistant"`
+
+***
+
+### stop\_details?
+
+> `optional` **stop\_details**: `null`
+
+Always `null` in current data; reserved for future use.
 
 ***
 

@@ -10,6 +10,7 @@
 
 - [`UserEntry`](UserEntry.md)
 - [`AssistantEntry`](AssistantEntry.md)
+- [`AttachmentEntry`](AttachmentEntry.md)
 
 ## Properties
 
@@ -21,11 +22,35 @@ Present on entries produced by subagents / Task tool invocations (e.g. `"a4044e6
 
 ***
 
+### agentName?
+
+> `optional` **agentName**: `string`
+
+Human-readable name of the subagent (e.g. `"demo-reviewer"`).
+
+***
+
 ### cwd
 
 > **cwd**: `string`
 
 Working directory at the time this entry was created.
+
+***
+
+### entrypoint?
+
+> `optional` **entrypoint**: `string`
+
+Entry point that created this session (e.g. `"cli"`).
+
+***
+
+### forkedFrom?
+
+> `optional` **forkedFrom**: [`ForkedFromRef`](ForkedFromRef.md)
+
+Present when this session was forked from another.
 
 ***
 

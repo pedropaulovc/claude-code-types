@@ -18,7 +18,7 @@ Messages queued by the user while the agent is processing a turn.
 
 ### operation
 
-> **operation**: `"dequeue"` \| `"enqueue"`
+> **operation**: `"remove"` \| `"dequeue"` \| `"enqueue"` \| `"popAll"`
 
 ***
 

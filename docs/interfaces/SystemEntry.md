@@ -34,6 +34,18 @@ Present on entries produced by subagents / Task tool invocations (e.g. `"a4044e6
 
 ***
 
+### agentName?
+
+> `optional` **agentName**: `string`
+
+Human-readable name of the subagent (e.g. `"demo-reviewer"`).
+
+#### Inherited from
+
+[`EntryBase`](EntryBase.md).[`agentName`](EntryBase.md#agentname)
+
+***
+
 ### cause?
 
 > `optional` **cause**: `string`
@@ -74,11 +86,35 @@ Milliseconds the turn took (subtype `turn_duration`).
 
 ***
 
+### entrypoint?
+
+> `optional` **entrypoint**: `string`
+
+Entry point that created this session (e.g. `"cli"`).
+
+#### Inherited from
+
+[`EntryBase`](EntryBase.md).[`entrypoint`](EntryBase.md#entrypoint)
+
+***
+
 ### error?
 
 > `optional` **error**: `string`
 
 Error message (subtype `api_error`).
+
+***
+
+### forkedFrom?
+
+> `optional` **forkedFrom**: [`ForkedFromRef`](ForkedFromRef.md)
+
+Present when this session was forked from another.
+
+#### Inherited from
+
+[`EntryBase`](EntryBase.md).[`forkedFrom`](EntryBase.md#forkedfrom)
 
 ***
 
@@ -151,6 +187,14 @@ Whether this entry is on a side-chain (branched conversation path).
 ### maxRetries?
 
 > `optional` **maxRetries**: `number`
+
+***
+
+### messageCount?
+
+> `optional` **messageCount**: `number`
+
+Number of messages in the conversation (subtype `turn_duration`).
 
 ***
 
