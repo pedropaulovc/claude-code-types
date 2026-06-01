@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [1.2.0] - 2026-06-01
+
+### Added
+
+- `StartedEntry` (`type: 'started'`) and `ResultEntry` (`type: 'result'`) workflow-journal entry types (`key` + `agentId`, plus `result` payload) used by the Workflow tool to resume runs
+- `StructuredOutput` and `Workflow` to `BuiltinToolName`
+
 ## [1.1.0] - 2026-05-31
 
 ### Added
@@ -170,7 +177,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - Model, StopReason, PermissionMode, BuiltinToolName unions
 - GitHub Actions workflow for automated publishing on version tags
 
-[Unreleased]: https://github.com/pedropaulovc/claude-code-types/compare/v1.1.0...HEAD
+[Unreleased]: https://github.com/pedropaulovc/claude-code-types/compare/v1.2.0...HEAD
+[1.2.0]: https://github.com/pedropaulovc/claude-code-types/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/pedropaulovc/claude-code-types/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/pedropaulovc/claude-code-types/compare/v0.6.0...v1.0.0
 [0.6.0]: https://github.com/pedropaulovc/claude-code-types/compare/v0.5.0...v0.6.0

@@ -27,7 +27,9 @@ const KNOWN_TYPES = new Set([
   'pr-link',
   'progress',
   'queue-operation',
+  'result',
   'saved_hook_context',
+  'started',
   'summary',
   'worktree-state',
 ]);

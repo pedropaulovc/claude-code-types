@@ -50,7 +50,9 @@ export type TranscriptEntry =
   | PrLinkEntry
   | ProgressEntry
   | QueueOperationEntry
+  | ResultEntry
   | SavedHookContextEntry
+  | StartedEntry
   | SummaryEntry
   | WorktreeStateEntry;
 
@@ -412,6 +414,37 @@ export interface SummaryEntry {
   summary: string;
   /** UUID of the leaf message this summary covers up to. */
   leafUuid: string;
+}
+
+// ---------------------------------------------------------------------------
+// Workflow journal entries (started / result)
+// ---------------------------------------------------------------------------
+
+/**
+ * Marks the start of a cached workflow/agent step. Paired with a
+ * {@link ResultEntry} sharing the same `key`, this forms the journal the
+ * Workflow tool uses to resume runs without re-executing completed steps.
+ */
+export interface StartedEntry {
+  type: 'started';
+  /** Content-hash cache key (e.g. `"v2:<sha256>"`) identifying the step. */
+  key: string;
+  /** Identifier of the agent that ran the step (e.g. `"ac3124bd2ff9eed73"`). */
+  agentId: string;
+}
+
+/**
+ * Cached result of a workflow/agent step, keyed to the matching
+ * {@link StartedEntry} by `key`. The `result` payload is step-specific — for
+ * agents invoked with a schema it is the validated structured output.
+ */
+export interface ResultEntry {
+  type: 'result';
+  /** Content-hash cache key matching the corresponding {@link StartedEntry}. */
+  key: string;
+  agentId: string;
+  /** Step-specific return value (shape depends on the agent/step). */
+  result: unknown;
 }
 
 // ---------------------------------------------------------------------------
@@ -1199,6 +1232,7 @@ export type BuiltinToolName =
   | 'SendUserFile'
   | 'ShareOnboardingGuide'
   | 'Skill'
+  | 'StructuredOutput'
   | 'Task'
   | 'TaskCreate'
   | 'TaskGet'
@@ -1212,6 +1246,7 @@ export type BuiltinToolName =
   | 'ToolSearch'
   | 'WebFetch'
   | 'WebSearch'
+  | 'Workflow'
   | 'Write';
 
 // ---------------------------------------------------------------------------
