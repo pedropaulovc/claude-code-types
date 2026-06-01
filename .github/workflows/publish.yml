@@ -7,13 +7,16 @@ on:
   workflow_dispatch:
 
 jobs:
-  release:
+  # Single job: validate, publish to npm, THEN create the GitHub Release.
+  # npm publish is the gating step, so a green run unambiguously means the
+  # package is live on npm — and a GitHub Release is never created for a
+  # version that failed to publish.
+  publish:
     runs-on: ubuntu-slim
+    environment: npm
     permissions:
       contents: write
       id-token: write
-    outputs:
-      version: ${{ steps.version.outputs.version }}
     steps:
       - uses: actions/checkout@v4
 
@@ -21,6 +24,7 @@ jobs:
         with:
           node-version: '25'
           cache: 'npm'
+          registry-url: 'https://registry.npmjs.org'
 
       - run: npm ci
 
@@ -54,6 +58,11 @@ jobs:
           echo "✓ Found changelog entry for ${VERSION}"
           echo "$CHANGELOG" > changelog_body.md
 
+      - name: Publish to npm
+        run: npm publish --access public --provenance
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
@@ -62,25 +71,3 @@ jobs:
           body_path: changelog_body.md
           draft: false
           prerelease: ${{ contains(steps.version.outputs.version, '-') }}
-
-  publish:
-    needs: release
-    runs-on: ubuntu-slim
-    environment: npm
-    permissions:
-      contents: read
-      id-token: write
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '25'
-          cache: 'npm'
-          registry-url: 'https://registry.npmjs.org'
-
-      - run: npm ci
-
-      - run: npm publish --access public --provenance
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
