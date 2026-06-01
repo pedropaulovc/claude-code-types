@@ -9,30 +9,10 @@ import { readFileSync, readdirSync, statSync } from 'fs';
 import { join } from 'path';
 import { homedir } from 'os';
 import type { TranscriptEntry } from '../index';
+import { extractTypes, discriminatorsOf } from '../scripts/lib/extract-types.ts';
 
-const KNOWN_TYPES = new Set([
-  'user',
-  'assistant',
-  'system',
-  'attachment',
-  'agent-name',
-  'agent-setting',
-  'ai-title',
-  'bridge-session',
-  'custom-title',
-  'mode',
-  'permission-mode',
-  'file-history-snapshot',
-  'last-prompt',
-  'pr-link',
-  'progress',
-  'queue-operation',
-  'result',
-  'saved_hook_context',
-  'started',
-  'summary',
-  'worktree-state',
-]);
+// Derived from index.d.ts so the test never drifts from the declared union.
+const KNOWN_TYPES = discriminatorsOf(extractTypes(), 'TranscriptEntry');
 
 function findJsonlFiles(dir: string): string[] {
   const results: string[] = [];
