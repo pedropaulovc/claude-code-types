@@ -16,7 +16,7 @@ Model response, including text, thinking, and tool calls.
 
 ### agentId?
 
-> `optional` **agentId**: `string`
+> `optional` **agentId?**: `string`
 
 Present on entries produced by subagents / Task tool invocations (e.g. `"a4044e6"`).
 
@@ -28,7 +28,7 @@ Present on entries produced by subagents / Task tool invocations (e.g. `"a4044e6
 
 ### agentName?
 
-> `optional` **agentName**: `string`
+> `optional` **agentName?**: `string`
 
 Name of the agent that produced this entry (e.g. `"implementer"`, `"tester"`).
 
@@ -40,7 +40,7 @@ Name of the agent that produced this entry (e.g. `"implementer"`, `"tester"`).
 
 ### apiError?
 
-> `optional` **apiError**: `unknown`
+> `optional` **apiError?**: `unknown`
 
 Present when the API returned an error instead of a response.
 
@@ -48,7 +48,7 @@ Present when the API returned an error instead of a response.
 
 ### apiErrorStatus?
 
-> `optional` **apiErrorStatus**: `number`
+> `optional` **apiErrorStatus?**: `number`
 
 HTTP status code from a failed API response (e.g. `403`).
 
@@ -56,7 +56,7 @@ HTTP status code from a failed API response (e.g. `403`).
 
 ### attributionAgent?
 
-> `optional` **attributionAgent**: `string`
+> `optional` **attributionAgent?**: `string`
 
 Agent type that produced this response (e.g. `"general-purpose"`).
 
@@ -64,7 +64,7 @@ Agent type that produced this response (e.g. `"general-purpose"`).
 
 ### attributionPlugin?
 
-> `optional` **attributionPlugin**: `string`
+> `optional` **attributionPlugin?**: `string`
 
 Plugin that produced this response (e.g. `"gstack-entrepreneur"`).
 
@@ -72,7 +72,7 @@ Plugin that produced this response (e.g. `"gstack-entrepreneur"`).
 
 ### attributionSkill?
 
-> `optional` **attributionSkill**: `string`
+> `optional` **attributionSkill?**: `string`
 
 Skill that produced this response (e.g. `"gstack-entrepreneur:office-hours"`).
 
@@ -92,7 +92,7 @@ Working directory at the time this entry was created.
 
 ### entrypoint?
 
-> `optional` **entrypoint**: `string`
+> `optional` **entrypoint?**: `string`
 
 How the session was started (e.g. `"cli"`).
 
@@ -104,13 +104,13 @@ How the session was started (e.g. `"cli"`).
 
 ### error?
 
-> `optional` **error**: `string`
+> `optional` **error?**: `string`
 
 ***
 
 ### errorDetails?
 
-> `optional` **errorDetails**: `string`
+> `optional` **errorDetails?**: `string`
 
 Full error response text from a failed API call.
 
@@ -118,7 +118,7 @@ Full error response text from a failed API call.
 
 ### forkedFrom?
 
-> `optional` **forkedFrom**: [`ForkedFromRef`](ForkedFromRef.md)
+> `optional` **forkedFrom?**: [`ForkedFromRef`](ForkedFromRef.md)
 
 Present when this session was forked from another.
 
@@ -130,7 +130,7 @@ Present when this session was forked from another.
 
 ### gitBranch?
 
-> `optional` **gitBranch**: `string`
+> `optional` **gitBranch?**: `string`
 
 #### Inherited from
 
@@ -140,7 +140,7 @@ Present when this session was forked from another.
 
 ### isApiErrorMessage?
 
-> `optional` **isApiErrorMessage**: `boolean`
+> `optional` **isApiErrorMessage?**: `boolean`
 
 ***
 
@@ -176,7 +176,7 @@ UUID of the parent entry in the conversation tree, or `null` for root.
 
 ### requestId?
 
-> `optional` **requestId**: `string`
+> `optional` **requestId?**: `string`
 
 Anthropic API request ID for this response.
 
@@ -194,7 +194,7 @@ Anthropic API request ID for this response.
 
 ### slug?
 
-> `optional` **slug**: `string`
+> `optional` **slug?**: `string`
 
 Project slug derived from the working directory.
 
@@ -206,7 +206,7 @@ Project slug derived from the working directory.
 
 ### teamName?
 
-> `optional` **teamName**: `string`
+> `optional` **teamName?**: `string`
 
 #### Inherited from
 

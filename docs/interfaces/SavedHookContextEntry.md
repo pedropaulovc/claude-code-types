@@ -16,7 +16,7 @@ Persisted context from a hook execution.
 
 ### agentId?
 
-> `optional` **agentId**: `string`
+> `optional` **agentId?**: `string`
 
 Present on entries produced by subagents / Task tool invocations (e.g. `"a4044e6"`).
 
@@ -28,7 +28,7 @@ Present on entries produced by subagents / Task tool invocations (e.g. `"a4044e6
 
 ### agentName?
 
-> `optional` **agentName**: `string`
+> `optional` **agentName?**: `string`
 
 Name of the agent that produced this entry (e.g. `"implementer"`, `"tester"`).
 
@@ -46,7 +46,7 @@ Name of the agent that produced this entry (e.g. `"implementer"`, `"tester"`).
 
 ### cwd?
 
-> `optional` **cwd**: `string`
+> `optional` **cwd?**: `string`
 
 Working directory at the time this entry was created.
 
@@ -58,7 +58,7 @@ Working directory at the time this entry was created.
 
 ### entrypoint?
 
-> `optional` **entrypoint**: `string`
+> `optional` **entrypoint?**: `string`
 
 How the session was started (e.g. `"cli"`).
 
@@ -70,7 +70,7 @@ How the session was started (e.g. `"cli"`).
 
 ### forkedFrom?
 
-> `optional` **forkedFrom**: [`ForkedFromRef`](ForkedFromRef.md)
+> `optional` **forkedFrom?**: [`ForkedFromRef`](ForkedFromRef.md)
 
 Present when this session was forked from another.
 
@@ -82,7 +82,7 @@ Present when this session was forked from another.
 
 ### gitBranch?
 
-> `optional` **gitBranch**: `string`
+> `optional` **gitBranch?**: `string`
 
 #### Inherited from
 
@@ -92,19 +92,19 @@ Present when this session was forked from another.
 
 ### hookEvent?
 
-> `optional` **hookEvent**: `string`
+> `optional` **hookEvent?**: `string`
 
 ***
 
 ### hookName?
 
-> `optional` **hookName**: `string`
+> `optional` **hookName?**: `string`
 
 ***
 
 ### isSidechain?
 
-> `optional` **isSidechain**: `boolean`
+> `optional` **isSidechain?**: `boolean`
 
 Whether this entry is on a side-chain (branched conversation path).
 
@@ -116,7 +116,7 @@ Whether this entry is on a side-chain (branched conversation path).
 
 ### parentUuid?
 
-> `optional` **parentUuid**: `string` \| `null`
+> `optional` **parentUuid?**: `string` \| `null`
 
 UUID of the parent entry in the conversation tree, or `null` for root.
 
@@ -128,7 +128,7 @@ UUID of the parent entry in the conversation tree, or `null` for root.
 
 ### sessionId?
 
-> `optional` **sessionId**: `string`
+> `optional` **sessionId?**: `string`
 
 #### Inherited from
 
@@ -138,7 +138,7 @@ UUID of the parent entry in the conversation tree, or `null` for root.
 
 ### slug?
 
-> `optional` **slug**: `string`
+> `optional` **slug?**: `string`
 
 Project slug derived from the working directory.
 
@@ -150,7 +150,7 @@ Project slug derived from the working directory.
 
 ### teamName?
 
-> `optional` **teamName**: `string`
+> `optional` **teamName?**: `string`
 
 #### Inherited from
 
@@ -160,7 +160,7 @@ Project slug derived from the working directory.
 
 ### timestamp?
 
-> `optional` **timestamp**: `string`
+> `optional` **timestamp?**: `string`
 
 ISO 8601 timestamp.
 
@@ -172,7 +172,7 @@ ISO 8601 timestamp.
 
 ### toolUseID?
 
-> `optional` **toolUseID**: `string`
+> `optional` **toolUseID?**: `string`
 
 ***
 
@@ -184,7 +184,7 @@ ISO 8601 timestamp.
 
 ### userType?
 
-> `optional` **userType**: `"external"`
+> `optional` **userType?**: `"external"`
 
 #### Inherited from
 
@@ -194,7 +194,7 @@ ISO 8601 timestamp.
 
 ### uuid?
 
-> `optional` **uuid**: `string`
+> `optional` **uuid?**: `string`
 
 Unique identifier for this entry.
 
@@ -206,7 +206,7 @@ Unique identifier for this entry.
 
 ### version?
 
-> `optional` **version**: `string`
+> `optional` **version?**: `string`
 
 Claude Code version string (e.g. `"1.0.33"`).
 

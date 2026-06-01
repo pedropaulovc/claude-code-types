@@ -22,13 +22,13 @@
 
 ### pendingMcpServers?
 
-> `optional` **pendingMcpServers**: `string`[]
+> `optional` **pendingMcpServers?**: `string`[]
 
 ***
 
 ### readdedNames?
 
-> `optional` **readdedNames**: `string`[]
+> `optional` **readdedNames?**: `string`[]
 
 ***
 

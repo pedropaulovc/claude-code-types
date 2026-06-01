@@ -10,7 +10,7 @@
 
 ### code?
 
-> `optional` **code**: `string`
+> `optional` **code?**: `string`
 
 ***
 
@@ -42,4 +42,4 @@
 
 ### source?
 
-> `optional` **source**: `string`
+> `optional` **source?**: `string`

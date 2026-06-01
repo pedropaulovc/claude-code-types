@@ -24,7 +24,7 @@ fields are relevant:
 
 ### agentId?
 
-> `optional` **agentId**: `string`
+> `optional` **agentId?**: `string`
 
 Present on entries produced by subagents / Task tool invocations (e.g. `"a4044e6"`).
 
@@ -36,7 +36,7 @@ Present on entries produced by subagents / Task tool invocations (e.g. `"a4044e6
 
 ### agentName?
 
-> `optional` **agentName**: `string`
+> `optional` **agentName?**: `string`
 
 Name of the agent that produced this entry (e.g. `"implementer"`, `"tester"`).
 
@@ -48,13 +48,13 @@ Name of the agent that produced this entry (e.g. `"implementer"`, `"tester"`).
 
 ### cause?
 
-> `optional` **cause**: `string`
+> `optional` **cause?**: `string`
 
 ***
 
 ### compactMetadata?
 
-> `optional` **compactMetadata**: [`CompactMetadata`](CompactMetadata.md)
+> `optional` **compactMetadata?**: [`CompactMetadata`](CompactMetadata.md)
 
 Subtype `compact_boundary`.
 
@@ -62,13 +62,13 @@ Subtype `compact_boundary`.
 
 ### content?
 
-> `optional` **content**: `string`
+> `optional` **content?**: `string`
 
 ***
 
 ### cwd?
 
-> `optional` **cwd**: `string`
+> `optional` **cwd?**: `string`
 
 Working directory at the time this entry was created.
 
@@ -80,7 +80,7 @@ Working directory at the time this entry was created.
 
 ### durationMs?
 
-> `optional` **durationMs**: `number`
+> `optional` **durationMs?**: `number`
 
 Milliseconds the turn took (subtype `turn_duration`).
 
@@ -88,7 +88,7 @@ Milliseconds the turn took (subtype `turn_duration`).
 
 ### entrypoint?
 
-> `optional` **entrypoint**: `string`
+> `optional` **entrypoint?**: `string`
 
 How the session was started (e.g. `"cli"`).
 
@@ -100,7 +100,7 @@ How the session was started (e.g. `"cli"`).
 
 ### error?
 
-> `optional` **error**: `string`
+> `optional` **error?**: `string`
 
 Error message (subtype `api_error`).
 
@@ -108,7 +108,7 @@ Error message (subtype `api_error`).
 
 ### forkedFrom?
 
-> `optional` **forkedFrom**: [`ForkedFromRef`](ForkedFromRef.md)
+> `optional` **forkedFrom?**: [`ForkedFromRef`](ForkedFromRef.md)
 
 Present when this session was forked from another.
 
@@ -120,7 +120,7 @@ Present when this session was forked from another.
 
 ### gitBranch?
 
-> `optional` **gitBranch**: `string`
+> `optional` **gitBranch?**: `string`
 
 #### Inherited from
 
@@ -130,13 +130,13 @@ Present when this session was forked from another.
 
 ### hasOutput?
 
-> `optional` **hasOutput**: `boolean`
+> `optional` **hasOutput?**: `boolean`
 
 ***
 
 ### hookCount?
 
-> `optional` **hookCount**: `number`
+> `optional` **hookCount?**: `number`
 
 Subtype `stop_hook_summary`.
 
@@ -144,25 +144,25 @@ Subtype `stop_hook_summary`.
 
 ### hookErrors?
 
-> `optional` **hookErrors**: `unknown`[]
+> `optional` **hookErrors?**: `unknown`[]
 
 ***
 
 ### hookInfos?
 
-> `optional` **hookInfos**: `unknown`[]
+> `optional` **hookInfos?**: `unknown`[]
 
 ***
 
 ### isMeta?
 
-> `optional` **isMeta**: `boolean`
+> `optional` **isMeta?**: `boolean`
 
 ***
 
 ### isSidechain?
 
-> `optional` **isSidechain**: `boolean`
+> `optional` **isSidechain?**: `boolean`
 
 Whether this entry is on a side-chain (branched conversation path).
 
@@ -174,25 +174,25 @@ Whether this entry is on a side-chain (branched conversation path).
 
 ### level?
 
-> `optional` **level**: `string`
+> `optional` **level?**: `string`
 
 ***
 
 ### logicalParentUuid?
 
-> `optional` **logicalParentUuid**: `string`
+> `optional` **logicalParentUuid?**: `string`
 
 ***
 
 ### maxRetries?
 
-> `optional` **maxRetries**: `number`
+> `optional` **maxRetries?**: `number`
 
 ***
 
 ### messageCount?
 
-> `optional` **messageCount**: `number`
+> `optional` **messageCount?**: `number`
 
 Number of messages in the turn (subtype `turn_duration`).
 
@@ -200,7 +200,7 @@ Number of messages in the turn (subtype `turn_duration`).
 
 ### microcompactMetadata?
 
-> `optional` **microcompactMetadata**: [`MicrocompactMetadata`](MicrocompactMetadata.md)
+> `optional` **microcompactMetadata?**: [`MicrocompactMetadata`](MicrocompactMetadata.md)
 
 Subtype `microcompact_boundary`.
 
@@ -208,7 +208,7 @@ Subtype `microcompact_boundary`.
 
 ### parentUuid?
 
-> `optional` **parentUuid**: `string` \| `null`
+> `optional` **parentUuid?**: `string` \| `null`
 
 UUID of the parent entry in the conversation tree, or `null` for root.
 
@@ -220,25 +220,25 @@ UUID of the parent entry in the conversation tree, or `null` for root.
 
 ### preventedContinuation?
 
-> `optional` **preventedContinuation**: `boolean`
+> `optional` **preventedContinuation?**: `boolean`
 
 ***
 
 ### retryAttempt?
 
-> `optional` **retryAttempt**: `number`
+> `optional` **retryAttempt?**: `number`
 
 ***
 
 ### retryInMs?
 
-> `optional` **retryInMs**: `number`
+> `optional` **retryInMs?**: `number`
 
 ***
 
 ### sessionId?
 
-> `optional` **sessionId**: `string`
+> `optional` **sessionId?**: `string`
 
 #### Inherited from
 
@@ -248,7 +248,7 @@ UUID of the parent entry in the conversation tree, or `null` for root.
 
 ### slug?
 
-> `optional` **slug**: `string`
+> `optional` **slug?**: `string`
 
 Project slug derived from the working directory.
 
@@ -260,7 +260,7 @@ Project slug derived from the working directory.
 
 ### stopReason?
 
-> `optional` **stopReason**: `string`
+> `optional` **stopReason?**: `string`
 
 ***
 
@@ -272,7 +272,7 @@ Project slug derived from the working directory.
 
 ### teamName?
 
-> `optional` **teamName**: `string`
+> `optional` **teamName?**: `string`
 
 #### Inherited from
 
@@ -282,7 +282,7 @@ Project slug derived from the working directory.
 
 ### timestamp?
 
-> `optional` **timestamp**: `string`
+> `optional` **timestamp?**: `string`
 
 ISO 8601 timestamp.
 
@@ -294,7 +294,7 @@ ISO 8601 timestamp.
 
 ### toolUseID?
 
-> `optional` **toolUseID**: `string`
+> `optional` **toolUseID?**: `string`
 
 ***
 
@@ -306,7 +306,7 @@ ISO 8601 timestamp.
 
 ### url?
 
-> `optional` **url**: `string`
+> `optional` **url?**: `string`
 
 URL for remote control bridge (subtype `bridge_status`).
 
@@ -314,7 +314,7 @@ URL for remote control bridge (subtype `bridge_status`).
 
 ### userType?
 
-> `optional` **userType**: `"external"`
+> `optional` **userType?**: `"external"`
 
 #### Inherited from
 
@@ -324,7 +324,7 @@ URL for remote control bridge (subtype `bridge_status`).
 
 ### uuid?
 
-> `optional` **uuid**: `string`
+> `optional` **uuid?**: `string`
 
 Unique identifier for this entry.
 
@@ -336,7 +336,7 @@ Unique identifier for this entry.
 
 ### version?
 
-> `optional` **version**: `string`
+> `optional` **version?**: `string`
 
 Claude Code version string (e.g. `"1.0.33"`).
 

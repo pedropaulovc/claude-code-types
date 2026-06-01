@@ -16,7 +16,7 @@ is `null` in streaming `message_start` events and only populated in
 
 ### container?
 
-> `optional` **container**: `unknown`
+> `optional` **container?**: `unknown`
 
 Present when the code execution tool (beta) was used. Contains `id` and
 `expires_at` for container reuse. Typed as `unknown` because the schema
@@ -32,7 +32,7 @@ is still in beta.
 
 ### context\_management?
 
-> `optional` **context\_management**: `unknown`
+> `optional` **context\_management?**: `unknown`
 
 Present when context editing strategies were applied (beta).
 Contains `applied_edits` describing which tool uses or thinking turns
@@ -42,7 +42,7 @@ were cleared. Typed as `unknown` because the schema is still in beta.
 
 ### diagnostics?
 
-> `optional` **diagnostics**: [`MessageDiagnostics`](MessageDiagnostics.md)
+> `optional` **diagnostics?**: [`MessageDiagnostics`](MessageDiagnostics.md)
 
 Diagnostics about prompt caching behavior for this response.
 
@@ -50,7 +50,7 @@ Diagnostics about prompt caching behavior for this response.
 
 ### id?
 
-> `optional` **id**: `string`
+> `optional` **id?**: `string`
 
 Anthropic message ID (e.g. `"msg_01XFDUDYJgAACzvnptvVoYEL"`). Format may change over time.
 
@@ -58,7 +58,7 @@ Anthropic message ID (e.g. `"msg_01XFDUDYJgAACzvnptvVoYEL"`). Format may change 
 
 ### model?
 
-> `optional` **model**: [`Model`](../type-aliases/Model.md)
+> `optional` **model?**: [`Model`](../type-aliases/Model.md)
 
 Model that generated this response. See [Model](../type-aliases/Model.md).
 
@@ -72,7 +72,7 @@ Model that generated this response. See [Model](../type-aliases/Model.md).
 
 ### stop\_details?
 
-> `optional` **stop\_details**: `unknown`
+> `optional` **stop\_details?**: `unknown`
 
 Additional details about why the model stopped. May be `null` during streaming.
 
@@ -88,16 +88,16 @@ Additional details about why the model stopped. May be `null` during streaming.
 
 ### stop\_sequence?
 
-> `optional` **stop\_sequence**: `string` \| `null`
+> `optional` **stop\_sequence?**: `string` \| `null`
 
 ***
 
 ### type?
 
-> `optional` **type**: `"message"`
+> `optional` **type?**: `"message"`
 
 ***
 
 ### usage?
 
-> `optional` **usage**: [`Usage`](Usage.md)
+> `optional` **usage?**: [`Usage`](Usage.md)

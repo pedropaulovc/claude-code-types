@@ -22,7 +22,7 @@
 
 ### source\_uuid?
 
-> `optional` **source\_uuid**: `string`
+> `optional` **source\_uuid?**: `string`
 
 ***
 

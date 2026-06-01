@@ -16,8 +16,11 @@ const KNOWN_TYPES = new Set([
   'system',
   'attachment',
   'agent-name',
+  'agent-setting',
   'ai-title',
+  'bridge-session',
   'custom-title',
+  'mode',
   'permission-mode',
   'file-history-snapshot',
   'last-prompt',
@@ -26,6 +29,7 @@ const KNOWN_TYPES = new Set([
   'queue-operation',
   'saved_hook_context',
   'summary',
+  'worktree-state',
 ]);
 
 function findJsonlFiles(dir: string): string[] {

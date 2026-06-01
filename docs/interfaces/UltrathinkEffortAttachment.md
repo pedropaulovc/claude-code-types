@@ -10,7 +10,7 @@
 
 ### level?
 
-> `optional` **level**: `string`
+> `optional` **level?**: `string`
 
 ***
 

@@ -7,6 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-05-31
+
+### Added
+
+- `ModeEntry` entry type (`type: 'mode'`) for interaction-mode changes
+- `AgentSettingEntry` entry type (`type: 'agent-setting'`) recording the active agent definition
+- `BridgeSessionEntry` entry type (`type: 'bridge-session'`) linking a session to a remote-control bridge
+- `WorktreeStateEntry` entry type (`type: 'worktree-state'`) with `WorktreeSession` for managed git worktrees
+- `mcp_instructions_delta`, `invoked_skills`, `dynamic_skill`, `agent_mention`, `workflow_keyword_request`, `plan_file_reference` attachment subtypes (with `McpInstructionsDeltaAttachment`, `InvokedSkillsAttachment`, `InvokedSkill`, `DynamicSkillAttachment`, `AgentMentionAttachment`, `WorkflowKeywordRequestAttachment`, `PlanFileReferenceAttachment` types)
+- `SendUserFile` to `BuiltinToolName`
+- `claude-opus-4-8` to `Model` union
+
+### Changed
+
+- `tsconfig.json` migrated from deprecated `moduleResolution: "node"` to `"bundler"` (TypeScript 6 compatibility)
+
 ## [1.0.0] - 2026-05-18
 
 ### Added
@@ -154,7 +170,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - Model, StopReason, PermissionMode, BuiltinToolName unions
 - GitHub Actions workflow for automated publishing on version tags
 
-[Unreleased]: https://github.com/pedropaulovc/claude-code-types/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/pedropaulovc/claude-code-types/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/pedropaulovc/claude-code-types/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/pedropaulovc/claude-code-types/compare/v0.6.0...v1.0.0
 [0.6.0]: https://github.com/pedropaulovc/claude-code-types/compare/v0.5.0...v0.6.0
 [0.5.0]: https://github.com/pedropaulovc/claude-code-types/compare/v0.4.3...v0.5.0

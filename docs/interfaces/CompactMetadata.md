@@ -12,7 +12,7 @@ Metadata emitted with `compact_boundary` system entries.
 
 ### durationMs?
 
-> `optional` **durationMs**: `number`
+> `optional` **durationMs?**: `number`
 
 Duration of the compaction in milliseconds.
 
@@ -20,7 +20,7 @@ Duration of the compaction in milliseconds.
 
 ### postTokens?
 
-> `optional` **postTokens**: `number`
+> `optional` **postTokens?**: `number`
 
 Token count after compaction.
 
@@ -28,7 +28,7 @@ Token count after compaction.
 
 ### preCompactDiscoveredTools?
 
-> `optional` **preCompactDiscoveredTools**: `string`[]
+> `optional` **preCompactDiscoveredTools?**: `string`[]
 
 Tool names discovered before compaction.
 
@@ -36,7 +36,7 @@ Tool names discovered before compaction.
 
 ### preservedMessages?
 
-> `optional` **preservedMessages**: `object`
+> `optional` **preservedMessages?**: `object`
 
 Preserved message UUIDs.
 
@@ -52,7 +52,7 @@ Preserved message UUIDs.
 
 ### preservedSegment?
 
-> `optional` **preservedSegment**: `object`
+> `optional` **preservedSegment?**: `object`
 
 Preserved message segment boundaries.
 

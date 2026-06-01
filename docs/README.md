@@ -33,13 +33,16 @@ for (const entry of entries) {
 
 ## Interfaces
 
+- [AgentMentionAttachment](interfaces/AgentMentionAttachment.md)
 - [AgentNameEntry](interfaces/AgentNameEntry.md)
+- [AgentSettingEntry](interfaces/AgentSettingEntry.md)
 - [AiTitleEntry](interfaces/AiTitleEntry.md)
 - [AssistantEntry](interfaces/AssistantEntry.md)
 - [AssistantMessage](interfaces/AssistantMessage.md)
 - [AttachmentEntry](interfaces/AttachmentEntry.md)
 - [Base64DocumentSource](interfaces/Base64DocumentSource.md)
 - [Base64ImageSource](interfaces/Base64ImageSource.md)
+- [BridgeSessionEntry](interfaces/BridgeSessionEntry.md)
 - [CacheCreation](interfaces/CacheCreation.md)
 - [CacheMissReason](interfaces/CacheMissReason.md)
 - [CitationCharLocation](interfaces/CitationCharLocation.md)
@@ -60,6 +63,7 @@ for (const entry of entries) {
 - [DiagnosticsAttachment](interfaces/DiagnosticsAttachment.md)
 - [DirectoryAttachment](interfaces/DirectoryAttachment.md)
 - [DocumentBlock](interfaces/DocumentBlock.md)
+- [DynamicSkillAttachment](interfaces/DynamicSkillAttachment.md)
 - [EditedTextFileAttachment](interfaces/EditedTextFileAttachment.md)
 - [EntryBase](interfaces/EntryBase.md)
 - [FileAttachment](interfaces/FileAttachment.md)
@@ -72,12 +76,17 @@ for (const entry of entries) {
 - [HookBlockingErrorAttachment](interfaces/HookBlockingErrorAttachment.md)
 - [HookSuccessAttachment](interfaces/HookSuccessAttachment.md)
 - [ImageBlock](interfaces/ImageBlock.md)
+- [InvokedSkill](interfaces/InvokedSkill.md)
+- [InvokedSkillsAttachment](interfaces/InvokedSkillsAttachment.md)
 - [LastPromptEntry](interfaces/LastPromptEntry.md)
+- [McpInstructionsDeltaAttachment](interfaces/McpInstructionsDeltaAttachment.md)
 - [MessageDiagnostics](interfaces/MessageDiagnostics.md)
 - [MicrocompactMetadata](interfaces/MicrocompactMetadata.md)
+- [ModeEntry](interfaces/ModeEntry.md)
 - [NestedMemoryAttachment](interfaces/NestedMemoryAttachment.md)
 - [PermissionModeEntry](interfaces/PermissionModeEntry.md)
 - [PlainTextSource](interfaces/PlainTextSource.md)
+- [PlanFileReferenceAttachment](interfaces/PlanFileReferenceAttachment.md)
 - [PlanModeAttachment](interfaces/PlanModeAttachment.md)
 - [PlanModeExitAttachment](interfaces/PlanModeExitAttachment.md)
 - [PlanModeReentryAttachment](interfaces/PlanModeReentryAttachment.md)
@@ -110,6 +119,9 @@ for (const entry of entries) {
 - [WebSearchResultError](interfaces/WebSearchResultError.md)
 - [WebSearchResultItem](interfaces/WebSearchResultItem.md)
 - [WebSearchToolResultBlock](interfaces/WebSearchToolResultBlock.md)
+- [WorkflowKeywordRequestAttachment](interfaces/WorkflowKeywordRequestAttachment.md)
+- [WorktreeSession](interfaces/WorktreeSession.md)
+- [WorktreeStateEntry](interfaces/WorktreeStateEntry.md)
 
 ## Type Aliases
 

@@ -16,7 +16,7 @@
 
 ### agentId?
 
-> `optional` **agentId**: `string`
+> `optional` **agentId?**: `string`
 
 Present on entries produced by subagents / Task tool invocations (e.g. `"a4044e6"`).
 
@@ -24,7 +24,7 @@ Present on entries produced by subagents / Task tool invocations (e.g. `"a4044e6
 
 ### agentName?
 
-> `optional` **agentName**: `string`
+> `optional` **agentName?**: `string`
 
 Name of the agent that produced this entry (e.g. `"implementer"`, `"tester"`).
 
@@ -40,7 +40,7 @@ Working directory at the time this entry was created.
 
 ### entrypoint?
 
-> `optional` **entrypoint**: `string`
+> `optional` **entrypoint?**: `string`
 
 How the session was started (e.g. `"cli"`).
 
@@ -48,7 +48,7 @@ How the session was started (e.g. `"cli"`).
 
 ### forkedFrom?
 
-> `optional` **forkedFrom**: [`ForkedFromRef`](ForkedFromRef.md)
+> `optional` **forkedFrom?**: [`ForkedFromRef`](ForkedFromRef.md)
 
 Present when this session was forked from another.
 
@@ -56,7 +56,7 @@ Present when this session was forked from another.
 
 ### gitBranch?
 
-> `optional` **gitBranch**: `string`
+> `optional` **gitBranch?**: `string`
 
 ***
 
@@ -84,7 +84,7 @@ UUID of the parent entry in the conversation tree, or `null` for root.
 
 ### slug?
 
-> `optional` **slug**: `string`
+> `optional` **slug?**: `string`
 
 Project slug derived from the working directory.
 
@@ -92,7 +92,7 @@ Project slug derived from the working directory.
 
 ### teamName?
 
-> `optional` **teamName**: `string`
+> `optional` **teamName?**: `string`
 
 ***
 
