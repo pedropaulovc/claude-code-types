@@ -85,6 +85,11 @@ interface EntryBase {
   /** Name of the agent that produced this entry (e.g. `"implementer"`, `"tester"`). */
   agentName?: string;
   userType: 'external';
+  /**
+   * Kind of session this entry belongs to. `"bg"` marks a background
+   * (detached) session; absent for normal foreground sessions. Non-exhaustive.
+   */
+  sessionKind?: 'bg' | (string & {});
   /** Present when this session was forked from another. */
   forkedFrom?: ForkedFromRef;
 }
@@ -105,6 +110,8 @@ export interface UserEntry extends EntryBase {
   imagePasteIds?: string[];
   /** Unique identifier for this prompt. */
   promptId?: string;
+  /** Anthropic message ID (`msg_…`) of the assistant turn this message interrupted. */
+  interruptedMessageId?: string;
   /** Origin of this user message (e.g. task notifications). */
   origin?: { kind: string };
   permissionMode?: PermissionMode;
@@ -156,6 +163,10 @@ export interface AssistantEntry extends EntryBase {
   attributionSkill?: string;
   /** Plugin that produced this response (e.g. `"gstack-entrepreneur"`). */
   attributionPlugin?: string;
+  /** MCP server whose tool produced this response (e.g. `"claude.ai Firecrawl"`). */
+  attributionMcpServer?: string;
+  /** MCP tool that produced this response (e.g. `"firecrawl_scrape"`). */
+  attributionMcpTool?: string;
 }
 
 /**
@@ -250,6 +261,10 @@ export interface SystemEntry extends Partial<EntryBase> {
   url?: string;
   /** Number of messages in the turn (subtype `turn_duration`). */
   messageCount?: number;
+  /** Number of background agents still running (subtype `turn_duration`). */
+  pendingBackgroundAgentCount?: number;
+  /** Number of workflows still running (subtype `turn_duration`). */
+  pendingWorkflowCount?: number;
 }
 
 /** Discriminator values for {@link SystemEntry.subtype}. */

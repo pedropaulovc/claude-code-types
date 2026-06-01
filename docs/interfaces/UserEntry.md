@@ -90,6 +90,14 @@ Present when this session was forked from another.
 
 ***
 
+### interruptedMessageId?
+
+> `optional` **interruptedMessageId?**: `string`
+
+Anthropic message ID (`msg_…`) of the assistant turn this message interrupted.
+
+***
+
 ### isCompactSummary?
 
 > `optional` **isCompactSummary?**: `boolean`
@@ -181,6 +189,19 @@ Unique identifier for this prompt.
 #### Inherited from
 
 [`EntryBase`](EntryBase.md).[`sessionId`](EntryBase.md#sessionid)
+
+***
+
+### sessionKind?
+
+> `optional` **sessionKind?**: `string` & `object` \| `"bg"`
+
+Kind of session this entry belongs to. `"bg"` marks a background
+(detached) session; absent for normal foreground sessions. Non-exhaustive.
+
+#### Inherited from
+
+[`EntryBase`](EntryBase.md).[`sessionKind`](EntryBase.md#sessionkind)
 
 ***
 
