@@ -62,6 +62,22 @@ Agent type that produced this response (e.g. `"general-purpose"`).
 
 ***
 
+### attributionMcpServer?
+
+> `optional` **attributionMcpServer?**: `string`
+
+MCP server whose tool produced this response (e.g. `"claude.ai Firecrawl"`).
+
+***
+
+### attributionMcpTool?
+
+> `optional` **attributionMcpTool?**: `string`
+
+MCP tool that produced this response (e.g. `"firecrawl_scrape"`).
+
+***
+
 ### attributionPlugin?
 
 > `optional` **attributionPlugin?**: `string`
@@ -189,6 +205,19 @@ Anthropic API request ID for this response.
 #### Inherited from
 
 [`EntryBase`](EntryBase.md).[`sessionId`](EntryBase.md#sessionid)
+
+***
+
+### sessionKind?
+
+> `optional` **sessionKind?**: `string` & `object` \| `"bg"`
+
+Kind of session this entry belongs to. `"bg"` marks a background
+(detached) session; absent for normal foreground sessions. Non-exhaustive.
+
+#### Inherited from
+
+[`EntryBase`](EntryBase.md).[`sessionKind`](EntryBase.md#sessionkind)
 
 ***
 

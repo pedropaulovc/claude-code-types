@@ -88,6 +88,8 @@ const T = {
 };
 // type -> set of top-level keys seen
 const fieldsByType = new Map<string, Set<string>>();
+// type -> field -> first representative value (truncated JSON)
+const fieldSamples = new Map<string, Map<string, string>>();
 
 function truncate(obj: unknown, depth = 0): unknown {
   if (typeof obj === 'string') return obj.length > 120 ? obj.slice(0, 120) + `…(${obj.length})` : obj;
@@ -110,7 +112,13 @@ function walk(entry: any, file: string, line: number) {
 
   if (typeof type === 'string') {
     const keys = fieldsByType.get(type) ?? new Set<string>();
-    for (const k of Object.keys(entry)) keys.add(k);
+    let samples = fieldSamples.get(type);
+    if (!samples) { samples = new Map<string, string>(); fieldSamples.set(type, samples); }
+    for (const k of Object.keys(entry)) {
+      keys.add(k);
+      if (!samples.has(k) && entry[k] !== undefined && entry[k] !== null)
+        samples.set(k, JSON.stringify(truncate(entry[k])));
+    }
     fieldsByType.set(type, keys);
   }
 
@@ -230,14 +238,15 @@ for (const c of categories) {
 // undeclared top-level fields per known entry type
 const entryIfaceByType = new Map<string, string>();
 for (const [iface, disc] of types.interfaceType) entryIfaceByType.set(disc, iface);
-interface FieldGap { type: string; fields: string[]; }
+interface FieldGap { type: string; fields: { name: string; sample?: string }[]; }
 const fieldGaps: FieldGap[] = [];
 for (const [type, keys] of fieldsByType) {
   const iface = entryIfaceByType.get(type);
   if (!iface) continue; // unknown entry type — already reported above
   const declared = types.interfaceFields.get(iface) ?? new Set();
   const undeclared = [...keys].filter((k) => !declared.has(k)).sort();
-  if (undeclared.length) fieldGaps.push({ type, fields: undeclared });
+  if (undeclared.length)
+    fieldGaps.push({ type, fields: undeclared.map((name) => ({ name, sample: fieldSamples.get(type)?.get(name) })) });
 }
 
 // --------------------------------------------------------------------------
@@ -273,7 +282,12 @@ if (newCount === 0) {
 
 if (fieldGaps.length) {
   console.log(`\nℹ Undeclared top-level fields on known entry types (candidate new optional fields):`);
-  for (const g of fieldGaps) console.log(`  ${g.type}: ${g.fields.join(', ')}`);
+  for (const g of fieldGaps) {
+    console.log(`  ${g.type}:`);
+    for (const f of g.fields) {
+      console.log(`    • ${f.name}${SHOW_SAMPLES && f.sample ? `   e.g. ${f.sample}` : ''}`);
+    }
+  }
 }
 
 process.exit(newCount > 0 ? 1 : 0);

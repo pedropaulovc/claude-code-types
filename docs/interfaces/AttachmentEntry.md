@@ -126,6 +126,19 @@ UUID of the parent entry in the conversation tree, or `null` for root.
 
 ***
 
+### sessionKind?
+
+> `optional` **sessionKind?**: `string` & `object` \| `"bg"`
+
+Kind of session this entry belongs to. `"bg"` marks a background
+(detached) session; absent for normal foreground sessions. Non-exhaustive.
+
+#### Inherited from
+
+[`EntryBase`](EntryBase.md).[`sessionKind`](EntryBase.md#sessionkind)
+
+***
+
 ### slug?
 
 > `optional` **slug?**: `string`

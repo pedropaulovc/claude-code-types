@@ -218,6 +218,22 @@ UUID of the parent entry in the conversation tree, or `null` for root.
 
 ***
 
+### pendingBackgroundAgentCount?
+
+> `optional` **pendingBackgroundAgentCount?**: `number`
+
+Number of background agents still running (subtype `turn_duration`).
+
+***
+
+### pendingWorkflowCount?
+
+> `optional` **pendingWorkflowCount?**: `number`
+
+Number of workflows still running (subtype `turn_duration`).
+
+***
+
 ### preventedContinuation?
 
 > `optional` **preventedContinuation?**: `boolean`
@@ -243,6 +259,19 @@ UUID of the parent entry in the conversation tree, or `null` for root.
 #### Inherited from
 
 [`EntryBase`](EntryBase.md).[`sessionId`](EntryBase.md#sessionid)
+
+***
+
+### sessionKind?
+
+> `optional` **sessionKind?**: `string` & `object` \| `"bg"`
+
+Kind of session this entry belongs to. `"bg"` marks a background
+(detached) session; absent for normal foreground sessions. Non-exhaustive.
+
+#### Inherited from
+
+[`EntryBase`](EntryBase.md).[`sessionKind`](EntryBase.md#sessionkind)
 
 ***
 
