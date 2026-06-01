@@ -8,6 +8,8 @@
   ],
   "scripts": {
     "typecheck": "tsc --noEmit",
+    "typecheck:scripts": "tsc -p scripts/tsconfig.json",
+    "scan": "tsx scripts/scan-transcripts.ts",
     "test": "tsx test/smoke.local.test.ts",
     "docs": "typedoc --plugin typedoc-plugin-markdown --disableSources --readme none --out docs index.d.ts"
   },
@@ -27,6 +29,7 @@
     "url": "https://github.com/pedropaulovc/claude-code-types.git"
   },
   "devDependencies": {
+    "@types/node": "^25.9.1",
     "tsx": "^4.22.4",
     "typedoc": "^0.28.19",
     "typedoc-plugin-markdown": "^4.11.0",
