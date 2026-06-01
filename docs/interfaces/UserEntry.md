@@ -16,7 +16,7 @@ Human message or tool result delivered back to the model.
 
 ### agentId?
 
-> `optional` **agentId**: `string`
+> `optional` **agentId?**: `string`
 
 Present on entries produced by subagents / Task tool invocations (e.g. `"a4044e6"`).
 
@@ -28,7 +28,7 @@ Present on entries produced by subagents / Task tool invocations (e.g. `"a4044e6
 
 ### agentName?
 
-> `optional` **agentName**: `string`
+> `optional` **agentName?**: `string`
 
 Name of the agent that produced this entry (e.g. `"implementer"`, `"tester"`).
 
@@ -52,7 +52,7 @@ Working directory at the time this entry was created.
 
 ### entrypoint?
 
-> `optional` **entrypoint**: `string`
+> `optional` **entrypoint?**: `string`
 
 How the session was started (e.g. `"cli"`).
 
@@ -64,7 +64,7 @@ How the session was started (e.g. `"cli"`).
 
 ### forkedFrom?
 
-> `optional` **forkedFrom**: [`ForkedFromRef`](ForkedFromRef.md)
+> `optional` **forkedFrom?**: [`ForkedFromRef`](ForkedFromRef.md)
 
 Present when this session was forked from another.
 
@@ -76,7 +76,7 @@ Present when this session was forked from another.
 
 ### gitBranch?
 
-> `optional` **gitBranch**: `string`
+> `optional` **gitBranch?**: `string`
 
 #### Inherited from
 
@@ -86,13 +86,13 @@ Present when this session was forked from another.
 
 ### imagePasteIds?
 
-> `optional` **imagePasteIds**: `string`[]
+> `optional` **imagePasteIds?**: `string`[]
 
 ***
 
 ### isCompactSummary?
 
-> `optional` **isCompactSummary**: `boolean`
+> `optional` **isCompactSummary?**: `boolean`
 
 When `true`, this message is a compaction summary replacing earlier history.
 
@@ -100,7 +100,7 @@ When `true`, this message is a compaction summary replacing earlier history.
 
 ### isMeta?
 
-> `optional` **isMeta**: `boolean`
+> `optional` **isMeta?**: `boolean`
 
 ***
 
@@ -118,7 +118,7 @@ Whether this entry is on a side-chain (branched conversation path).
 
 ### isVisibleInTranscriptOnly?
 
-> `optional` **isVisibleInTranscriptOnly**: `boolean`
+> `optional` **isVisibleInTranscriptOnly?**: `boolean`
 
 When `true`, this message is shown in the transcript UI but not sent to the API.
 
@@ -132,7 +132,7 @@ When `true`, this message is shown in the transcript UI but not sent to the API.
 
 ### origin?
 
-> `optional` **origin**: `object`
+> `optional` **origin?**: `object`
 
 Origin of this user message (e.g. task notifications).
 
@@ -156,19 +156,19 @@ UUID of the parent entry in the conversation tree, or `null` for root.
 
 ### permissionMode?
 
-> `optional` **permissionMode**: [`PermissionMode`](../type-aliases/PermissionMode.md)
+> `optional` **permissionMode?**: [`PermissionMode`](../type-aliases/PermissionMode.md)
 
 ***
 
 ### planContent?
 
-> `optional` **planContent**: `string`
+> `optional` **planContent?**: `string`
 
 ***
 
 ### promptId?
 
-> `optional` **promptId**: `string`
+> `optional` **promptId?**: `string`
 
 Unique identifier for this prompt.
 
@@ -186,7 +186,7 @@ Unique identifier for this prompt.
 
 ### slug?
 
-> `optional` **slug**: `string`
+> `optional` **slug?**: `string`
 
 Project slug derived from the working directory.
 
@@ -198,7 +198,7 @@ Project slug derived from the working directory.
 
 ### sourceToolAssistantUUID?
 
-> `optional` **sourceToolAssistantUUID**: `string`
+> `optional` **sourceToolAssistantUUID?**: `string`
 
 UUID of the assistant message whose tool_use triggered this result.
 
@@ -206,7 +206,7 @@ UUID of the assistant message whose tool_use triggered this result.
 
 ### sourceToolUseID?
 
-> `optional` **sourceToolUseID**: `string`
+> `optional` **sourceToolUseID?**: `string`
 
 ID of the tool_use content block this result corresponds to.
 
@@ -214,7 +214,7 @@ ID of the tool_use content block this result corresponds to.
 
 ### teamName?
 
-> `optional` **teamName**: `string`
+> `optional` **teamName?**: `string`
 
 #### Inherited from
 
@@ -224,7 +224,7 @@ ID of the tool_use content block this result corresponds to.
 
 ### thinkingMetadata?
 
-> `optional` **thinkingMetadata**: [`ThinkingMetadata`](ThinkingMetadata.md)
+> `optional` **thinkingMetadata?**: [`ThinkingMetadata`](ThinkingMetadata.md)
 
 ***
 
@@ -242,13 +242,13 @@ ISO 8601 timestamp.
 
 ### todos?
 
-> `optional` **todos**: [`Todo`](Todo.md)[]
+> `optional` **todos?**: [`Todo`](Todo.md)[]
 
 ***
 
 ### toolUseResult?
 
-> `optional` **toolUseResult**: `unknown`
+> `optional` **toolUseResult?**: `unknown`
 
 Present when this user message is a tool result being delivered back.
 

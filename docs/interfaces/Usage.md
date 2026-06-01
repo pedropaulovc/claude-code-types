@@ -18,7 +18,7 @@ multiple internal calls.
 
 ### cache\_creation?
 
-> `optional` **cache\_creation**: [`CacheCreation`](CacheCreation.md) \| `null`
+> `optional` **cache\_creation?**: [`CacheCreation`](CacheCreation.md) \| `null`
 
 Breakdown of cache creation by TTL.
 
@@ -26,7 +26,7 @@ Breakdown of cache creation by TTL.
 
 ### cache\_creation\_input\_tokens?
 
-> `optional` **cache\_creation\_input\_tokens**: `number` \| `null`
+> `optional` **cache\_creation\_input\_tokens?**: `number` \| `null`
 
 Tokens written to cache. `0` when prompt caching is not configured.
 
@@ -34,7 +34,7 @@ Tokens written to cache. `0` when prompt caching is not configured.
 
 ### cache\_read\_input\_tokens?
 
-> `optional` **cache\_read\_input\_tokens**: `number` \| `null`
+> `optional` **cache\_read\_input\_tokens?**: `number` \| `null`
 
 Tokens read from cache. `0` when prompt caching is not configured.
 
@@ -42,7 +42,7 @@ Tokens read from cache. `0` when prompt caching is not configured.
 
 ### inference\_geo?
 
-> `optional` **inference\_geo**: `string` \| `null`
+> `optional` **inference\_geo?**: `string` \| `null`
 
 Geographic region where inference ran (e.g. `"us-west-2"`).
 
@@ -56,7 +56,7 @@ Geographic region where inference ran (e.g. `"us-west-2"`).
 
 ### iterations?
 
-> `optional` **iterations**: `unknown`[]
+> `optional` **iterations?**: `unknown`[]
 
 Iteration details when server-side tool loops are involved.
 
@@ -70,7 +70,7 @@ Iteration details when server-side tool loops are involved.
 
 ### server\_tool\_use?
 
-> `optional` **server\_tool\_use**: [`ServerToolUsage`](ServerToolUsage.md) \| `null`
+> `optional` **server\_tool\_use?**: [`ServerToolUsage`](ServerToolUsage.md) \| `null`
 
 Present only when web search was used.
 
@@ -78,12 +78,12 @@ Present only when web search was used.
 
 ### service\_tier?
 
-> `optional` **service\_tier**: `"priority"` \| `"standard"` \| `"batch"` \| `null`
+> `optional` **service\_tier?**: `"standard"` \| `"priority"` \| `"batch"` \| `null`
 
 ***
 
 ### speed?
 
-> `optional` **speed**: `string` \| `null`
+> `optional` **speed?**: `string` \| `null`
 
 Speed tier used for this response (e.g. `"standard"`).

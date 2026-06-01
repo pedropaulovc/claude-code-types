@@ -16,13 +16,13 @@
 
 ### durationMs?
 
-> `optional` **durationMs**: `number`
+> `optional` **durationMs?**: `number`
 
 ***
 
 ### iterations?
 
-> `optional` **iterations**: `number`
+> `optional` **iterations?**: `number`
 
 ***
 
@@ -34,19 +34,19 @@
 
 ### reason?
 
-> `optional` **reason**: `string`
+> `optional` **reason?**: `string`
 
 ***
 
 ### sentinel?
 
-> `optional` **sentinel**: `boolean`
+> `optional` **sentinel?**: `boolean`
 
 ***
 
 ### tokens?
 
-> `optional` **tokens**: `number`
+> `optional` **tokens?**: `number`
 
 ***
 

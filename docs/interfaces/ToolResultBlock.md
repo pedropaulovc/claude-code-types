@@ -12,13 +12,13 @@ Tool result delivered in a user message.
 
 ### content?
 
-> `optional` **content**: `string` \| [`ToolResultContentBlock`](../type-aliases/ToolResultContentBlock.md)[]
+> `optional` **content?**: `string` \| [`ToolResultContentBlock`](../type-aliases/ToolResultContentBlock.md)[]
 
 ***
 
 ### is\_error?
 
-> `optional` **is\_error**: `boolean`
+> `optional` **is\_error?**: `boolean`
 
 ***
 

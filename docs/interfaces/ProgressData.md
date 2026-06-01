@@ -20,17 +20,17 @@ Payload inside a [ProgressEntry](ProgressEntry.md).
 
 #### requestId?
 
-> `optional` **requestId**: `string`
+> `optional` **requestId?**: `string`
 
 Anthropic API request ID (present on assistant progress messages).
 
 #### timestamp?
 
-> `optional` **timestamp**: `string`
+> `optional` **timestamp?**: `string`
 
 #### toolUseResult?
 
-> `optional` **toolUseResult**: `unknown`
+> `optional` **toolUseResult?**: `unknown`
 
 Tool result payload (present on user progress messages).
 
@@ -40,4 +40,4 @@ Tool result payload (present on user progress messages).
 
 #### uuid?
 
-> `optional` **uuid**: `string`
+> `optional` **uuid?**: `string`

@@ -18,7 +18,7 @@ A single web search result item.
 
 ### page\_age?
 
-> `optional` **page\_age**: `string` \| `null`
+> `optional` **page\_age?**: `string` \| `null`
 
 ***
 

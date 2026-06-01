@@ -18,7 +18,7 @@ Records the last prompt text for session resumption.
 
 ### leafUuid?
 
-> `optional` **leafUuid**: `string`
+> `optional` **leafUuid?**: `string`
 
 UUID of the leaf message this prompt corresponds to.
 

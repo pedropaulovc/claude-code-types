@@ -15,7 +15,7 @@ MCP tools use the pattern `mcp__<server>__<tool>`.
 
 ### caller?
 
-> `optional` **caller**: `object`
+> `optional` **caller?**: `object`
 
 Present in progress/streaming entries only — not part of the Anthropic API.
 

@@ -4,7 +4,7 @@
 
 [claude-code-types](../README.md) / ParseLine
 
-# Type Alias: ParseLine()
+# Type Alias: ParseLine
 
 > **ParseLine** = (`line`) => [`TranscriptEntry`](TranscriptEntry.md) \| `null`
 

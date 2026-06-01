@@ -12,7 +12,7 @@ Plain text content block. Used in both user and assistant messages.
 
 ### citations?
 
-> `optional` **citations**: [`TextCitation`](../type-aliases/TextCitation.md)[] \| `null`
+> `optional` **citations?**: [`TextCitation`](../type-aliases/TextCitation.md)[] \| `null`
 
 Present only when the request included documents with `citations: { enabled: true }`.
 `cited_text` does not count toward output or input tokens.

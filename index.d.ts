@@ -39,8 +39,11 @@ export type TranscriptEntry =
   | SystemEntry
   | AttachmentEntry
   | AgentNameEntry
+  | AgentSettingEntry
   | AiTitleEntry
+  | BridgeSessionEntry
   | CustomTitleEntry
+  | ModeEntry
   | PermissionModeEntry
   | FileHistorySnapshotEntry
   | LastPromptEntry
@@ -48,7 +51,8 @@ export type TranscriptEntry =
   | ProgressEntry
   | QueueOperationEntry
   | SavedHookContextEntry
-  | SummaryEntry;
+  | SummaryEntry
+  | WorktreeStateEntry;
 
 // ---------------------------------------------------------------------------
 // Shared base fields (present on most entries that represent conversation turns)
@@ -431,8 +435,14 @@ export type Attachment =
   | HookBlockingErrorAttachment
   | TaskReminderAttachment
   | DeferredToolsDeltaAttachment
+  | McpInstructionsDeltaAttachment
   | QueuedCommandAttachment
   | SkillListingAttachment
+  | InvokedSkillsAttachment
+  | DynamicSkillAttachment
+  | AgentMentionAttachment
+  | WorkflowKeywordRequestAttachment
+  | PlanFileReferenceAttachment
   | DiagnosticsAttachment
   | EditedTextFileAttachment
   | CommandPermissionsAttachment
@@ -495,6 +505,16 @@ export interface DeferredToolsDeltaAttachment {
   pendingMcpServers?: string[];
 }
 
+/** Notes MCP server instruction blocks added to or removed from context. */
+export interface McpInstructionsDeltaAttachment {
+  type: 'mcp_instructions_delta';
+  /** MCP server display names whose instructions were added. */
+  addedNames: string[];
+  /** The instruction text blocks added (parallel to `addedNames`). */
+  addedBlocks: string[];
+  removedNames: string[];
+}
+
 export interface QueuedCommandAttachment {
   type: 'queued_command';
   prompt: string;
@@ -507,6 +527,47 @@ export interface SkillListingAttachment {
   content: string;
   skillCount: number;
   isInitial: boolean;
+}
+
+/** Full content of skills invoked during the turn, injected into context. */
+export interface InvokedSkillsAttachment {
+  type: 'invoked_skills';
+  skills: InvokedSkill[];
+}
+
+/** A single skill's resolved content within an {@link InvokedSkillsAttachment}. */
+export interface InvokedSkill {
+  name: string;
+  /** Source of the skill (e.g. `"userSettings:codex"`). */
+  path: string;
+  content: string;
+}
+
+/** Announces dynamically-discovered skills from a project skills directory. */
+export interface DynamicSkillAttachment {
+  type: 'dynamic_skill';
+  skillDir: string;
+  skillNames: string[];
+  displayPath: string;
+}
+
+/** Records an `@`-mention of a subagent type in the user's message. */
+export interface AgentMentionAttachment {
+  type: 'agent_mention';
+  /** The mentioned subagent type (e.g. `"claude-code-guide"`). */
+  agentType: string;
+}
+
+/** Marker that the user's message contained the `workflow` keyword. */
+export interface WorkflowKeywordRequestAttachment {
+  type: 'workflow_keyword_request';
+}
+
+/** Injects the contents of a plan file referenced in the conversation. */
+export interface PlanFileReferenceAttachment {
+  type: 'plan_file_reference';
+  planFilePath: string;
+  planContent: string;
 }
 
 export interface DiagnosticsAttachment {
@@ -646,6 +707,55 @@ export interface AiTitleEntry {
 export interface PermissionModeEntry {
   type: 'permission-mode';
   permissionMode: PermissionMode;
+  sessionId: string;
+}
+
+/** Records an interaction-mode change during the session (distinct from {@link PermissionMode}). */
+export interface ModeEntry {
+  type: 'mode';
+  /** Observed value: `"normal"`. Non-exhaustive. */
+  mode: 'normal' | (string & {});
+  sessionId: string;
+}
+
+/** Records which agent definition is active for the session (e.g. `"claude"`). */
+export interface AgentSettingEntry {
+  type: 'agent-setting';
+  agentSetting: string;
+  sessionId: string;
+}
+
+/**
+ * Links a local session to a remote control bridge session (used by the
+ * remote-control / companion bridge).
+ */
+export interface BridgeSessionEntry {
+  type: 'bridge-session';
+  sessionId: string;
+  /** Bridge session identifier (e.g. `"cse_01BsxutLocJEYNXZXi3tPb4D"`). */
+  bridgeSessionId: string;
+  /** Last synced sequence number on the bridge stream. */
+  lastSequenceNum: number;
+}
+
+/** Records git worktree state when a session runs inside a managed worktree. */
+export interface WorktreeStateEntry {
+  type: 'worktree-state';
+  worktreeSession: WorktreeSession;
+  sessionId: string;
+}
+
+/** Details of a managed git worktree created for a session. */
+export interface WorktreeSession {
+  /** Working directory before switching into the worktree. */
+  originalCwd: string;
+  worktreePath: string;
+  worktreeName: string;
+  worktreeBranch: string;
+  /** Branch that was checked out before the worktree was created. */
+  originalBranch: string;
+  /** HEAD commit SHA at the time the worktree was created. */
+  originalHeadCommit: string;
   sessionId: string;
 }
 
@@ -1020,6 +1130,7 @@ export interface Todo {
  * The `"<synthetic>"` value is specific to Claude Code for locally-generated messages.
  */
 export type Model =
+  | 'claude-opus-4-8'
   | 'claude-opus-4-7'
   | 'claude-opus-4-6'
   | 'claude-sonnet-4-6'
@@ -1085,6 +1196,7 @@ export type BuiltinToolName =
   | 'RemoteTrigger'
   | 'ScheduleWakeup'
   | 'SendMessage'
+  | 'SendUserFile'
   | 'ShareOnboardingGuide'
   | 'Skill'
   | 'Task'

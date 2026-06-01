@@ -12,7 +12,7 @@ Document content block in a user message (PDF, plain text, or URL).
 
 ### context?
 
-> `optional` **context**: `string` \| `null`
+> `optional` **context?**: `string` \| `null`
 
 ***
 
@@ -24,7 +24,7 @@ Document content block in a user message (PDF, plain text, or URL).
 
 ### title?
 
-> `optional` **title**: `string` \| `null`
+> `optional` **title?**: `string` \| `null`
 
 ***
 

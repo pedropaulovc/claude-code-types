@@ -12,7 +12,7 @@ Messages queued by the user while the agent is processing a turn.
 
 ### content?
 
-> `optional` **content**: `string`
+> `optional` **content?**: `string`
 
 Queue message content. Not present on `remove` operations.
 

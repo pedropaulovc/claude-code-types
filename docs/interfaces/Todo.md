@@ -12,7 +12,7 @@ A todo item tracked in the Claude Code task list.
 
 ### activeForm?
 
-> `optional` **activeForm**: `string`
+> `optional` **activeForm?**: `string`
 
 Present continuous form shown in the spinner (e.g. `"Running tests"`).
 
