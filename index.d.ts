@@ -124,6 +124,12 @@ export interface UserEntry extends EntryBase {
   sourceToolAssistantUUID?: string;
   /** ID of the tool_use content block this result corresponds to. */
   sourceToolUseID?: string;
+  /** Structured metadata returned by an MCP tool alongside its result. Shape is server-specific. */
+  mcpMeta?: unknown;
+  /** How the prompt was supplied (e.g. `"typed"`). */
+  promptSource?: string;
+  /** Scheduling priority for a queued message (e.g. `"later"`). */
+  queuePriority?: string;
 }
 
 /** The `message` payload inside a {@link UserEntry}. */
@@ -167,6 +173,8 @@ export interface AssistantEntry extends EntryBase {
   attributionMcpServer?: string;
   /** MCP tool that produced this response (e.g. `"firecrawl_scrape"`). */
   attributionMcpTool?: string;
+  /** Internal flag for transcript carrier-message healing. */
+  healsDistinctCarrier?: boolean;
 }
 
 /**
@@ -257,6 +265,8 @@ export interface SystemEntry extends Partial<EntryBase> {
   preventedContinuation?: boolean;
   toolUseID?: string;
   logicalParentUuid?: string;
+  /** Additional context strings contributed by hooks for this event. */
+  hookAdditionalContext?: unknown[];
   /** URL for remote control bridge (subtype `bridge_status`). */
   url?: string;
   /** Number of messages in the turn (subtype `turn_duration`). */
@@ -504,7 +514,12 @@ export type Attachment =
   | DirectoryAttachment
   | DateChangeAttachment
   | CompanionIntroAttachment
-  | CompactFileReferenceAttachment;
+  | CompactFileReferenceAttachment
+  | OutputStyleAttachment
+  | AgentListingDeltaAttachment
+  | AutoModeAttachment
+  | AutoModeExitAttachment
+  | TaskStatusAttachment;
 
 /** Discriminator values for {@link Attachment}. */
 export type AttachmentType = Attachment['type'];
@@ -738,6 +753,56 @@ export interface CompactFileReferenceAttachment {
   type: 'compact_file_reference';
   filename: string;
   displayPath: string;
+}
+
+/** Records the active output style for the session (e.g. `"Learning"`). */
+export interface OutputStyleAttachment {
+  type: 'output_style';
+  style: string;
+}
+
+/**
+ * Notes changes to the available subagent type listing injected into context.
+ * Parallel to the `deferred_tools_delta` / `mcp_instructions_delta` deltas.
+ */
+export interface AgentListingDeltaAttachment {
+  type: 'agent_listing_delta';
+  /** Subagent type names added to the listing (e.g. `"claude"`, `"Explore"`). */
+  addedTypes: string[];
+  /** The listing text blocks added (parallel to `addedTypes`). */
+  addedLines: string[];
+  removedTypes: string[];
+  /** `true` for the initial full listing, absent/`false` for incremental deltas. */
+  isInitial?: boolean;
+  /** Whether to show the note about running agents concurrently. */
+  showConcurrencyNote?: boolean;
+}
+
+/** Reminder injected when the session is running in auto mode. */
+export interface AutoModeAttachment {
+  type: 'auto_mode';
+  /** Cadence of the reminder (e.g. `"once"`). */
+  reminderType: string;
+}
+
+/** Marker that the session exited auto mode. */
+export interface AutoModeExitAttachment {
+  type: 'auto_mode_exit';
+}
+
+/** Status update for a background task / local agent. */
+export interface TaskStatusAttachment {
+  type: 'task_status';
+  taskId: string;
+  /** Kind of task (e.g. `"local_agent"`). */
+  taskType: string;
+  description: string;
+  /** Current status (e.g. `"running"`). */
+  status: string;
+  /** Summary of progress since the last update, or `null`. */
+  deltaSummary: string | null;
+  /** Path to the file capturing the task's output. */
+  outputFilePath: string;
 }
 
 // ---------------------------------------------------------------------------
@@ -1178,6 +1243,7 @@ export interface Todo {
  * The `"<synthetic>"` value is specific to Claude Code for locally-generated messages.
  */
 export type Model =
+  | 'claude-fable-5'
   | 'claude-opus-4-8'
   | 'claude-opus-4-7'
   | 'claude-opus-4-6'
@@ -1238,6 +1304,7 @@ export type BuiltinToolName =
   | 'LSP'
   | 'Monitor'
   | 'NotebookEdit'
+  | 'PowerShell'
   | 'PushNotification'
   | 'Read'
   | 'ReadMcpResourceTool'
@@ -1245,6 +1312,7 @@ export type BuiltinToolName =
   | 'ScheduleWakeup'
   | 'SendMessage'
   | 'SendUserFile'
+  | 'SendUserMessage'
   | 'ShareOnboardingGuide'
   | 'Skill'
   | 'StructuredOutput'

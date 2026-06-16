@@ -33,6 +33,7 @@ for (const entry of entries) {
 
 ## Interfaces
 
+- [AgentListingDeltaAttachment](interfaces/AgentListingDeltaAttachment.md)
 - [AgentMentionAttachment](interfaces/AgentMentionAttachment.md)
 - [AgentNameEntry](interfaces/AgentNameEntry.md)
 - [AgentSettingEntry](interfaces/AgentSettingEntry.md)
@@ -40,6 +41,8 @@ for (const entry of entries) {
 - [AssistantEntry](interfaces/AssistantEntry.md)
 - [AssistantMessage](interfaces/AssistantMessage.md)
 - [AttachmentEntry](interfaces/AttachmentEntry.md)
+- [AutoModeAttachment](interfaces/AutoModeAttachment.md)
+- [AutoModeExitAttachment](interfaces/AutoModeExitAttachment.md)
 - [Base64DocumentSource](interfaces/Base64DocumentSource.md)
 - [Base64ImageSource](interfaces/Base64ImageSource.md)
 - [BridgeSessionEntry](interfaces/BridgeSessionEntry.md)
@@ -84,6 +87,7 @@ for (const entry of entries) {
 - [MicrocompactMetadata](interfaces/MicrocompactMetadata.md)
 - [ModeEntry](interfaces/ModeEntry.md)
 - [NestedMemoryAttachment](interfaces/NestedMemoryAttachment.md)
+- [OutputStyleAttachment](interfaces/OutputStyleAttachment.md)
 - [PermissionModeEntry](interfaces/PermissionModeEntry.md)
 - [PlainTextSource](interfaces/PlainTextSource.md)
 - [PlanFileReferenceAttachment](interfaces/PlanFileReferenceAttachment.md)
@@ -105,6 +109,7 @@ for (const entry of entries) {
 - [SummaryEntry](interfaces/SummaryEntry.md)
 - [SystemEntry](interfaces/SystemEntry.md)
 - [TaskReminderAttachment](interfaces/TaskReminderAttachment.md)
+- [TaskStatusAttachment](interfaces/TaskStatusAttachment.md)
 - [TextBlock](interfaces/TextBlock.md)
 - [ThinkingBlock](interfaces/ThinkingBlock.md)
 - [ThinkingMetadata](interfaces/ThinkingMetadata.md)
