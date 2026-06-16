@@ -134,6 +134,14 @@ Present when this session was forked from another.
 
 ***
 
+### hookAdditionalContext?
+
+> `optional` **hookAdditionalContext?**: `unknown`[]
+
+Additional context strings contributed by hooks for this event.
+
+***
+
 ### hookCount?
 
 > `optional` **hookCount?**: `number`

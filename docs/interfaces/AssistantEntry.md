@@ -154,6 +154,14 @@ Present when this session was forked from another.
 
 ***
 
+### healsDistinctCarrier?
+
+> `optional` **healsDistinctCarrier?**: `boolean`
+
+Internal flag for transcript carrier-message healing.
+
+***
+
 ### isApiErrorMessage?
 
 > `optional` **isApiErrorMessage?**: `boolean`

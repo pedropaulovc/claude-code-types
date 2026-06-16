@@ -33,6 +33,8 @@ CHANGELOG.md                    # Keep a Changelog format
 2. For each reported value, add it to the location named in the report (e.g. a new `Attachment` member + interface, or a field on `EntryBase`). For new entry/attachment interfaces, use the sample to type the payload.
 3. Re-run `npm run scan` until it reports full coverage, then `npm run typecheck && npm test`.
 
+**Use `npm run scan` — do not write ad-hoc transcript-walking scripts.** The scanner already recurses through every project subdirectory under `~/.claude/projects/` and emits a representative sample for each uncovered value, which is everything you need to type a new payload. Samples are truncated for readability; if you need the full object to type a new interface, re-run with `npm run scan -- --json` — each entry carries the `file` and `line` of a representative occurrence, so you can read that exact line instead of hand-rolling a reader.
+
 Note: the scanner checks **top-level** entry fields and the modeled discriminator unions. Deeply nested payloads (e.g. `message.usage`, `toolUseResult`) are intentionally typed loosely and are not field-diffed.
 
 ## Publishing a New Version

@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [1.4.0] - 2026-06-16
+
+### Added
+
+- `output_style`, `agent_listing_delta`, `auto_mode`, `auto_mode_exit`, `task_status` attachment subtypes (with `OutputStyleAttachment`, `AgentListingDeltaAttachment`, `AutoModeAttachment`, `AutoModeExitAttachment`, `TaskStatusAttachment` types)
+- `claude-fable-5` to `Model` union
+- `PowerShell` and `SendUserMessage` to `BuiltinToolName`
+- `mcpMeta`, `promptSource`, `queuePriority` optional fields on `UserEntry`
+- `healsDistinctCarrier` optional field on `AssistantEntry`
+- `hookAdditionalContext` optional field on `SystemEntry`
+
 ## [1.3.0] - 2026-06-01
 
 ### Added
@@ -190,7 +201,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - Model, StopReason, PermissionMode, BuiltinToolName unions
 - GitHub Actions workflow for automated publishing on version tags
 
-[Unreleased]: https://github.com/pedropaulovc/claude-code-types/compare/v1.3.0...HEAD
+[Unreleased]: https://github.com/pedropaulovc/claude-code-types/compare/v1.4.0...HEAD
+[1.4.0]: https://github.com/pedropaulovc/claude-code-types/compare/v1.3.0...v1.4.0
 [1.3.0]: https://github.com/pedropaulovc/claude-code-types/compare/v1.2.0...v1.3.0
 [1.2.0]: https://github.com/pedropaulovc/claude-code-types/compare/v1.1.0...v1.2.0
 [1.1.0]: https://github.com/pedropaulovc/claude-code-types/compare/v1.0.0...v1.1.0

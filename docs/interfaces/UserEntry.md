@@ -132,6 +132,14 @@ When `true`, this message is shown in the transcript UI but not sent to the API.
 
 ***
 
+### mcpMeta?
+
+> `optional` **mcpMeta?**: `unknown`
+
+Structured metadata returned by an MCP tool alongside its result. Shape is server-specific.
+
+***
+
 ### message
 
 > **message**: [`UserMessage`](UserMessage.md)
@@ -179,6 +187,22 @@ UUID of the parent entry in the conversation tree, or `null` for root.
 > `optional` **promptId?**: `string`
 
 Unique identifier for this prompt.
+
+***
+
+### promptSource?
+
+> `optional` **promptSource?**: `string`
+
+How the prompt was supplied (e.g. `"typed"`).
+
+***
+
+### queuePriority?
+
+> `optional` **queuePriority?**: `string`
+
+Scheduling priority for a queued message (e.g. `"later"`).
 
 ***
 
