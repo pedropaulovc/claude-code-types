@@ -12,6 +12,8 @@
  *   - `system.subtype`                  (SystemSubtype)
  *   - `attachment.type`                 (Attachment)
  *   - tool_use `name`, non-MCP          (BuiltinToolName)   + MCP server tally
+ *     (bare-logged MCP tools — a lone `firecrawl_scrape` next to the prefixed
+ *      `mcp__..._firecrawl_scrape` — are recognized as MCP, not built-in)
  *   - `server_tool_use.name`            (ServerToolUseBlock.name)
  *   - assistant `message.model`         (Model)
  *   - `stop_reason`                     (StopReason)
@@ -86,6 +88,11 @@ const T = {
   citation: new Tally(),
   imageMedia: new Tally(),
 };
+// bare suffixes of every MCP tool seen (the `tool` of `mcp__server__tool`).
+// Some skills/plugins log an MCP tool by its bare name with no `mcp__` prefix
+// (e.g. "firecrawl_scrape"); used post-scan to keep those out of the
+// built-in-tool bucket. See reclassification below.
+const mcpToolNames = new Set<string>();
 // type -> set of top-level keys seen
 const fieldsByType = new Map<string, Set<string>>();
 // type -> field -> first representative value (truncated JSON)
@@ -146,8 +153,14 @@ function walk(entry: any, file: string, line: number) {
       if (m.role === 'assistant') T.assistantBlock.add(bt); else T.userBlock.add(bt);
       if (bt === 'tool_use') {
         const n: string = b.name ?? '';
-        if (n.startsWith('mcp__')) T.mcpServer.add(n.split('__')[1]);
-        else T.tool.add(n, { file, line, json: JSON.stringify(truncate(b)) });
+        if (n.startsWith('mcp__')) {
+          const parts = n.split('__');
+          T.mcpServer.add(parts[1]);
+          const suffix = parts.slice(2).join('__');
+          if (suffix) mcpToolNames.add(suffix);
+        } else {
+          T.tool.add(n, { file, line, json: JSON.stringify(truncate(b)) });
+        }
       }
       if (bt === 'server_tool_use') T.serverTool.add(b.name);
       if (bt === 'image' && b.source?.media_type) T.imageMedia.add(b.source.media_type);
@@ -190,6 +203,22 @@ for (const file of files) {
     try { entry = JSON.parse(s); } catch { parseErrors++; continue; }
     try { walk(entry, file, i + 1); } catch { /* tolerate malformed shapes */ }
   }
+}
+
+// --------------------------------------------------------------------------
+// reclassify bare-logged MCP tools out of the built-in bucket
+//
+// MCP tools are normally logged as `mcp__server__tool`, but a skill/plugin can
+// invoke one programmatically and have it logged by its bare name (e.g. a lone
+// "firecrawl_scrape" alongside hundreds of "mcp__claude_ai_Firecrawl__firecrawl_scrape").
+// Those are not Claude Code built-ins, so don't report them as new
+// BuiltinToolName members. Data-driven: only names that also appear as a known
+// MCP tool suffix in this corpus are dropped.
+// --------------------------------------------------------------------------
+for (const name of [...T.tool.counts.keys()]) {
+  if (!mcpToolNames.has(name)) continue;
+  T.tool.counts.delete(name);
+  T.tool.samples.delete(name);
 }
 
 // --------------------------------------------------------------------------
