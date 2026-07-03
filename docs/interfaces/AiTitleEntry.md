@@ -14,6 +14,8 @@ AI-generated session title.
 
 > **aiTitle**: `string`
 
+AI-generated session title (e.g. `"Query Claude code guide natural language hooks"`).
+
 ***
 
 ### sessionId

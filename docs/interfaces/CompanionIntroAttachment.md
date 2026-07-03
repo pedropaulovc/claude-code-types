@@ -12,11 +12,15 @@
 
 > **name**: `string`
 
+Companion's name (e.g. `"Clatter"`).
+
 ***
 
 ### species
 
 > **species**: `string`
+
+Companion's species (e.g. `"cat"`).
 
 ***
 

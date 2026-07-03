@@ -64,13 +64,15 @@ Subtype `compact_boundary`.
 
 > `optional` **content?**: `string`
 
+Rendered event text (e.g. `"Conversation compacted"`, `"<local-command-stdout></local-command-stdout>"`).
+
 ***
 
 ### cwd?
 
 > `optional` **cwd?**: `string`
 
-Working directory at the time this entry was created.
+Working directory at the time this entry was created (e.g. `"/home/pedro/src/agent-plugins"`).
 
 #### Inherited from
 
@@ -82,7 +84,7 @@ Working directory at the time this entry was created.
 
 > `optional` **durationMs?**: `number`
 
-Milliseconds the turn took (subtype `turn_duration`).
+Milliseconds the turn took (subtype `turn_duration`; e.g. `122557`).
 
 ***
 
@@ -122,6 +124,8 @@ Present when this session was forked from another.
 
 > `optional` **gitBranch?**: `string`
 
+Git branch checked out when this entry was created (e.g. `"main"`, `"HEAD"`).
+
 #### Inherited from
 
 [`EntryBase`](EntryBase.md).[`gitBranch`](EntryBase.md#gitbranch)
@@ -146,7 +150,7 @@ Additional context strings contributed by hooks for this event.
 
 > `optional` **hookCount?**: `number`
 
-Subtype `stop_hook_summary`.
+Subtype `stop_hook_summary` (e.g. `1`, `2`).
 
 ***
 
@@ -184,6 +188,8 @@ Whether this entry is on a side-chain (branched conversation path).
 
 > `optional` **level?**: `string`
 
+Severity of the event (e.g. `"suggestion"`, `"info"`, `"error"`).
+
 ***
 
 ### logicalParentUuid?
@@ -196,13 +202,15 @@ Whether this entry is on a side-chain (branched conversation path).
 
 > `optional` **maxRetries?**: `number`
 
+Maximum retry attempts configured (e.g. `10`).
+
 ***
 
 ### messageCount?
 
 > `optional` **messageCount?**: `number`
 
-Number of messages in the turn (subtype `turn_duration`).
+Number of messages in the turn (subtype `turn_duration`; e.g. `39`).
 
 ***
 
@@ -230,7 +238,7 @@ UUID of the parent entry in the conversation tree, or `null` for root.
 
 > `optional` **pendingBackgroundAgentCount?**: `number`
 
-Number of background agents still running (subtype `turn_duration`).
+Number of background agents still running (subtype `turn_duration`; e.g. `1`).
 
 ***
 
@@ -238,7 +246,7 @@ Number of background agents still running (subtype `turn_duration`).
 
 > `optional` **pendingWorkflowCount?**: `number`
 
-Number of workflows still running (subtype `turn_duration`).
+Number of workflows still running (subtype `turn_duration`; e.g. `1`).
 
 ***
 
@@ -252,17 +260,35 @@ Number of workflows still running (subtype `turn_duration`).
 
 > `optional` **retryAttempt?**: `number`
 
+Retry attempt number for a failed API request (e.g. `1`, `2`).
+
 ***
 
 ### retryInMs?
 
 > `optional` **retryInMs?**: `number`
 
+Backoff before the next retry, in milliseconds (e.g. `566.72`).
+
+***
+
+### session\_id?
+
+> `optional` **session\_id?**: `string`
+
+Snake-case duplicate of [EntryBase.sessionId](EntryBase.md#sessionid); same value, emitted on newer entries.
+
+#### Inherited from
+
+[`EntryBase`](EntryBase.md).[`session_id`](EntryBase.md#session_id)
+
 ***
 
 ### sessionId?
 
 > `optional` **sessionId?**: `string`
+
+Session identifier; matches the JSONL filename (e.g. `"025df9d0-abb5-4df9-84c3-1038d59e6d95"`).
 
 #### Inherited from
 
@@ -287,7 +313,7 @@ Kind of session this entry belongs to. `"bg"` marks a background
 
 > `optional` **slug?**: `string`
 
-Project slug derived from the working directory.
+Project slug derived from the working directory (e.g. `"linked-sleeping-harbor"`).
 
 #### Inherited from
 
@@ -311,6 +337,8 @@ Project slug derived from the working directory.
 
 > `optional` **teamName?**: `string`
 
+Name of the team this entry belongs to, for multi-agent sessions (e.g. `"web-ui"`).
+
 #### Inherited from
 
 [`EntryBase`](EntryBase.md).[`teamName`](EntryBase.md#teamname)
@@ -321,7 +349,7 @@ Project slug derived from the working directory.
 
 > `optional` **timestamp?**: `string`
 
-ISO 8601 timestamp.
+ISO 8601 timestamp (e.g. `"2026-06-04T23:51:02.971Z"`).
 
 #### Inherited from
 
@@ -345,7 +373,7 @@ ISO 8601 timestamp.
 
 > `optional` **url?**: `string`
 
-URL for remote control bridge (subtype `bridge_status`).
+URL for remote control bridge (subtype `bridge_status`; e.g. `"https://claude.ai/code/session_01HQnAuHE4arEJ3FpwPaLNah"`).
 
 ***
 

@@ -20,6 +20,8 @@ A single skill's resolved content within an [InvokedSkillsAttachment](InvokedSki
 
 > **name**: `string`
 
+Skill name (e.g. `"playwright-cli"`, `"codex"`).
+
 ***
 
 ### path

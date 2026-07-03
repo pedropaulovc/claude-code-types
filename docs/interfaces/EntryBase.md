@@ -34,7 +34,7 @@ Name of the agent that produced this entry (e.g. `"implementer"`, `"tester"`).
 
 > **cwd**: `string`
 
-Working directory at the time this entry was created.
+Working directory at the time this entry was created (e.g. `"/home/pedro/src/agent-plugins"`).
 
 ***
 
@@ -58,6 +58,8 @@ Present when this session was forked from another.
 
 > `optional` **gitBranch?**: `string`
 
+Git branch checked out when this entry was created (e.g. `"main"`, `"HEAD"`).
+
 ***
 
 ### isSidechain
@@ -76,9 +78,19 @@ UUID of the parent entry in the conversation tree, or `null` for root.
 
 ***
 
+### session\_id?
+
+> `optional` **session\_id?**: `string`
+
+Snake-case duplicate of [EntryBase.sessionId](#sessionid); same value, emitted on newer entries.
+
+***
+
 ### sessionId
 
 > **sessionId**: `string`
+
+Session identifier; matches the JSONL filename (e.g. `"025df9d0-abb5-4df9-84c3-1038d59e6d95"`).
 
 ***
 
@@ -95,7 +107,7 @@ Kind of session this entry belongs to. `"bg"` marks a background
 
 > `optional` **slug?**: `string`
 
-Project slug derived from the working directory.
+Project slug derived from the working directory (e.g. `"linked-sleeping-harbor"`).
 
 ***
 
@@ -103,13 +115,15 @@ Project slug derived from the working directory.
 
 > `optional` **teamName?**: `string`
 
+Name of the team this entry belongs to, for multi-agent sessions (e.g. `"web-ui"`).
+
 ***
 
 ### timestamp
 
 > **timestamp**: `string`
 
-ISO 8601 timestamp.
+ISO 8601 timestamp (e.g. `"2026-06-04T23:51:02.971Z"`).
 
 ***
 

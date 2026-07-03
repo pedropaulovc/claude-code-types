@@ -33,6 +33,8 @@ for (const entry of entries) {
 
 ## Interfaces
 
+- [AdvisorToolResultBlock](interfaces/AdvisorToolResultBlock.md)
+- [AdvisorToolResultError](interfaces/AdvisorToolResultError.md)
 - [AgentListingDeltaAttachment](interfaces/AgentListingDeltaAttachment.md)
 - [AgentMentionAttachment](interfaces/AgentMentionAttachment.md)
 - [AgentNameEntry](interfaces/AgentNameEntry.md)
@@ -57,6 +59,7 @@ for (const entry of entries) {
 - [CompactFileReferenceAttachment](interfaces/CompactFileReferenceAttachment.md)
 - [CompactMetadata](interfaces/CompactMetadata.md)
 - [CompanionIntroAttachment](interfaces/CompanionIntroAttachment.md)
+- [ContextTipAttachment](interfaces/ContextTipAttachment.md)
 - [CustomTitleEntry](interfaces/CustomTitleEntry.md)
 - [DateChangeAttachment](interfaces/DateChangeAttachment.md)
 - [DeferredToolsDeltaAttachment](interfaces/DeferredToolsDeltaAttachment.md)

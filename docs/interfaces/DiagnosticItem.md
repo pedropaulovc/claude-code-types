@@ -12,11 +12,15 @@
 
 > `optional` **code?**: `string`
 
+Diagnostic code (e.g. `"2307"`, `"6133"`).
+
 ***
 
 ### message
 
 > **message**: `string`
+
+Diagnostic message (e.g. `"Cannot find module 'fs' or its corresponding type declarations."`).
 
 ***
 
@@ -38,8 +42,12 @@
 
 > **severity**: `string`
 
+Severity label (e.g. `"Error"`, `"Hint"`).
+
 ***
 
 ### source?
 
 > `optional` **source?**: `string`
+
+Diagnostic source/provider (e.g. `"typescript"`).

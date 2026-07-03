@@ -14,6 +14,8 @@ Reference to a tool, used inside tool result content arrays.
 
 > **tool\_name**: `string`
 
+Referenced tool name (e.g. `"SendMessage"`, `"TaskUpdate"`, `"Monitor"`).
+
 ***
 
 ### type

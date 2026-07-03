@@ -14,6 +14,8 @@ Records the last prompt text for session resumption.
 
 > **lastPrompt**: `string`
 
+The most recent user prompt text (e.g. `"continue"`, `"pr"`).
+
 ***
 
 ### leafUuid?

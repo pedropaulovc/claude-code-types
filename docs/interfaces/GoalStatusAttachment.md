@@ -12,6 +12,8 @@
 
 > **condition**: `string`
 
+The goal condition being evaluated (e.g. `"cicd green"`, `"merge all dependabot prs"`).
+
 ***
 
 ### durationMs?

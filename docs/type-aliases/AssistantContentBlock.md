@@ -6,6 +6,6 @@
 
 # Type Alias: AssistantContentBlock
 
-> **AssistantContentBlock** = [`TextBlock`](../interfaces/TextBlock.md) \| [`ThinkingBlock`](../interfaces/ThinkingBlock.md) \| [`RedactedThinkingBlock`](../interfaces/RedactedThinkingBlock.md) \| [`ToolUseBlock`](../interfaces/ToolUseBlock.md) \| [`ServerToolUseBlock`](../interfaces/ServerToolUseBlock.md) \| [`WebSearchToolResultBlock`](../interfaces/WebSearchToolResultBlock.md)
+> **AssistantContentBlock** = [`TextBlock`](../interfaces/TextBlock.md) \| [`ThinkingBlock`](../interfaces/ThinkingBlock.md) \| [`RedactedThinkingBlock`](../interfaces/RedactedThinkingBlock.md) \| [`ToolUseBlock`](../interfaces/ToolUseBlock.md) \| [`ServerToolUseBlock`](../interfaces/ServerToolUseBlock.md) \| [`WebSearchToolResultBlock`](../interfaces/WebSearchToolResultBlock.md) \| [`AdvisorToolResultBlock`](../interfaces/AdvisorToolResultBlock.md)
 
 Content blocks that can appear in an assistant message.

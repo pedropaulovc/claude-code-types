@@ -18,11 +18,15 @@
 
 > **hookEvent**: `string`
 
+Hook lifecycle event (e.g. `"PreToolUse"`).
+
 ***
 
 ### hookName
 
 > **hookName**: `string`
+
+Hook matcher that fired (e.g. `"PreToolUse:Bash"`).
 
 ***
 

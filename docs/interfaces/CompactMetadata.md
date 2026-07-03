@@ -14,7 +14,7 @@ Metadata emitted with `compact_boundary` system entries.
 
 > `optional` **durationMs?**: `number`
 
-Duration of the compaction in milliseconds.
+Duration of the compaction in milliseconds (e.g. `30586`).
 
 ***
 
@@ -22,7 +22,7 @@ Duration of the compaction in milliseconds.
 
 > `optional` **postTokens?**: `number`
 
-Token count after compaction.
+Token count after compaction (e.g. `5547`).
 
 ***
 
@@ -30,7 +30,7 @@ Token count after compaction.
 
 > `optional` **preCompactDiscoveredTools?**: `string`[]
 
-Tool names discovered before compaction.
+Tool names discovered before compaction (e.g. `["ExitPlanMode"]`).
 
 ***
 
@@ -74,7 +74,7 @@ Preserved message segment boundaries.
 
 > **preTokens**: `number`
 
-Token count before compaction.
+Token count before compaction (e.g. `167199`).
 
 ***
 

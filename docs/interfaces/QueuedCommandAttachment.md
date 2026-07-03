@@ -12,11 +12,15 @@
 
 > **commandMode**: `string`
 
+Origin of the queued command (e.g. `"prompt"`, `"task-notification"`).
+
 ***
 
 ### prompt
 
 > **prompt**: `string`
+
+The queued user prompt text (e.g. `"pr"`).
 
 ***
 

@@ -16,6 +16,8 @@ agents invoked with a schema it is the validated structured output.
 
 > **agentId**: `string`
 
+Identifier of the agent that ran the step (e.g. `"ad689afee63e70b14"`).
+
 ***
 
 ### key

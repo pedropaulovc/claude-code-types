@@ -18,6 +18,8 @@
 
 > **addedNames**: `string`[]
 
+Tool names newly deferred (e.g. `"CronCreate"`, `"Monitor"`, `"mcp__plugin_cloudflare_cloudflare-api__execute"`).
+
 ***
 
 ### pendingMcpServers?

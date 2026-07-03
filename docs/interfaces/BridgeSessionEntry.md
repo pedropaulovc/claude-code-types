@@ -15,7 +15,7 @@ remote-control / companion bridge).
 
 > **bridgeSessionId**: `string`
 
-Bridge session identifier (e.g. `"cse_01BsxutLocJEYNXZXi3tPb4D"`).
+Bridge session identifier (e.g. `"cse_01VoHgHgLQTzAFZ6SeK4RVPQ"`).
 
 ***
 
@@ -23,7 +23,7 @@ Bridge session identifier (e.g. `"cse_01BsxutLocJEYNXZXi3tPb4D"`).
 
 > **lastSequenceNum**: `number`
 
-Last synced sequence number on the bridge stream.
+Last synced sequence number on the bridge stream (e.g. `0`).
 
 ***
 
