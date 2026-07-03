@@ -26,6 +26,8 @@ Tool result delivered in a user message.
 
 > **tool\_use\_id**: `string`
 
+ID of the [ToolUseBlock](ToolUseBlock.md) this result answers (e.g. `"toolu_01LgypxQhHygemucfGy5bonV"`).
+
 ***
 
 ### type

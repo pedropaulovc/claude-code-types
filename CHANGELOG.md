@@ -7,6 +7,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [1.5.0] - 2026-07-03
+
+### Added
+
+- `context_tip` attachment subtype (with `ContextTipAttachment` type)
+- `advisor_tool_result` assistant content block (with `AdvisorToolResultBlock` and `AdvisorToolResultError` types)
+- `advisor` to `ServerToolUseBlock.name`
+- `claude-mythos-5` and `claude-sonnet-5` to `Model` union
+- `session_id` optional field on `EntryBase` (snake-case duplicate of `sessionId`)
+- `toolDenialKind` optional field on `UserEntry`
+- `advisorModel` optional field on `AssistantEntry`
+
+### Changed
+
+- Enriched JSDoc across the type definitions with real sample values mined from transcript logs
+
 ## [1.4.0] - 2026-06-16
 
 ### Added
@@ -201,7 +217,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - Model, StopReason, PermissionMode, BuiltinToolName unions
 - GitHub Actions workflow for automated publishing on version tags
 
-[Unreleased]: https://github.com/pedropaulovc/claude-code-types/compare/v1.4.0...HEAD
+[Unreleased]: https://github.com/pedropaulovc/claude-code-types/compare/v1.5.0...HEAD
+[1.5.0]: https://github.com/pedropaulovc/claude-code-types/compare/v1.4.0...v1.5.0
 [1.4.0]: https://github.com/pedropaulovc/claude-code-types/compare/v1.3.0...v1.4.0
 [1.3.0]: https://github.com/pedropaulovc/claude-code-types/compare/v1.2.0...v1.3.0
 [1.2.0]: https://github.com/pedropaulovc/claude-code-types/compare/v1.1.0...v1.2.0

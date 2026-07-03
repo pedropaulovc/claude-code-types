@@ -12,6 +12,8 @@
 
 > `optional` **level?**: `string`
 
+Reasoning effort level (e.g. `"high"`).
+
 ***
 
 ### type

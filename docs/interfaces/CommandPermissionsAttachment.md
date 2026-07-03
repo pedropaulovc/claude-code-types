@@ -12,6 +12,8 @@
 
 > **allowedTools**: `string`[]
 
+Tools the command is permitted to use (e.g. `"Bash"`, `"Read"`, `"Edit"`, `"AskUserQuestion"`).
+
 ***
 
 ### type

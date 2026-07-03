@@ -14,6 +14,8 @@ Records the agent name for a session.
 
 > **agentName**: `string`
 
+Human-readable agent/session name (e.g. `"azure-observability-migration"`, `"YouTube mirror"`).
+
 ***
 
 ### sessionId

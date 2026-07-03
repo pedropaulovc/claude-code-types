@@ -17,3 +17,5 @@
 ### uri
 
 > **uri**: `string`
+
+Absolute path of the diagnosed file (e.g. `"/tmp/jsonl-to-md/convert.ts"`).

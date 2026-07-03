@@ -12,6 +12,8 @@
 
 > **planFilePath**: `string`
 
+Absolute path to the plan file (e.g. `"/home/pedro/.claude/plans/create-new-azure-rg-async-hopcroft.md"`).
+
 ***
 
 ### type

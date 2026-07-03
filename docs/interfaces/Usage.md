@@ -28,7 +28,7 @@ Breakdown of cache creation by TTL.
 
 > `optional` **cache\_creation\_input\_tokens?**: `number` \| `null`
 
-Tokens written to cache. `0` when prompt caching is not configured.
+Tokens written to cache (e.g. `6109`). `0` when prompt caching is not configured.
 
 ***
 
@@ -36,7 +36,7 @@ Tokens written to cache. `0` when prompt caching is not configured.
 
 > `optional` **cache\_read\_input\_tokens?**: `number` \| `null`
 
-Tokens read from cache. `0` when prompt caching is not configured.
+Tokens read from cache (e.g. `16436`). `0` when prompt caching is not configured.
 
 ***
 
@@ -52,6 +52,8 @@ Geographic region where inference ran (e.g. `"us-west-2"`).
 
 > **input\_tokens**: `number`
 
+Uncached input tokens (e.g. `4014`).
+
 ***
 
 ### iterations?
@@ -65,6 +67,8 @@ Iteration details when server-side tool loops are involved.
 ### output\_tokens
 
 > **output\_tokens**: `number`
+
+Generated output tokens (e.g. `501`).
 
 ***
 

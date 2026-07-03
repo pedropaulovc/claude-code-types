@@ -12,6 +12,8 @@
 
 > **filename**: `string`
 
+Absolute path of the edited file (e.g. `"/home/pedro/src/entrepreneurship/ideas/ai-team-protocol/design.md"`).
+
 ***
 
 ### snippet

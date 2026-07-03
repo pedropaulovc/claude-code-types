@@ -22,7 +22,7 @@ Payload inside a [ProgressEntry](ProgressEntry.md).
 
 > `optional` **requestId?**: `string`
 
-Anthropic API request ID (present on assistant progress messages).
+Anthropic API request ID, present on assistant progress messages (e.g. `"req_011CYtSi4qm3EzqdsYFJ9Ydk"`).
 
 #### timestamp?
 

@@ -18,11 +18,15 @@
 
 > **displayPath**: `string`
 
+Display path for the directory (e.g. `"ideas/roster"`).
+
 ***
 
 ### path
 
 > **path**: `string`
+
+Absolute path of the listed directory (e.g. `"/home/pedro/src/entrepreneurship/ideas/roster"`).
 
 ***
 

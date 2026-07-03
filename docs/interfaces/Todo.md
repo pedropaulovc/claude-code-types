@@ -27,3 +27,5 @@ Present continuous form shown in the spinner (e.g. `"Running tests"`).
 ### status
 
 > **status**: `string`
+
+Lifecycle state (e.g. `"in_progress"`).

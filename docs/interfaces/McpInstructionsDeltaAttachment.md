@@ -22,7 +22,7 @@ The instruction text blocks added (parallel to `addedNames`).
 
 > **addedNames**: `string`[]
 
-MCP server display names whose instructions were added.
+MCP server display names whose instructions were added (e.g. `"claude.ai Firecrawl"`, `"plugin:cloudflare:cloudflare-bindings"`).
 
 ***
 

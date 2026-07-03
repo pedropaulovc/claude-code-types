@@ -13,3 +13,5 @@ Server-side tool usage counters.
 ### web\_search\_requests
 
 > **web\_search\_requests**: `number`
+
+Count of server-side web search requests (e.g. `0`).

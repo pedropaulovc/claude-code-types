@@ -14,6 +14,14 @@ Model response, including text, thinking, and tool calls.
 
 ## Properties
 
+### advisorModel?
+
+> `optional` **advisorModel?**: [`Model`](../type-aliases/Model.md)
+
+Model backing the advisor tool for this turn (e.g. `"claude-fable-5"`). See [Model](../type-aliases/Model.md).
+
+***
+
 ### agentId?
 
 > `optional` **agentId?**: `string`
@@ -98,7 +106,7 @@ Skill that produced this response (e.g. `"gstack-entrepreneur:office-hours"`).
 
 > **cwd**: `string`
 
-Working directory at the time this entry was created.
+Working directory at the time this entry was created (e.g. `"/home/pedro/src/agent-plugins"`).
 
 #### Inherited from
 
@@ -121,6 +129,8 @@ How the session was started (e.g. `"cli"`).
 ### error?
 
 > `optional` **error?**: `string`
+
+Error code when the API call failed (e.g. `"rate_limit"`, `"authentication_failed"`).
 
 ***
 
@@ -147,6 +157,8 @@ Present when this session was forked from another.
 ### gitBranch?
 
 > `optional` **gitBranch?**: `string`
+
+Git branch checked out when this entry was created (e.g. `"main"`, `"HEAD"`).
 
 #### Inherited from
 
@@ -202,13 +214,27 @@ UUID of the parent entry in the conversation tree, or `null` for root.
 
 > `optional` **requestId?**: `string`
 
-Anthropic API request ID for this response.
+Anthropic API request ID for this response (e.g. `"req_011Cbj7kXLRcS73ygn6noLDL"`).
+
+***
+
+### session\_id?
+
+> `optional` **session\_id?**: `string`
+
+Snake-case duplicate of [EntryBase.sessionId](EntryBase.md#sessionid); same value, emitted on newer entries.
+
+#### Inherited from
+
+[`EntryBase`](EntryBase.md).[`session_id`](EntryBase.md#session_id)
 
 ***
 
 ### sessionId
 
 > **sessionId**: `string`
+
+Session identifier; matches the JSONL filename (e.g. `"025df9d0-abb5-4df9-84c3-1038d59e6d95"`).
 
 #### Inherited from
 
@@ -233,7 +259,7 @@ Kind of session this entry belongs to. `"bg"` marks a background
 
 > `optional` **slug?**: `string`
 
-Project slug derived from the working directory.
+Project slug derived from the working directory (e.g. `"linked-sleeping-harbor"`).
 
 #### Inherited from
 
@@ -245,6 +271,8 @@ Project slug derived from the working directory.
 
 > `optional` **teamName?**: `string`
 
+Name of the team this entry belongs to, for multi-agent sessions (e.g. `"web-ui"`).
+
 #### Inherited from
 
 [`EntryBase`](EntryBase.md).[`teamName`](EntryBase.md#teamname)
@@ -255,7 +283,7 @@ Project slug derived from the working directory.
 
 > **timestamp**: `string`
 
-ISO 8601 timestamp.
+ISO 8601 timestamp (e.g. `"2026-06-04T23:51:02.971Z"`).
 
 #### Inherited from
 

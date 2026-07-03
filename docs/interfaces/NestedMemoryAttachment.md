@@ -28,17 +28,23 @@
 
 > **type**: `string`
 
+Memory scope (e.g. `"Project"`).
+
 ***
 
 ### displayPath
 
 > **displayPath**: `string`
 
+Repo-relative display path (e.g. `"docs/gstack/CLAUDE.md"`).
+
 ***
 
 ### path
 
 > **path**: `string`
+
+Absolute path to the nested memory file (e.g. `"/home/pedro/src/roster/docs/gstack/CLAUDE.md"`).
 
 ***
 

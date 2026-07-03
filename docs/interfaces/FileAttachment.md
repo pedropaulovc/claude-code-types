@@ -40,17 +40,23 @@
 
 > **type**: `string`
 
+Content kind (e.g. `"text"`).
+
 ***
 
 ### displayPath
 
 > **displayPath**: `string`
 
+Repo-relative display path (e.g. `"ideas/field-service-trust-layer/design.md"`).
+
 ***
 
 ### filename
 
 > **filename**: `string`
+
+Absolute path of the attached file (e.g. `"/home/pedro/src/entrepreneurship/ideas/field-service-trust-layer/design.md"`).
 
 ***
 

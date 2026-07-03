@@ -67,18 +67,23 @@ interface EntryBase {
   parentUuid: string | null;
   /** Whether this entry is on a side-chain (branched conversation path). */
   isSidechain: boolean;
+  /** Session identifier; matches the JSONL filename (e.g. `"025df9d0-abb5-4df9-84c3-1038d59e6d95"`). */
   sessionId: string;
-  /** ISO 8601 timestamp. */
+  /** Snake-case duplicate of {@link EntryBase.sessionId}; same value, emitted on newer entries. */
+  session_id?: string;
+  /** ISO 8601 timestamp (e.g. `"2026-06-04T23:51:02.971Z"`). */
   timestamp: string;
-  /** Working directory at the time this entry was created. */
+  /** Working directory at the time this entry was created (e.g. `"/home/pedro/src/agent-plugins"`). */
   cwd: string;
   /** Claude Code version string (e.g. `"1.0.33"`). */
   version: string;
+  /** Git branch checked out when this entry was created (e.g. `"main"`, `"HEAD"`). */
   gitBranch?: string;
-  /** Project slug derived from the working directory. */
+  /** Project slug derived from the working directory (e.g. `"linked-sleeping-harbor"`). */
   slug?: string;
   /** Present on entries produced by subagents / Task tool invocations (e.g. `"a4044e6"`). */
   agentId?: string;
+  /** Name of the team this entry belongs to, for multi-agent sessions (e.g. `"web-ui"`). */
   teamName?: string;
   /** How the session was started (e.g. `"cli"`). */
   entrypoint?: string;
@@ -108,13 +113,15 @@ export interface UserEntry extends EntryBase {
   /** When `true`, this message is shown in the transcript UI but not sent to the API. */
   isVisibleInTranscriptOnly?: boolean;
   imagePasteIds?: string[];
-  /** Unique identifier for this prompt. */
+  /** Unique identifier for this prompt (e.g. `"bbcf7b1f-30c4-4a38-86b7-ae83f3479cd8"`). */
   promptId?: string;
   /** Anthropic message ID (`msg_…`) of the assistant turn this message interrupted. */
   interruptedMessageId?: string;
-  /** Origin of this user message (e.g. task notifications). */
+  /** Origin of this user message (e.g. `{ kind: "task-notification" }`, `{ kind: "human" }`). */
   origin?: { kind: string };
   permissionMode?: PermissionMode;
+  /** Why a tool call was denied, when this user message carries a denial (e.g. `"permission-rule"`). Non-exhaustive. */
+  toolDenialKind?: 'permission-rule' | (string & {});
   planContent?: string;
   thinkingMetadata?: ThinkingMetadata;
   todos?: Todo[];
@@ -153,10 +160,11 @@ export type UserContentBlock =
 export interface AssistantEntry extends EntryBase {
   type: 'assistant';
   message: AssistantMessage;
-  /** Anthropic API request ID for this response. */
+  /** Anthropic API request ID for this response (e.g. `"req_011Cbj7kXLRcS73ygn6noLDL"`). */
   requestId?: string;
   /** Present when the API returned an error instead of a response. */
   apiError?: unknown;
+  /** Error code when the API call failed (e.g. `"rate_limit"`, `"authentication_failed"`). */
   error?: string;
   isApiErrorMessage?: boolean;
   /** HTTP status code from a failed API response (e.g. `403`). */
@@ -175,6 +183,8 @@ export interface AssistantEntry extends EntryBase {
   attributionMcpTool?: string;
   /** Internal flag for transcript carrier-message healing. */
   healsDistinctCarrier?: boolean;
+  /** Model backing the advisor tool for this turn (e.g. `"claude-fable-5"`). See {@link Model}. */
+  advisorModel?: Model;
 }
 
 /**
@@ -221,7 +231,8 @@ export type AssistantContentBlock =
   | RedactedThinkingBlock
   | ToolUseBlock
   | ServerToolUseBlock
-  | WebSearchToolResultBlock;
+  | WebSearchToolResultBlock
+  | AdvisorToolResultBlock;
 
 // ---------------------------------------------------------------------------
 // System entry (multiple subtypes)
@@ -242,21 +253,26 @@ export interface SystemEntry extends Partial<EntryBase> {
   type: 'system';
   subtype: SystemSubtype;
   isMeta?: boolean;
+  /** Rendered event text (e.g. `"Conversation compacted"`, `"<local-command-stdout></local-command-stdout>"`). */
   content?: string;
+  /** Severity of the event (e.g. `"suggestion"`, `"info"`, `"error"`). */
   level?: string;
-  /** Milliseconds the turn took (subtype `turn_duration`). */
+  /** Milliseconds the turn took (subtype `turn_duration`; e.g. `122557`). */
   durationMs?: number;
   /** Error message (subtype `api_error`). */
   error?: string;
   cause?: string;
+  /** Retry attempt number for a failed API request (e.g. `1`, `2`). */
   retryAttempt?: number;
+  /** Backoff before the next retry, in milliseconds (e.g. `566.72`). */
   retryInMs?: number;
+  /** Maximum retry attempts configured (e.g. `10`). */
   maxRetries?: number;
   /** Subtype `compact_boundary`. */
   compactMetadata?: CompactMetadata;
   /** Subtype `microcompact_boundary`. */
   microcompactMetadata?: MicrocompactMetadata;
-  /** Subtype `stop_hook_summary`. */
+  /** Subtype `stop_hook_summary` (e.g. `1`, `2`). */
   hookCount?: number;
   hookErrors?: unknown[];
   hookInfos?: unknown[];
@@ -267,13 +283,13 @@ export interface SystemEntry extends Partial<EntryBase> {
   logicalParentUuid?: string;
   /** Additional context strings contributed by hooks for this event. */
   hookAdditionalContext?: unknown[];
-  /** URL for remote control bridge (subtype `bridge_status`). */
+  /** URL for remote control bridge (subtype `bridge_status`; e.g. `"https://claude.ai/code/session_01HQnAuHE4arEJ3FpwPaLNah"`). */
   url?: string;
-  /** Number of messages in the turn (subtype `turn_duration`). */
+  /** Number of messages in the turn (subtype `turn_duration`; e.g. `39`). */
   messageCount?: number;
-  /** Number of background agents still running (subtype `turn_duration`). */
+  /** Number of background agents still running (subtype `turn_duration`; e.g. `1`). */
   pendingBackgroundAgentCount?: number;
-  /** Number of workflows still running (subtype `turn_duration`). */
+  /** Number of workflows still running (subtype `turn_duration`; e.g. `1`). */
   pendingWorkflowCount?: number;
 }
 
@@ -297,6 +313,7 @@ export type SystemSubtype =
 /** Records the agent name for a session. */
 export interface AgentNameEntry {
   type: 'agent-name';
+  /** Human-readable agent/session name (e.g. `"azure-observability-migration"`, `"YouTube mirror"`). */
   agentName: string;
   sessionId: string;
 }
@@ -308,6 +325,7 @@ export interface AgentNameEntry {
 /** Records a custom title assigned to a session. */
 export interface CustomTitleEntry {
   type: 'custom-title';
+  /** User-assigned session title (e.g. `"YouTube mirror"`, `"add-custom-bio-suffix"`). */
   customTitle: string;
   sessionId: string;
 }
@@ -319,6 +337,7 @@ export interface CustomTitleEntry {
 /** Records the last prompt text for session resumption. */
 export interface LastPromptEntry {
   type: 'last-prompt';
+  /** The most recent user prompt text (e.g. `"continue"`, `"pr"`). */
   lastPrompt: string;
   sessionId: string;
   /** UUID of the leaf message this prompt corresponds to. */
@@ -344,6 +363,7 @@ export interface FileHistorySnapshotEntry {
 /** Snapshot of all tracked file backups at a point in time. */
 export interface FileHistorySnapshot {
   messageId: string;
+  /** ISO 8601 timestamp of the snapshot (e.g. `"2026-05-26T15:08:00.982Z"`). */
   timestamp: string;
   /** Map of original file path to backup info. */
   trackedFileBackups: Record<string, FileBackup>;
@@ -351,8 +371,11 @@ export interface FileHistorySnapshot {
 
 /** Backup metadata for a single tracked file. */
 export interface FileBackup {
+  /** Name of the stored backup file, suffixed with the version tag (e.g. `"1d9302781d4ff254@v2"`). */
   backupFileName: string;
+  /** Monotonic backup version for this file (e.g. `1`, `2`). */
   version: number;
+  /** ISO 8601 time the backup was taken (e.g. `"2026-05-26T17:18:28.461Z"`). */
   backupTime: string;
 }
 
@@ -364,9 +387,13 @@ export interface FileBackup {
 export interface PrLinkEntry {
   type: 'pr-link';
   sessionId: string;
+  /** ISO 8601 timestamp (e.g. `"2026-06-01T16:11:35.851Z"`). */
   timestamp: string;
+  /** Pull request number (e.g. `6`, `233`). */
   prNumber: number;
+  /** Full URL of the pull request (e.g. `"https://github.com/pedropaulovc/youtube-mirror/pull/6"`). */
   prUrl: string;
+  /** `owner/repo` slug the PR belongs to (e.g. `"vezzadev/roster"`, `"pedropaulovc/el400"`). */
   prRepository: string;
 }
 
@@ -395,7 +422,7 @@ export interface ProgressData {
     message: UserMessage | AssistantMessage;
     uuid?: string;
     timestamp?: string;
-    /** Anthropic API request ID (present on assistant progress messages). */
+    /** Anthropic API request ID, present on assistant progress messages (e.g. `"req_011CYtSi4qm3EzqdsYFJ9Ydk"`). */
     requestId?: string;
     /** Tool result payload (present on user progress messages). */
     toolUseResult?: unknown;
@@ -467,6 +494,7 @@ export interface ResultEntry {
   type: 'result';
   /** Content-hash cache key matching the corresponding {@link StartedEntry}. */
   key: string;
+  /** Identifier of the agent that ran the step (e.g. `"ad689afee63e70b14"`). */
   agentId: string;
   /** Step-specific return value (shape depends on the agent/step). */
   result: unknown;
@@ -519,19 +547,23 @@ export type Attachment =
   | AgentListingDeltaAttachment
   | AutoModeAttachment
   | AutoModeExitAttachment
-  | TaskStatusAttachment;
+  | TaskStatusAttachment
+  | ContextTipAttachment;
 
 /** Discriminator values for {@link Attachment}. */
 export type AttachmentType = Attachment['type'];
 
 export interface HookSuccessAttachment {
   type: 'hook_success';
+  /** Hook matcher that fired (e.g. `"PreToolUse:Bash"`, `"Stop"`). */
   hookName: string;
+  /** Hook lifecycle event (e.g. `"PreToolUse"`, `"PostToolUse"`, `"SessionStart"`, `"Stop"`). */
   hookEvent: string;
   toolUseID: string;
   content: string;
   stdout: string;
   stderr: string;
+  /** Process exit code of the hook command (e.g. `0`). */
   exitCode: number;
   command: string;
   durationMs: number;
@@ -540,14 +572,18 @@ export interface HookSuccessAttachment {
 export interface HookAdditionalContextAttachment {
   type: 'hook_additional_context';
   content: string[];
+  /** Hook matcher that fired (e.g. `"PreToolUse:Bash"`). */
   hookName: string;
+  /** Hook lifecycle event (e.g. `"PreToolUse"`). */
   hookEvent: string;
   toolUseID: string;
 }
 
 export interface HookBlockingErrorAttachment {
   type: 'hook_blocking_error';
+  /** Hook matcher that fired (e.g. `"Stop"`). */
   hookName: string;
+  /** Hook lifecycle event (e.g. `"Stop"`). */
   hookEvent: string;
   toolUseID: string;
   blockingError: { blockingError: string; command: string };
@@ -561,6 +597,7 @@ export interface TaskReminderAttachment {
 
 export interface DeferredToolsDeltaAttachment {
   type: 'deferred_tools_delta';
+  /** Tool names newly deferred (e.g. `"CronCreate"`, `"Monitor"`, `"mcp__plugin_cloudflare_cloudflare-api__execute"`). */
   addedNames: string[];
   addedLines: string[];
   removedNames: string[];
@@ -571,7 +608,7 @@ export interface DeferredToolsDeltaAttachment {
 /** Notes MCP server instruction blocks added to or removed from context. */
 export interface McpInstructionsDeltaAttachment {
   type: 'mcp_instructions_delta';
-  /** MCP server display names whose instructions were added. */
+  /** MCP server display names whose instructions were added (e.g. `"claude.ai Firecrawl"`, `"plugin:cloudflare:cloudflare-bindings"`). */
   addedNames: string[];
   /** The instruction text blocks added (parallel to `addedNames`). */
   addedBlocks: string[];
@@ -580,7 +617,9 @@ export interface McpInstructionsDeltaAttachment {
 
 export interface QueuedCommandAttachment {
   type: 'queued_command';
+  /** The queued user prompt text (e.g. `"pr"`). */
   prompt: string;
+  /** Origin of the queued command (e.g. `"prompt"`, `"task-notification"`). */
   commandMode: string;
   source_uuid?: string;
 }
@@ -600,6 +639,7 @@ export interface InvokedSkillsAttachment {
 
 /** A single skill's resolved content within an {@link InvokedSkillsAttachment}. */
 export interface InvokedSkill {
+  /** Skill name (e.g. `"playwright-cli"`, `"codex"`). */
   name: string;
   /** Source of the skill (e.g. `"userSettings:codex"`). */
   path: string;
@@ -609,8 +649,11 @@ export interface InvokedSkill {
 /** Announces dynamically-discovered skills from a project skills directory. */
 export interface DynamicSkillAttachment {
   type: 'dynamic_skill';
+  /** Absolute path to the discovered skills directory (e.g. `"/home/pedro/src/playwright/.claude/skills"`). */
   skillDir: string;
+  /** Names of the discovered skills (e.g. `"playwright-dev"`). */
   skillNames: string[];
+  /** Repo-relative display path for the directory (e.g. `"playwright/.claude/skills"`). */
   displayPath: string;
 }
 
@@ -629,6 +672,7 @@ export interface WorkflowKeywordRequestAttachment {
 /** Injects the contents of a plan file referenced in the conversation. */
 export interface PlanFileReferenceAttachment {
   type: 'plan_file_reference';
+  /** Absolute path to the plan file (e.g. `"/home/pedro/.claude/plans/skill-default-description-is-humble-lark.md"`). */
   planFilePath: string;
   planContent: string;
 }
@@ -640,15 +684,20 @@ export interface DiagnosticsAttachment {
 }
 
 export interface DiagnosticFile {
+  /** Absolute path of the diagnosed file (e.g. `"/tmp/jsonl-to-md/convert.ts"`). */
   uri: string;
   diagnostics: DiagnosticItem[];
 }
 
 export interface DiagnosticItem {
+  /** Diagnostic message (e.g. `"Cannot find module 'fs' or its corresponding type declarations."`). */
   message: string;
+  /** Severity label (e.g. `"Error"`, `"Hint"`). */
   severity: string;
   range: { start: DiagnosticPosition; end: DiagnosticPosition };
+  /** Diagnostic source/provider (e.g. `"typescript"`). */
   source?: string;
+  /** Diagnostic code (e.g. `"2307"`, `"6133"`). */
   code?: string;
 }
 
@@ -659,54 +708,65 @@ export interface DiagnosticPosition {
 
 export interface EditedTextFileAttachment {
   type: 'edited_text_file';
+  /** Absolute path of the edited file (e.g. `"/home/pedro/src/entrepreneurship/ideas/ai-team-protocol/design.md"`). */
   filename: string;
   snippet: string;
 }
 
 export interface CommandPermissionsAttachment {
   type: 'command_permissions';
+  /** Tools the command is permitted to use (e.g. `"Bash"`, `"Read"`, `"Edit"`, `"AskUserQuestion"`). */
   allowedTools: string[];
 }
 
 export interface NestedMemoryAttachment {
   type: 'nested_memory';
+  /** Absolute path to the nested memory file (e.g. `"/home/pedro/src/roster/docs/gstack/CLAUDE.md"`). */
   path: string;
   content: {
     path: string;
+    /** Memory scope (e.g. `"Project"`). */
     type: string;
     content: string;
     contentDiffersFromDisk: boolean;
   };
+  /** Repo-relative display path (e.g. `"docs/gstack/CLAUDE.md"`). */
   displayPath: string;
 }
 
 export interface PlanModeAttachment {
   type: 'plan_mode';
+  /** Verbosity of the plan-mode reminder (e.g. `"full"`, `"sparse"`). */
   reminderType: string;
   isSubAgent: boolean;
+  /** Absolute path to the plan file (e.g. `"/home/pedro/.claude/plans/skill-default-description-is-humble-lark.md"`). */
   planFilePath: string;
   planExists: boolean;
 }
 
 export interface PlanModeExitAttachment {
   type: 'plan_mode_exit';
+  /** Absolute path to the plan file (e.g. `"/home/pedro/.claude/plans/skill-default-description-is-humble-lark.md"`). */
   planFilePath: string;
   planExists: boolean;
 }
 
 export interface PlanModeReentryAttachment {
   type: 'plan_mode_reentry';
+  /** Absolute path to the plan file (e.g. `"/home/pedro/.claude/plans/create-new-azure-rg-async-hopcroft.md"`). */
   planFilePath: string;
 }
 
 export interface UltrathinkEffortAttachment {
   type: 'ultrathink_effort';
+  /** Reasoning effort level (e.g. `"high"`). */
   level?: string;
 }
 
 export interface GoalStatusAttachment {
   type: 'goal_status';
   met: boolean;
+  /** The goal condition being evaluated (e.g. `"cicd green"`, `"merge all dependabot prs"`). */
   condition: string;
   sentinel?: boolean;
   reason?: string;
@@ -717,8 +777,10 @@ export interface GoalStatusAttachment {
 
 export interface FileAttachment {
   type: 'file';
+  /** Absolute path of the attached file (e.g. `"/home/pedro/src/entrepreneurship/ideas/field-service-trust-layer/design.md"`). */
   filename: string;
   content: {
+    /** Content kind (e.g. `"text"`). */
     type: string;
     file: {
       filePath: string;
@@ -728,30 +790,38 @@ export interface FileAttachment {
       totalLines: number;
     };
   };
+  /** Repo-relative display path (e.g. `"ideas/field-service-trust-layer/design.md"`). */
   displayPath: string;
 }
 
 export interface DirectoryAttachment {
   type: 'directory';
+  /** Absolute path of the listed directory (e.g. `"/home/pedro/src/entrepreneurship/ideas/roster"`). */
   path: string;
   content: string;
+  /** Display path for the directory (e.g. `"ideas/roster"`). */
   displayPath: string;
 }
 
 export interface DateChangeAttachment {
   type: 'date_change';
+  /** The new local date (e.g. `"2026-05-17"`). */
   newDate: string;
 }
 
 export interface CompanionIntroAttachment {
   type: 'companion_intro';
+  /** Companion's name (e.g. `"Clatter"`). */
   name: string;
+  /** Companion's species (e.g. `"cat"`). */
   species: string;
 }
 
 export interface CompactFileReferenceAttachment {
   type: 'compact_file_reference';
+  /** Absolute path of the referenced file (e.g. `"/home/pedro/src/entrepreneurship/ideas/roster/office-hours/2026-05-18/generate-html.js"`). */
   filename: string;
+  /** Repo-relative display path (e.g. `"generate-html.js"`). */
   displayPath: string;
 }
 
@@ -805,6 +875,19 @@ export interface TaskStatusAttachment {
   outputFilePath: string;
 }
 
+/** A contextual feature tip surfaced to the user based on their recent actions. */
+export interface ContextTipAttachment {
+  type: 'context_tip';
+  tip: {
+    /** The tip text shown to the user. */
+    tip: string;
+    /** Identifier for the feature being suggested (e.g. `"diff-request"`, `"manual-polling"`). */
+    featureId: string;
+    /** Suggested command or action (e.g. `"/diff"`, `"/loop 2m check CI status"`). */
+    action: string;
+  };
+}
+
 // ---------------------------------------------------------------------------
 // Simple metadata entries
 // ---------------------------------------------------------------------------
@@ -812,6 +895,7 @@ export interface TaskStatusAttachment {
 /** AI-generated session title. */
 export interface AiTitleEntry {
   type: 'ai-title';
+  /** AI-generated session title (e.g. `"Query Claude code guide natural language hooks"`). */
   aiTitle: string;
   sessionId: string;
 }
@@ -845,9 +929,9 @@ export interface AgentSettingEntry {
 export interface BridgeSessionEntry {
   type: 'bridge-session';
   sessionId: string;
-  /** Bridge session identifier (e.g. `"cse_01BsxutLocJEYNXZXi3tPb4D"`). */
+  /** Bridge session identifier (e.g. `"cse_01VoHgHgLQTzAFZ6SeK4RVPQ"`). */
   bridgeSessionId: string;
-  /** Last synced sequence number on the bridge stream. */
+  /** Last synced sequence number on the bridge stream (e.g. `0`). */
   lastSequenceNum: number;
 }
 
@@ -860,14 +944,17 @@ export interface WorktreeStateEntry {
 
 /** Details of a managed git worktree created for a session. */
 export interface WorktreeSession {
-  /** Working directory before switching into the worktree. */
+  /** Working directory before switching into the worktree (e.g. `"/home/pedro/src/agent-plugins"`). */
   originalCwd: string;
+  /** Absolute path of the worktree (e.g. `"/home/pedro/src/agent-plugins/.claude/worktrees/linked-sniffing-star"`). */
   worktreePath: string;
+  /** Generated worktree name (e.g. `"linked-sniffing-star"`). */
   worktreeName: string;
+  /** Branch checked out in the worktree (e.g. `"worktree-linked-sniffing-star"`). */
   worktreeBranch: string;
-  /** Branch that was checked out before the worktree was created. */
+  /** Branch that was checked out before the worktree was created (e.g. `"skill/subagent-test-backdoor-discipline"`). */
   originalBranch: string;
-  /** HEAD commit SHA at the time the worktree was created. */
+  /** HEAD commit SHA at the time the worktree was created (e.g. `"dc5675c941a15a501cbc4f2baab95b5f59b2cc33"`). */
   originalHeadCommit: string;
   sessionId: string;
 }
@@ -921,8 +1008,9 @@ export interface RedactedThinkingBlock {
  */
 export interface ToolUseBlock {
   type: 'tool_use';
-  /** Prefixed with `toolu_` (e.g. `"toolu_01A09q90qw..."`). */
+  /** Prefixed with `toolu_` (e.g. `"toolu_01WkEuw4UahJKiAQmN9evsjX"`). */
   id: string;
+  /** Tool name (e.g. `"Bash"`, `"Read"`, `"mcp__claude_ai_Firecrawl__firecrawl_scrape"`). */
   name: BuiltinToolName | (string & {});
   input: Record<string, unknown>;
   /** Present in progress/streaming entries only — not part of the Anthropic API. */
@@ -932,6 +1020,7 @@ export interface ToolUseBlock {
 /** Tool result delivered in a user message. */
 export interface ToolResultBlock {
   type: 'tool_result';
+  /** ID of the {@link ToolUseBlock} this result answers (e.g. `"toolu_01LgypxQhHygemucfGy5bonV"`). */
   tool_use_id: string;
   content?: string | ToolResultContentBlock[];
   is_error?: boolean;
@@ -946,6 +1035,7 @@ export type ToolResultContentBlock =
 /** Reference to a tool, used inside tool result content arrays. */
 export interface ToolReferenceBlock {
   type: 'tool_reference';
+  /** Referenced tool name (e.g. `"SendMessage"`, `"TaskUpdate"`, `"Monitor"`). */
   tool_name: string;
 }
 
@@ -965,13 +1055,13 @@ export interface DocumentBlock {
 
 /**
  * Server-side tool invocation (executed by the Anthropic API, not locally).
- * Currently limited to web search.
+ * Covers web search and the advisor (stronger-reviewer) tool.
  */
 export interface ServerToolUseBlock {
   type: 'server_tool_use';
   /** Prefixed with `srvtoolu_` (e.g. `"srvtoolu_01B3C4D5..."`). */
   id: string;
-  name: 'web_search';
+  name: 'web_search' | 'advisor';
   input: Record<string, unknown>;
 }
 
@@ -980,6 +1070,21 @@ export interface WebSearchToolResultBlock {
   type: 'web_search_tool_result';
   tool_use_id: string;
   content: WebSearchResultError | WebSearchResultItem[];
+}
+
+/** Result from a server-side advisor tool invocation. */
+export interface AdvisorToolResultBlock {
+  type: 'advisor_tool_result';
+  /** ID of the {@link ServerToolUseBlock} (`srvtoolu_…`) this result corresponds to. */
+  tool_use_id: string;
+  content: AdvisorToolResultError | Record<string, unknown>;
+}
+
+/** Error returned by the server-side advisor tool (e.g. when unavailable). */
+export interface AdvisorToolResultError {
+  type: 'advisor_tool_result_error';
+  /** e.g. `"unavailable"`. */
+  error_code: string;
 }
 
 // ---------------------------------------------------------------------------
@@ -1137,11 +1242,13 @@ export interface WebSearchResultItem {
  * multiple internal calls.
  */
 export interface Usage {
+  /** Uncached input tokens (e.g. `4014`). */
   input_tokens: number;
+  /** Generated output tokens (e.g. `501`). */
   output_tokens: number;
-  /** Tokens written to cache. `0` when prompt caching is not configured. */
+  /** Tokens written to cache (e.g. `6109`). `0` when prompt caching is not configured. */
   cache_creation_input_tokens?: number | null;
-  /** Tokens read from cache. `0` when prompt caching is not configured. */
+  /** Tokens read from cache (e.g. `16436`). `0` when prompt caching is not configured. */
   cache_read_input_tokens?: number | null;
   /** Breakdown of cache creation by TTL. */
   cache_creation?: CacheCreation | null;
@@ -1158,12 +1265,15 @@ export interface Usage {
 
 /** Cache creation breakdown by TTL tier. */
 export interface CacheCreation {
+  /** Tokens written to the 5-minute cache tier (e.g. `13581`). */
   ephemeral_5m_input_tokens: number;
+  /** Tokens written to the 1-hour cache tier (e.g. `6109`). */
   ephemeral_1h_input_tokens: number;
 }
 
 /** Server-side tool usage counters. */
 export interface ServerToolUsage {
+  /** Count of server-side web search requests (e.g. `0`). */
   web_search_requests: number;
 }
 
@@ -1188,20 +1298,22 @@ export type CacheMissReasonType =
 
 /** Reference to the session and message this session was forked from. */
 export interface ForkedFromRef {
+  /** Session the fork branched from (e.g. `"500bf69b-26d6-4a20-b480-3a4c90095c52"`). */
   sessionId: string;
+  /** UUID of the message forked from (e.g. `"bdc0c8b4-ae1d-4652-9028-0c5e6d5dd981"`). */
   messageUuid: string;
 }
 
 /** Metadata emitted with `compact_boundary` system entries. */
 export interface CompactMetadata {
   trigger: 'auto' | 'manual';
-  /** Token count before compaction. */
+  /** Token count before compaction (e.g. `167199`). */
   preTokens: number;
-  /** Token count after compaction. */
+  /** Token count after compaction (e.g. `5547`). */
   postTokens?: number;
-  /** Duration of the compaction in milliseconds. */
+  /** Duration of the compaction in milliseconds (e.g. `30586`). */
   durationMs?: number;
-  /** Tool names discovered before compaction. */
+  /** Tool names discovered before compaction (e.g. `["ExitPlanMode"]`). */
   preCompactDiscoveredTools?: string[];
   /** Preserved message segment boundaries. */
   preservedSegment?: { headUuid: string; anchorUuid: string; tailUuid: string };
@@ -1226,6 +1338,7 @@ export interface ThinkingMetadata {
 /** A todo item tracked in the Claude Code task list. */
 export interface Todo {
   content: string;
+  /** Lifecycle state (e.g. `"in_progress"`). */
   status: string;
   /** Present continuous form shown in the spinner (e.g. `"Running tests"`). */
   activeForm?: string;
@@ -1244,6 +1357,8 @@ export interface Todo {
  */
 export type Model =
   | 'claude-fable-5'
+  | 'claude-mythos-5'
+  | 'claude-sonnet-5'
   | 'claude-opus-4-8'
   | 'claude-opus-4-7'
   | 'claude-opus-4-6'

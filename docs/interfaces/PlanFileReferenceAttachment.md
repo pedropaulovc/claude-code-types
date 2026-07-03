@@ -20,6 +20,8 @@ Injects the contents of a plan file referenced in the conversation.
 
 > **planFilePath**: `string`
 
+Absolute path to the plan file (e.g. `"/home/pedro/.claude/plans/skill-default-description-is-humble-lark.md"`).
+
 ***
 
 ### type

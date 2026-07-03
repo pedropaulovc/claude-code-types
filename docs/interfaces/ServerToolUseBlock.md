@@ -7,7 +7,7 @@
 # Interface: ServerToolUseBlock
 
 Server-side tool invocation (executed by the Anthropic API, not locally).
-Currently limited to web search.
+Covers web search and the advisor (stronger-reviewer) tool.
 
 ## Properties
 
@@ -27,7 +27,7 @@ Prefixed with `srvtoolu_` (e.g. `"srvtoolu_01B3C4D5..."`).
 
 ### name
 
-> **name**: `"web_search"`
+> **name**: `"web_search"` \| `"advisor"`
 
 ***
 

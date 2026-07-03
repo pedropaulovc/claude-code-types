@@ -14,6 +14,8 @@ Records a custom title assigned to a session.
 
 > **customTitle**: `string`
 
+User-assigned session title (e.g. `"YouTube mirror"`, `"add-custom-bio-suffix"`).
+
 ***
 
 ### sessionId

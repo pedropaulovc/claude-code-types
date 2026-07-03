@@ -29,7 +29,7 @@ Present in progress/streaming entries only — not part of the Anthropic API.
 
 > **id**: `string`
 
-Prefixed with `toolu_` (e.g. `"toolu_01A09q90qw..."`).
+Prefixed with `toolu_` (e.g. `"toolu_01WkEuw4UahJKiAQmN9evsjX"`).
 
 ***
 
@@ -42,6 +42,8 @@ Prefixed with `toolu_` (e.g. `"toolu_01A09q90qw..."`).
 ### name
 
 > **name**: `string` & `object` \| [`BuiltinToolName`](../type-aliases/BuiltinToolName.md)
+
+Tool name (e.g. `"Bash"`, `"Read"`, `"mcp__claude_ai_Firecrawl__firecrawl_scrape"`).
 
 ***
 
