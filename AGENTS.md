@@ -39,8 +39,10 @@ Note: the scanner checks **top-level** entry fields and the modeled discriminato
 
 ## Publishing a New Version
 
-The publish workflow runs on `v*` tag push. It runs typecheck + tests, creates
-a GitHub Release from the CHANGELOG entry, and publishes to npm with provenance.
+The auto-tag workflow creates a `v*` tag from `package.json` after a version bump
+reaches `main`, then dispatches the publish workflow at that tag. Direct `v*` tag
+pushes are also supported. Publishing runs the typecheck, publishes to npm with
+provenance, then creates a GitHub Release from the CHANGELOG entry.
 
 ### Steps
 
@@ -52,7 +54,7 @@ a GitHub Release from the CHANGELOG entry, and publishes to npm with provenance.
 6. Bump `version` in `package.json`
 7. Open a PR and merge to `main`
 8. The `auto-tag` workflow creates a `v*` tag if one doesn't exist for the version
-9. The `publish` workflow triggers on the new tag: verify version match → extract changelog → create GitHub Release → publish to npm
+9. The `publish` workflow runs at the new tag: verify version match → extract changelog → publish to npm → create GitHub Release
 
 ### Version Semantics
 
@@ -66,4 +68,4 @@ This project follows [Semantic Versioning 2.0.0](https://semver.org/spec/v2.0.0.
 
 - **Version mismatch**: `package.json` version must match the tag (e.g. tag `v0.2.0` → version `"0.2.0"`)
 - **Missing changelog**: Add a `## [x.y.z]` section to `CHANGELOG.md` for the version being released
-- **npm auth**: Uses trusted publishing (OIDC). `NPM_TOKEN` is auto-injected into the `npm` GitHub environment — no manual secret setup needed
+- **npm auth**: The job uses the `npm` GitHub environment, passes its `NPM_TOKEN` secret to npm, and grants OIDC permission for provenance
