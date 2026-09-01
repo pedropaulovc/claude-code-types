@@ -27,6 +27,18 @@ Last synced sequence number on the bridge stream (e.g. `0`).
 
 ***
 
+### ownerAccountUuid?
+
+> `optional` **ownerAccountUuid?**: `string`
+
+***
+
+### ownerOrganizationUuid?
+
+> `optional` **ownerOrganizationUuid?**: `string`
+
+***
+
 ### sessionId
 
 > **sessionId**: `string`

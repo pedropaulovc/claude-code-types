@@ -6,7 +6,7 @@
 
 # Interface: ContextTipAttachment
 
-A contextual feature tip surfaced to the user based on their recent actions.
+Contextual tip shown by Claude Code.
 
 ## Properties
 
@@ -18,19 +18,13 @@ A contextual feature tip surfaced to the user based on their recent actions.
 
 > **action**: `string`
 
-Suggested command or action (e.g. `"/diff"`, `"/loop 2m check CI status"`).
-
 #### featureId
 
 > **featureId**: `string`
 
-Identifier for the feature being suggested (e.g. `"diff-request"`, `"manual-polling"`).
-
 #### tip
 
 > **tip**: `string`
-
-The tip text shown to the user.
 
 ***
 

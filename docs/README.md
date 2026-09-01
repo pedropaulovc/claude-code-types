@@ -33,6 +33,7 @@ for (const entry of entries) {
 
 ## Interfaces
 
+- [AdvisorRedactedResult](interfaces/AdvisorRedactedResult.md)
 - [AdvisorToolResultBlock](interfaces/AdvisorToolResultBlock.md)
 - [AdvisorToolResultError](interfaces/AdvisorToolResultError.md)
 - [AgentListingDeltaAttachment](interfaces/AgentListingDeltaAttachment.md)
@@ -42,6 +43,7 @@ for (const entry of entries) {
 - [AiTitleEntry](interfaces/AiTitleEntry.md)
 - [AssistantEntry](interfaces/AssistantEntry.md)
 - [AssistantMessage](interfaces/AssistantMessage.md)
+- [AtisLatchEntry](interfaces/AtisLatchEntry.md)
 - [AttachmentEntry](interfaces/AttachmentEntry.md)
 - [AutoModeAttachment](interfaces/AutoModeAttachment.md)
 - [AutoModeExitAttachment](interfaces/AutoModeExitAttachment.md)
@@ -74,13 +76,18 @@ for (const entry of entries) {
 - [EntryBase](interfaces/EntryBase.md)
 - [FileAttachment](interfaces/FileAttachment.md)
 - [FileBackup](interfaces/FileBackup.md)
+- [FileHistoryDeltaBackup](interfaces/FileHistoryDeltaBackup.md)
+- [FileHistoryDeltaEntry](interfaces/FileHistoryDeltaEntry.md)
 - [FileHistorySnapshot](interfaces/FileHistorySnapshot.md)
 - [FileHistorySnapshotEntry](interfaces/FileHistorySnapshotEntry.md)
+- [ForkContextRefEntry](interfaces/ForkContextRefEntry.md)
 - [ForkedFromRef](interfaces/ForkedFromRef.md)
+- [FrameLinkEntry](interfaces/FrameLinkEntry.md)
 - [GoalStatusAttachment](interfaces/GoalStatusAttachment.md)
 - [HookAdditionalContextAttachment](interfaces/HookAdditionalContextAttachment.md)
 - [HookBlockingErrorAttachment](interfaces/HookBlockingErrorAttachment.md)
 - [HookSuccessAttachment](interfaces/HookSuccessAttachment.md)
+- [HookSystemMessageAttachment](interfaces/HookSystemMessageAttachment.md)
 - [ImageBlock](interfaces/ImageBlock.md)
 - [InvokedSkill](interfaces/InvokedSkill.md)
 - [InvokedSkillsAttachment](interfaces/InvokedSkillsAttachment.md)
@@ -102,7 +109,9 @@ for (const entry of entries) {
 - [ProgressEntry](interfaces/ProgressEntry.md)
 - [QueuedCommandAttachment](interfaces/QueuedCommandAttachment.md)
 - [QueueOperationEntry](interfaces/QueueOperationEntry.md)
+- [ReadTruncationNoticeAttachment](interfaces/ReadTruncationNoticeAttachment.md)
 - [RedactedThinkingBlock](interfaces/RedactedThinkingBlock.md)
+- [RelocatedEntry](interfaces/RelocatedEntry.md)
 - [ResultEntry](interfaces/ResultEntry.md)
 - [SavedHookContextEntry](interfaces/SavedHookContextEntry.md)
 - [ServerToolUsage](interfaces/ServerToolUsage.md)
@@ -120,6 +129,7 @@ for (const entry of entries) {
 - [ToolReferenceBlock](interfaces/ToolReferenceBlock.md)
 - [ToolResultBlock](interfaces/ToolResultBlock.md)
 - [ToolUseBlock](interfaces/ToolUseBlock.md)
+- [TotalTokensReminderAttachment](interfaces/TotalTokensReminderAttachment.md)
 - [UltrathinkEffortAttachment](interfaces/UltrathinkEffortAttachment.md)
 - [UrlDocumentSource](interfaces/UrlDocumentSource.md)
 - [UrlImageSource](interfaces/UrlImageSource.md)
@@ -135,6 +145,7 @@ for (const entry of entries) {
 
 ## Type Aliases
 
+- [AdvisorToolResultContent](type-aliases/AdvisorToolResultContent.md)
 - [AssistantContentBlock](type-aliases/AssistantContentBlock.md)
 - [Attachment](type-aliases/Attachment.md)
 - [AttachmentType](type-aliases/AttachmentType.md)
