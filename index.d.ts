@@ -73,7 +73,7 @@ interface EntryBase {
   /** Whether this entry is on a side-chain (branched conversation path). */
   isSidechain: boolean;
   /** Session identifier; matches the JSONL filename (e.g. `"025df9d0-abb5-4df9-84c3-1038d59e6d95"`). */
-  sessionId: string;
+  sessionId?: string;
   /** Snake-case duplicate of {@link EntryBase.sessionId}; same value, emitted on newer entries. */
   session_id?: string;
   /** ISO 8601 timestamp (e.g. `"2026-06-04T23:51:02.971Z"`). */
@@ -102,8 +102,6 @@ interface EntryBase {
   sessionKind?: 'bg' | (string & {});
   /** Present when this session was forked from another. */
   forkedFrom?: ForkedFromRef;
-  /** Alternate snake_case spelling emitted by some Claude Code versions. */
-  session_id?: string;
 }
 
 // ---------------------------------------------------------------------------
