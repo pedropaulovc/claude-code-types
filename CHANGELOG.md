@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [1.6.0] - 2026-08-31
+
+### Added
+
+- `file-history-delta`, `atis-latch`, `relocated`, `fork-context-ref`, and `frame-link` entry types with their payload interfaces
+- `total_tokens_reminder`, `read_truncation_notice`, and `hook_system_message` attachment subtypes
+- Redacted result payloads for the `advisor_tool_result` assistant block
+- `agents_killed` and `model_consent_fallback` system subtypes
+- `Artifact` and `firecrawl_scrape` built-in tools, plus `claude-opus-5` in the `Model` union
+- `turnCompanion` and `userFeedback` on `UserEntry`, `effort` on `AssistantEntry`, system fallback metadata, and bridge owner UUIDs
+
+### Changed
+
+- Made `EntryBase.sessionId` optional so entries with only `session_id` are accepted
+
 ## [1.5.0] - 2026-07-03
 
 ### Added
@@ -217,8 +232,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - Model, StopReason, PermissionMode, BuiltinToolName unions
 - GitHub Actions workflow for automated publishing on version tags
 
-[Unreleased]: https://github.com/pedropaulovc/claude-code-types/compare/v1.5.0...HEAD
-[1.5.0]: https://github.com/pedropaulovc/claude-code-types/compare/v1.4.0...v1.5.0
+[Unreleased]: https://github.com/pedropaulovc/claude-code-types/compare/v1.6.0...HEAD
+[1.6.0]: https://github.com/pedropaulovc/claude-code-types/compare/v1.5.0...v1.6.0
 [1.4.0]: https://github.com/pedropaulovc/claude-code-types/compare/v1.3.0...v1.4.0
 [1.3.0]: https://github.com/pedropaulovc/claude-code-types/compare/v1.2.0...v1.3.0
 [1.2.0]: https://github.com/pedropaulovc/claude-code-types/compare/v1.1.0...v1.2.0
