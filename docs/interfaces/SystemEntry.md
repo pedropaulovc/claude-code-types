@@ -52,6 +52,12 @@ Name of the agent that produced this entry (e.g. `"implementer"`, `"tester"`).
 
 ***
 
+### choice?
+
+> `optional` **choice?**: `string`
+
+***
+
 ### compactMetadata?
 
 > `optional` **compactMetadata?**: [`CompactMetadata`](CompactMetadata.md)
@@ -105,6 +111,12 @@ How the session was started (e.g. `"cli"`).
 > `optional` **error?**: `string`
 
 Error message (subtype `api_error`).
+
+***
+
+### fallbackModel?
+
+> `optional` **fallbackModel?**: `string`
 
 ***
 
@@ -222,6 +234,12 @@ Subtype `microcompact_boundary`.
 
 ***
 
+### originalModel?
+
+> `optional` **originalModel?**: `string`
+
+***
+
 ### parentUuid?
 
 > `optional` **parentUuid?**: `string` \| `null`
@@ -247,6 +265,12 @@ Number of background agents still running (subtype `turn_duration`; e.g. `1`).
 > `optional` **pendingWorkflowCount?**: `number`
 
 Number of workflows still running (subtype `turn_duration`; e.g. `1`).
+
+***
+
+### persistedAsDefault?
+
+> `optional` **persistedAsDefault?**: `boolean`
 
 ***
 
@@ -318,6 +342,14 @@ Project slug derived from the working directory (e.g. `"linked-sleeping-harbor"`
 #### Inherited from
 
 [`EntryBase`](EntryBase.md).[`slug`](EntryBase.md#slug)
+
+***
+
+### source?
+
+> `optional` **source?**: `string`
+
+Reason a connection retry or fallback was initiated.
 
 ***
 

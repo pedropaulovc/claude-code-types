@@ -12,7 +12,7 @@ Result from a server-side advisor tool invocation.
 
 ### content
 
-> **content**: `Record`\<`string`, `unknown`\> \| [`AdvisorToolResultError`](AdvisorToolResultError.md)
+> **content**: [`AdvisorToolResultContent`](../type-aliases/AdvisorToolResultContent.md)
 
 ***
 

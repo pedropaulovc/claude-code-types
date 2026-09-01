@@ -114,6 +114,14 @@ Working directory at the time this entry was created (e.g. `"/home/pedro/src/age
 
 ***
 
+### effort?
+
+> `optional` **effort?**: `string`
+
+Effort setting used for this response, when present.
+
+***
+
 ### entrypoint?
 
 > `optional` **entrypoint?**: `string`
@@ -230,9 +238,9 @@ Snake-case duplicate of [EntryBase.sessionId](EntryBase.md#sessionid); same valu
 
 ***
 
-### sessionId
+### sessionId?
 
-> **sessionId**: `string`
+> `optional` **sessionId?**: `string`
 
 Session identifier; matches the JSONL filename (e.g. `"025df9d0-abb5-4df9-84c3-1038d59e6d95"`).
 

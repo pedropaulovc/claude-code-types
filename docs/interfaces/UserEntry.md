@@ -220,9 +220,9 @@ Snake-case duplicate of [EntryBase.sessionId](EntryBase.md#sessionid); same valu
 
 ***
 
-### sessionId
+### sessionId?
 
-> **sessionId**: `string`
+> `optional` **sessionId?**: `string`
 
 Session identifier; matches the JSONL filename (e.g. `"025df9d0-abb5-4df9-84c3-1038d59e6d95"`).
 
@@ -325,9 +325,25 @@ Present when this user message is a tool result being delivered back.
 
 ***
 
+### turnCompanion?
+
+> `optional` **turnCompanion?**: `boolean`
+
+Whether this prompt came through the turn companion.
+
+***
+
 ### type
 
 > **type**: `"user"`
+
+***
+
+### userFeedback?
+
+> `optional` **userFeedback?**: `string`
+
+Feedback supplied by the user for this turn.
 
 ***
 

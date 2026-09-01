@@ -38,18 +38,23 @@ export type TranscriptEntry =
   | AssistantEntry
   | SystemEntry
   | AttachmentEntry
+  | AtisLatchEntry
   | AgentNameEntry
   | AgentSettingEntry
   | AiTitleEntry
   | BridgeSessionEntry
   | CustomTitleEntry
+  | FileHistoryDeltaEntry
+  | FileHistorySnapshotEntry
+  | ForkContextRefEntry
+  | FrameLinkEntry
+  | LastPromptEntry
   | ModeEntry
   | PermissionModeEntry
-  | FileHistorySnapshotEntry
-  | LastPromptEntry
   | PrLinkEntry
   | ProgressEntry
   | QueueOperationEntry
+  | RelocatedEntry
   | ResultEntry
   | SavedHookContextEntry
   | StartedEntry
@@ -68,7 +73,7 @@ interface EntryBase {
   /** Whether this entry is on a side-chain (branched conversation path). */
   isSidechain: boolean;
   /** Session identifier; matches the JSONL filename (e.g. `"025df9d0-abb5-4df9-84c3-1038d59e6d95"`). */
-  sessionId: string;
+  sessionId?: string;
   /** Snake-case duplicate of {@link EntryBase.sessionId}; same value, emitted on newer entries. */
   session_id?: string;
   /** ISO 8601 timestamp (e.g. `"2026-06-04T23:51:02.971Z"`). */
@@ -137,6 +142,10 @@ export interface UserEntry extends EntryBase {
   promptSource?: string;
   /** Scheduling priority for a queued message (e.g. `"later"`). */
   queuePriority?: string;
+  /** Whether this prompt came through the turn companion. */
+  turnCompanion?: boolean;
+  /** Feedback supplied by the user for this turn. */
+  userFeedback?: string;
 }
 
 /** The `message` payload inside a {@link UserEntry}. */
@@ -185,6 +194,8 @@ export interface AssistantEntry extends EntryBase {
   healsDistinctCarrier?: boolean;
   /** Model backing the advisor tool for this turn (e.g. `"claude-fable-5"`). See {@link Model}. */
   advisorModel?: Model;
+  /** Effort setting used for this response, when present. */
+  effort?: string;
 }
 
 /**
@@ -291,6 +302,12 @@ export interface SystemEntry extends Partial<EntryBase> {
   pendingBackgroundAgentCount?: number;
   /** Number of workflows still running (subtype `turn_duration`; e.g. `1`). */
   pendingWorkflowCount?: number;
+  choice?: string;
+  fallbackModel?: string;
+  originalModel?: string;
+  persistedAsDefault?: boolean;
+  /** Reason a connection retry or fallback was initiated. */
+  source?: string;
 }
 
 /** Discriminator values for {@link SystemEntry.subtype}. */
@@ -304,7 +321,63 @@ export type SystemSubtype =
   | 'away_summary'
   | 'scheduled_task_fire'
   | 'stop_hook_summary'
-  | 'turn_duration';
+  | 'turn_duration'
+  | 'agents_killed'
+  | 'model_consent_fallback';
+
+// ---------------------------------------------------------------------------
+// Standalone metadata entries
+// ---------------------------------------------------------------------------
+
+/** Records the active ATIS state for a session. */
+export interface AtisLatchEntry {
+  type: 'atis-latch';
+  atis: string;
+  sessionId: string;
+}
+
+/** Records an incremental file-history backup. */
+export interface FileHistoryDeltaEntry {
+  type: 'file-history-delta';
+  messageId: string;
+  snapshotMessageId: string;
+  trackingPath: string;
+  backup: FileHistoryDeltaBackup;
+  timestamp: string;
+}
+
+/** Backup metadata carried by a {@link FileHistoryDeltaEntry}. */
+export interface FileHistoryDeltaBackup {
+  backupFileName: string | null;
+  version: number;
+  backupTime: string;
+  realParentDir: string;
+}
+
+/** References the source session and message for a forked context. */
+export interface ForkContextRefEntry {
+  type: 'fork-context-ref';
+  agentId: string;
+  parentSessionId: string;
+  parentLastUuid: string;
+  contextLength: number;
+}
+
+/** Links a session to an artifact frame. */
+export interface FrameLinkEntry {
+  type: 'frame-link';
+  sessionId: string;
+  path: string;
+  frameUrl: string;
+  timestamp: string;
+}
+
+/** Records that a session moved back to its original working directory. */
+export interface RelocatedEntry {
+  type: 'relocated';
+  sessionId: string;
+  relocatedCwd: string;
+}
 
 // ---------------------------------------------------------------------------
 // Agent name (records the agent name for a session)
@@ -548,10 +621,44 @@ export type Attachment =
   | AutoModeAttachment
   | AutoModeExitAttachment
   | TaskStatusAttachment
-  | ContextTipAttachment;
+  | TotalTokensReminderAttachment
+  | ReadTruncationNoticeAttachment
+  | ContextTipAttachment
+  | HookSystemMessageAttachment;
 
 /** Discriminator values for {@link Attachment}. */
 export type AttachmentType = Attachment['type'];
+
+export interface TotalTokensReminderAttachment {
+  type: 'total_tokens_reminder';
+  text: string;
+}
+
+/** Notice emitted when a file view was truncated. */
+export interface ReadTruncationNoticeAttachment {
+  type: 'read_truncation_notice';
+  banner: string;
+  toolUseID: string;
+}
+
+/** Contextual tip shown by Claude Code. */
+export interface ContextTipAttachment {
+  type: 'context_tip';
+  tip: {
+    tip: string;
+    featureId: string;
+    action: string;
+  };
+}
+
+/** Message emitted by a hook as system-provided context. */
+export interface HookSystemMessageAttachment {
+  type: 'hook_system_message';
+  content: string;
+  hookName: string;
+  toolUseID: string;
+  hookEvent: string;
+}
 
 export interface HookSuccessAttachment {
   type: 'hook_success';
@@ -933,6 +1040,8 @@ export interface BridgeSessionEntry {
   bridgeSessionId: string;
   /** Last synced sequence number on the bridge stream (e.g. `0`). */
   lastSequenceNum: number;
+  ownerAccountUuid?: string;
+  ownerOrganizationUuid?: string;
 }
 
 /** Records git worktree state when a session runs inside a managed worktree. */
@@ -1077,14 +1186,24 @@ export interface AdvisorToolResultBlock {
   type: 'advisor_tool_result';
   /** ID of the {@link ServerToolUseBlock} (`srvtoolu_…`) this result corresponds to. */
   tool_use_id: string;
-  content: AdvisorToolResultError | Record<string, unknown>;
+  content: AdvisorToolResultContent;
 }
+
+export type AdvisorToolResultContent =
+  | AdvisorToolResultError
+  | AdvisorRedactedResult
+  | Record<string, unknown>;
 
 /** Error returned by the server-side advisor tool (e.g. when unavailable). */
 export interface AdvisorToolResultError {
   type: 'advisor_tool_result_error';
   /** e.g. `"unavailable"`. */
   error_code: string;
+}
+
+export interface AdvisorRedactedResult {
+  type: 'advisor_redacted_result';
+  encrypted_content: string;
 }
 
 // ---------------------------------------------------------------------------
@@ -1358,6 +1477,7 @@ export interface Todo {
 export type Model =
   | 'claude-fable-5'
   | 'claude-mythos-5'
+  | 'claude-opus-5'
   | 'claude-sonnet-5'
   | 'claude-opus-4-8'
   | 'claude-opus-4-7'
@@ -1402,6 +1522,7 @@ export type PermissionMode =
  */
 export type BuiltinToolName =
   | 'Agent'
+  | 'Artifact'
   | 'AskUserQuestion'
   | 'Bash'
   | 'CronCreate'
@@ -1412,6 +1533,7 @@ export type BuiltinToolName =
   | 'EnterWorktree'
   | 'ExitPlanMode'
   | 'ExitWorktree'
+  | 'firecrawl_scrape'
   | 'Glob'
   | 'Grep'
   | 'KillShell'
