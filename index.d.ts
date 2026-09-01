@@ -142,8 +142,6 @@ export interface UserEntry extends EntryBase {
   promptSource?: string;
   /** Scheduling priority for a queued message (e.g. `"later"`). */
   queuePriority?: string;
-  /** Reason a tool invocation was denied, when recorded. */
-  toolDenialKind?: string;
   /** Whether this prompt came through the turn companion. */
   turnCompanion?: boolean;
   /** Feedback supplied by the user for this turn. */
